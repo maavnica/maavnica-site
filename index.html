@@ -846,28 +846,6 @@
       }
     };
 
-    function getLangFromUrl() {
-      const v = new URLSearchParams(location.search).get("lang");
-      if (!v) return null;
-      const lang = v.toLowerCase();
-      return ["fr","en","es"].includes(lang) ? lang : null;
-    }
-
-    function getLangFromNavigator() {
-      const n = (navigator.language || "fr").slice(0,2).toLowerCase();
-      return ["fr","en","es"].includes(n) ? n : "en";
-    }
-
-    function detectDefaultLang() {
-      const fromUrl = getLangFromUrl();
-      if (fromUrl) return fromUrl;
-
-      const saved = localStorage.getItem("maavnica_lang");
-      if (saved && I18N[saved]) return saved;
-
-      return getLangFromNavigator() || "fr";
-    }
-
     function setLanguage(lang){
       if (!I18N[lang]) lang = "fr";
       document.documentElement.lang = lang;
@@ -890,7 +868,7 @@
         metaDesc.setAttribute("content", I18N[lang].meta_description);
       }
 
-      localStorage.setItem("maavnica_lang", lang);
+      localStorage.setItem("lang", lang);
 
       try {
         const url = new URL(location.href);
@@ -900,7 +878,7 @@
     }
 
     function initLangSwitch(){
-      const lang = detectDefaultLang();
+      const lang = localStorage.getItem("lang") || "fr";
       document.querySelectorAll(".lang-switch button").forEach(btn=>{
         btn.addEventListener("click", ()=> setLanguage(btn.dataset.lang));
       });
