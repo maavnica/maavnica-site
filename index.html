@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maavnica — Le relais entre l’Europe et l’Amérique centrale</title>
-  <meta name="description" content="Maavnica est un écosystème de produits digitaux, conçu pour accompagner et simplifier le développement des activités professionnelles." />
-  <link rel="icon" href="data:,">
+  <title>Maavnica — Outils de recommandation pour indépendants</title>
+  <meta name="description" content="Maavnica conçoit des outils digitaux qui transforment la satisfaction client en visibilité, recommandation et nouvelles opportunités." />
+  <link rel="icon" href="assets/img/logo-palmier.png" type="image/png">
   <style>
     :root{
-      --bg:#05070c;
-      --bg2:#070b14;
-      --text:#eef2ff;
-      --muted:#b6c1df;
-      --muted2:#8ea0c7;
-      --border:rgba(255,255,255,.10);
-      --glass:rgba(255,255,255,.06);
-      --shadow:0 28px 90px rgba(0,0,0,.55);
+      --bg:#060912;
+      --bg2:#0a1222;
+      --text:#eef3ff;
+      --muted:#bdc9e8;
+      --muted2:#8ea3d2;
+      --line:rgba(255,255,255,.13);
+      --card:rgba(255,255,255,.045);
+      --card-strong:rgba(255,255,255,.06);
+      --accent:#8ecbff;
+      --accent2:#b5d6ff;
+      --success:#9deac8;
+      --max:1160px;
       --radius:22px;
-      --max:1120px;
+      --shadow:0 28px 74px rgba(0,0,0,.45);
+      --section-space:78px;
     }
 
     *{box-sizing:border-box}
@@ -27,53 +32,84 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
       color:var(--text);
       background:
-        radial-gradient(1200px 680px at 70% 10%, #162244 0%, var(--bg) 55%),
-        radial-gradient(900px 520px at 20% 70%, #0d1a2c 0%, var(--bg) 55%),
+        radial-gradient(1100px 620px at 82% 2%, #1a2a56 0%, transparent 60%),
+        radial-gradient(900px 500px at 6% 75%, #122541 0%, transparent 58%),
         linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height:1.55;
+      letter-spacing:.001em;
     }
-
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 84px}
 
-    /* Header */
     header{
       display:flex; align-items:center; justify-content:space-between;
-      gap:18px; position:sticky; top:0; z-index:10;
+      gap:18px; position:sticky; top:0; z-index:30;
       padding:14px 0;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(5,7,12,.78), rgba(5,7,12,.25));
+      backdrop-filter: blur(12px);
+      background: linear-gradient(180deg, rgba(6,9,18,.84), rgba(6,9,18,.36));
     }
-    .brand{display:flex; align-items:center; gap:12px; min-width: 240px}
-    .brand img{height:30px; width:auto; display:block; opacity:.95; filter: grayscale(100%) brightness(2) contrast(1.05);}
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px}
+    .brand img{
+      height:30px; width:auto; display:block; opacity:.95;
+      filter: grayscale(100%) brightness(2) contrast(1.06);
+    }
     .brand .name{display:flex; flex-direction:column; line-height:1}
     .brand .name strong{letter-spacing:.24em; font-size:13px}
-    .brand .name span{margin-top:6px; font-size:12px; color:var(--muted2); letter-spacing:.10em; text-transform:uppercase}
-
-    nav{display:flex; align-items:center; gap:16px}
+    .brand .name span{
+      margin-top:6px; font-size:12px; color:var(--muted2);
+      letter-spacing:.10em; text-transform:uppercase;
+    }
+    .header-right{display:flex; align-items:center; gap:12px}
+    nav{display:flex; align-items:center; gap:14px}
     nav a{
       text-decoration:none; color:var(--muted);
       font-weight:650; font-size:13px;
       padding:8px 10px; border-radius:999px;
       border:1px solid transparent;
+      transition:.2s ease;
     }
-    nav a:hover{color:var(--text); border-color:var(--border); background:rgba(255,255,255,.03)}
+    nav a:hover{
+      color:var(--text);
+      border-color:var(--line);
+      background:rgba(255,255,255,.045);
+    }
     .nav-cta{
       text-decoration:none; font-weight:800; font-size:13px;
-      padding:10px 14px; border-radius:999px;
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      box-shadow:0 18px 55px rgba(0,0,0,.35);
+      padding:9px 14px; border-radius:999px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
     }
-    .nav-cta:hover{transform:translateY(-1px)}
-    .nav-cta:active{transform:translateY(0px)}
 
-    /* Hero */
+    .lang-switch{
+      display:flex; align-items:center; gap:6px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.2);
+      padding:6px;
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+    }
+    .lang-icon{opacity:.75; font-size:13px; margin:0 6px}
+    .lang-switch button{
+      background:transparent; border:1px solid transparent;
+      color:rgba(238,242,255,.84);
+      padding:6px 10px; border-radius:999px;
+      font-size:12px; font-weight:800; letter-spacing:.06em;
+      cursor:pointer; transition:.18s ease;
+    }
+    .lang-switch button:hover{color:var(--text); background:rgba(255,255,255,.06)}
+    .lang-switch button.active{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.2);
+      color:#fff;
+    }
+
     .hero{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
+      grid-template-columns:1.06fr .94fr;
+      gap:30px;
       align-items:center;
-      padding:38px 0 20px;
+      min-height:74vh;
+      padding:56px 0 42px;
     }
     .kicker{
       color:var(--muted2);
@@ -83,195 +119,347 @@
       font-size:12px;
     }
     h1{
-      margin:10px 0 12px;
-      font-size:46px;
-      letter-spacing:-.02em;
-      line-height:1.05;
+      margin:14px 0 14px;
+      font-size:56px;
+      letter-spacing:-.025em;
+      line-height:1.03;
+      max-width:15ch;
     }
     .lead{
       margin:0;
-      max-width: 56ch;
-      font-size:18px;
-      line-height:1.55;
-      color:rgba(238,242,255,.88);
+      max-width:58ch;
+      font-size:19px;
+      line-height:1.68;
+      color:rgba(238,243,255,.92);
     }
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none; font-weight:800;
       padding:12px 16px;
       border-radius:999px;
-      text-decoration:none;
-      font-weight:850;
-      border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      backdrop-filter: blur(10px);
-      transition:.18s ease;
-      box-shadow:0 18px 55px rgba(0,0,0,.35);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04));
+      box-shadow:0 16px 46px rgba(0,0,0,.34);
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
-    .btn:hover{transform:translateY(-1px)}
-    .btn:active{transform:translateY(0px)}
+    .btn:hover{transform:translateY(-2px); box-shadow:0 20px 54px rgba(0,0,0,.38)}
     .btn.primary{
+      color:#0d1729;
       border:none;
-      color:#071018;
-      background: linear-gradient(135deg, #2ce2a2 0%, #1aa7ff 55%, #7c5cff 100%);
-      box-shadow:0 24px 80px rgba(0,0,0,.40);
+      background:linear-gradient(135deg, #baf3ff 0%, #9fccff 46%, #a8a3ff 100%);
     }
     .subbadge{
-      margin-top:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border:1px solid var(--border);
+      margin-top:15px;
+      display:inline-flex; align-items:center; gap:10px;
+      border:1px solid var(--line);
       background:rgba(0,0,0,.25);
-      padding:10px 12px;
+      padding:9px 12px;
       border-radius:999px;
       color:var(--muted);
       font-size:13px;
-      backdrop-filter: blur(10px);
     }
 
-    /* Globe panel */
     .panel{
-      border:1px solid var(--border);
+      border:1px solid var(--line);
       background:rgba(255,255,255,.04);
       border-radius:var(--radius);
       overflow:hidden;
-      min-height:440px;
+      min-height:500px;
       box-shadow:var(--shadow);
       position:relative;
+      padding:18px;
     }
-    #globe{position:absolute; inset:0}
+    .network-visual{
+      height:100%;
+      min-height:460px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(340px 200px at 78% 18%, rgba(147,195,255,.22), transparent 70%),
+        radial-gradient(320px 190px at 22% 84%, rgba(147,255,217,.18), transparent 72%),
+        linear-gradient(170deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
+      position:relative;
+      overflow:hidden;
+    }
+    .orbit{
+      position:absolute;
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:999px;
+      pointer-events:none;
+    }
+    .orbit.o1{width:300px; height:300px; left:50%; top:48%; transform:translate(-50%,-50%)}
+    .orbit.o2{width:430px; height:210px; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-16deg)}
+    .orbit.o3{width:430px; height:210px; left:50%; top:50%; transform:translate(-50%,-50%) rotate(18deg)}
+    .hub{
+      position:absolute;
+      width:128px; height:128px;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.22);
+      background:radial-gradient(circle at 32% 28%, rgba(173,216,255,.45), rgba(130,160,255,.18));
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:20px;
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#eaf3ff;
+      box-shadow:0 0 46px rgba(133,183,255,.24);
+    }
+    .node{
+      position:absolute;
+      width:126px;
+      min-height:62px;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:14px;
+      background:rgba(8,13,24,.66);
+      padding:8px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:12px;
+      line-height:1.35;
+      color:rgba(236,244,255,.92);
+    }
+    .node::before{
+      content:"";
+      width:7px; height:7px;
+      border-radius:50%;
+      background:var(--accent2);
+      box-shadow:0 0 14px rgba(181,214,255,.65);
+      position:absolute;
+      top:-4px; left:calc(50% - 3px);
+    }
+    .n1{left:50%; top:40px; transform:translateX(-50%)}
+    .n2{right:30px; top:35%}
+    .n3{right:42px; bottom:54px}
+    .n4{left:50%; bottom:26px; transform:translateX(-50%)}
+    .n5{left:28px; top:35%}
+    .network-visual svg{
+      position:absolute; inset:0; width:100%; height:100%;
+      pointer-events:none;
+    }
     .panel-note{
-      position:absolute; left:16px; bottom:16px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.34);
-      padding:10px 12px; border-radius:16px;
+      position:absolute; left:30px; bottom:28px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.36);
+      padding:9px 12px; border-radius:14px;
       color:var(--muted);
       font-size:13px;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(8px);
     }
 
-    /* Sections */
-    section{padding:28px 0}
+    section{padding:var(--section-space) 0}
+    .divider{height:1px; background:rgba(255,255,255,.1); margin:4px 0 2px}
+    .section-kicker{
+      color:var(--muted2);
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
     .section-title{
-      font-size:22px; margin:0 0 12px;
-      letter-spacing:-.01em;
+      font-size:34px;
+      line-height:1.2;
+      letter-spacing:-.015em;
+      margin:0 0 14px;
+      max-width:24ch;
     }
     .section-lead{
-      margin:0 0 18px;
+      margin:0;
       color:var(--muted);
-      line-height:1.65;
-      max-width: 88ch;
-      font-size:15.5px;
+      max-width:88ch;
+      font-size:17px;
+      line-height:1.74;
     }
 
-    /* Grid / Cards */
-    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px}
-    .grid-2{display:grid; grid-template-columns:repeat(2, 1fr); gap:14px}
+    .flow-wrap{
+      margin-top:22px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:var(--card-strong);
+    }
+    .flow-grid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:10px;
+      align-items:stretch;
+    }
+    .flow-step{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+      border-radius:14px;
+      padding:14px;
+      min-height:140px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      transition:transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .flow-step:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.24);
+      background:rgba(255,255,255,.065);
+    }
+    .flow-icon{
+      width:32px; height:32px;
+      border-radius:10px;
+      margin-bottom:10px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      display:grid;
+      place-items:center;
+      color:var(--accent2);
+      font-size:16px;
+    }
+    .flow-step strong{
+      display:block;
+      font-size:13px;
+      color:var(--muted2);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+    .flow-step span{
+      font-size:16px;
+      line-height:1.4;
+      font-weight:700;
+      letter-spacing:-.01em;
+    }
+    .flow-arrow{
+      display:none;
+      text-align:center;
+      color:var(--accent);
+      font-weight:700;
+      margin:8px 0;
+    }
+
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
     .card{
-      border:1px solid var(--border);
-      background:var(--glass);
+      border:1px solid var(--line);
+      background:var(--card);
       border-radius:18px;
-      padding:18px;
-      box-shadow:0 18px 55px rgba(0,0,0,.25);
+      padding:20px;
+      box-shadow:0 14px 38px rgba(0,0,0,.22);
+      transition:transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.22);
+      background:rgba(255,255,255,.065);
+      box-shadow:0 18px 42px rgba(0,0,0,.26);
+    }
+    .card-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:4px;
     }
     .card .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.22);
-      padding:8px 10px;
+      display:inline-flex; align-items:center;
+      border:1px solid var(--line);
       border-radius:999px;
-      font-size:12px;
+      padding:7px 10px;
+      background:rgba(0,0,0,.22);
       color:var(--muted);
-      letter-spacing:.10em;
-      text-transform:uppercase;
+      font-size:12px;
       font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
-    .card h3{margin:12px 0 8px; font-size:18px; letter-spacing:-.01em}
-    .card p{margin:0; color:var(--muted); line-height:1.65; font-size:15px}
+    .mini-icon{
+      width:30px; height:30px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.2);
+      background:rgba(255,255,255,.08);
+      display:grid; place-items:center;
+      font-size:14px; color:var(--accent2);
+      flex:0 0 auto;
+    }
+    .card h3{margin:11px 0 8px; font-size:20px; letter-spacing:-.01em}
+    .card p{margin:0; color:var(--muted); line-height:1.68; font-size:15.5px}
     .card .actions{margin-top:14px}
     .link{
       display:inline-flex; align-items:center; gap:8px;
-      text-decoration:none; font-weight:850;
+      text-decoration:none; font-weight:800;
       padding:10px 12px; border-radius:999px;
-      border:1px solid var(--border);
+      border:1px solid var(--line);
       background:rgba(255,255,255,.03);
+      transition:transform .2s ease, background .2s ease;
     }
-    .link:hover{transform:translateY(-1px)}
-    .link:active{transform:translateY(0px)}
+    .link:hover{transform:translateY(-1px); background:rgba(255,255,255,.06)}
 
-    /* Divider */
-    .divider{
-      height:1px; background:rgba(255,255,255,.08);
-      margin:10px 0 2px;
+    .reveal{
+      opacity:0;
+      transform:translateY(14px);
+      transition:opacity .55s ease, transform .55s ease;
+    }
+    .reveal.in{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    /* Footer */
     footer{
-      margin-top:26px;
-      padding-top:22px;
-      border-top:1px solid rgba(255,255,255,.08);
+      margin-top:44px;
+      padding-top:26px;
+      border-top:1px solid rgba(255,255,255,.11);
       color:var(--muted2);
       font-size:13px;
-      display:flex; flex-wrap:wrap; gap:10px;
+      display:flex; flex-wrap:wrap; gap:10px 18px;
       align-items:center; justify-content:space-between;
+    }
+    .footer-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .footer-dot{
+      width:5px; height:5px;
+      border-radius:50%;
+      background:rgba(255,255,255,.35);
     }
     footer a{color:var(--text); text-decoration:none}
     footer a:hover{text-decoration:underline}
 
-
-    .header-right{display:flex; align-items:center; gap:12px}
-
-    /* Premium language switch (no modal, shareable URL via ?lang=) */
-    .lang-switch{
-      display:flex; align-items:center; gap:6px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.18);
-      padding:6px;
-      border-radius:999px;
-      backdrop-filter: blur(10px);
-    }
-    .lang-icon{opacity:.75; font-size:13px; margin:0 6px}
-    .lang-switch button{
-      background:transparent;
-      border:1px solid transparent;
-      color:rgba(238,242,255,.82);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:800;
-      letter-spacing:.06em;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-    .lang-switch button:hover{color:var(--text); background:rgba(255,255,255,.06)}
-    .lang-switch button.active{
-      background:rgba(255,255,255,.14);
-      border-color:rgba(255,255,255,.16);
-      color:#fff;
-    }
-
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr; }
-      .panel{min-height:360px}
-      h1{font-size:38px}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
+    @media (max-width: 1080px){
+      h1{font-size:46px}
+      .hero{grid-template-columns:1fr; min-height:unset; padding-top:40px}
+      .panel{min-height:390px}
+      .network-visual{min-height:350px}
+      .n2{right:16px}
+      .n3{right:16px}
+      .n5{left:16px}
       nav{display:none}
       .header-right{width:100%; justify-content:flex-end}
       header{position:static; background:transparent; backdrop-filter:none}
+      .flow-grid{grid-template-columns:1fr}
+      .flow-arrow{display:block}
+    }
+    @media (max-width: 760px){
+      :root{--section-space:58px}
+      h1{font-size:38px}
+      .section-title{font-size:28px}
+      .grid-2{grid-template-columns:1fr}
+      .lead{font-size:17px}
+      .panel-note{left:18px; bottom:18px}
+      .node{width:112px; font-size:11px}
     }
   </style>
 </head>
-
 <body>
   <div class="wrap">
-
     <header>
       <div class="brand">
-        <!-- Logo (usage sobre : palmier en monochrome via CSS) -->
         <img src="assets/img/logo-palmier.png" alt="Maavnica" class="logo" />
         <div class="name">
           <strong>MAAVNICA</strong>
@@ -296,334 +484,365 @@
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero" aria-label="Présentation Maavnica">
+    <section class="hero reveal" aria-label="Présentation institutionnelle Maavnica">
       <div>
-        <div class="kicker" data-i18n="kicker_region">Europe ↔ Amérique centrale</div>
-        <h1 data-i18n="hero_title">Maavnica, le relais entre l’Europe et l’Amérique centrale.</h1>
+        <div class="kicker" data-i18n="kicker_region">Recommandation & croissance</div>
+        <h1 data-i18n="hero_title">La satisfaction de vos clients doit se transformer en croissance.</h1>
         <p class="lead" data-i18n="hero_subtitle">
-          Des produits digitaux conçus pour accompagner et simplifier le développement des activités professionnelles.
+          Maavnica aide à faire circuler la confiance : recommandations, partage et visibilité, sans compliquer votre façon de travailler. Des outils pensés pour que la satisfaction client devienne réellement utile au développement de votre activité.
         </p>
-
         <div class="cta-row">
-          <a class="btn primary" href="https://smartcard.maavnica.com" target="_blank" rel="noreferrer" data-i18n="btn_smartcard">Découvrir SmartCard</a>
-          <a class="btn" href="https://pay.maavnica.com" target="_blank" rel="noreferrer" data-i18n="btn_paylink">Découvrir PayLink</a>
+          <a class="btn primary" href="https://smartcard.maavnica.com" target="_blank" rel="noreferrer" data-i18n="btn_smartcard">Voir SmartCard</a>
+          <a class="btn" href="#relais" data-i18n="btn_ecosystem">Voir l'écosystème</a>
         </div>
-
-        <div class="subbadge" data-i18n="hero_badge">Un écosystème. Plusieurs relais.</div>
+        <div class="subbadge" data-i18n="hero_badge">Une vision claire. Des outils concrets. Une progression maîtrisée.</div>
       </div>
 
-      <div class="panel" aria-label="Globe Maavnica">
-        <div id="globe"></div>
-        <div class="panel-note" data-i18n="panel_note">Une vision claire. Des relais concrets.</div>
+      <div class="panel" aria-label="Visuel Maavnica">
+        <div class="network-visual">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M50 18 L84 35 L80 77 L50 88 L20 77 L16 35 Z" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="0.4"/>
+            <path d="M50 18 L50 50 L20 77" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="0.4"/>
+            <path d="M50 18 L50 50 L84 35" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="0.4"/>
+            <path d="M50 50 L80 77" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="0.4"/>
+          </svg>
+          <div class="orbit o1"></div>
+          <div class="orbit o2"></div>
+          <div class="orbit o3"></div>
+          <div class="hub" data-i18n="visual_hub">Confiance</div>
+          <div class="node n1" data-i18n="visual_node_1">Satisfaction</div>
+          <div class="node n2" data-i18n="visual_node_2">Interaction</div>
+          <div class="node n3" data-i18n="visual_node_3">Recommandation</div>
+          <div class="node n4" data-i18n="visual_node_4">Visibilité</div>
+          <div class="node n5" data-i18n="visual_node_5">Nouvelles opportunités</div>
+        </div>
+        <div class="panel-note" data-i18n="panel_note">Moins de friction, plus d'opportunités.</div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- CONCEPT -->
-    <section id="concept">
-      <h2 class="section-title" data-i18n="concept_title">Une vision structurée, pas un produit isolé</h2>
+    <section id="concept" class="reveal">
+      <div class="section-kicker" data-i18n="conviction_kicker">Conviction</div>
+      <h2 class="section-title" data-i18n="concept_title">La confiance et la recommandation sont au cœur du développement des indépendants.</h2>
       <p class="section-lead" data-i18n="concept_lead">
-        Maavnica n’est pas une solution unique. C’est un <b>écosystème de produits digitaux</b>, pensés pour répondre à des besoins concrets tout en s’inscrivant
-        dans une vision cohérente et durable. Chaque produit fonctionne de manière indépendante, mais s’intègre naturellement dans l’ensemble.
-        Maavnica accompagne ainsi le développement des activités professionnelles, aujourd’hui et dans le temps.
+        Maavnica part d’une idée simple : le développement d’une activité dépend aussi de la qualité des relations créées avec les clients. Quand un client est satisfait, il peut laisser un avis, recommander un professionnel ou partager son expérience. Maavnica conçoit des outils pour rendre cette dynamique plus simple, plus visible et plus utile au quotidien.
       </p>
 
-      <div class="grid-3">
-        <div class="card">
-          <div class="tag" data-i18n="card_simp_tag">Simplicité</div>
-          <h3 data-i18n="card_simp_title">Des usages clairs</h3>
-          <p data-i18n="card_simp_text">Des parcours lisibles, des actions directes, une prise en main naturelle.</p>
-        </div>
-        <div class="card">
-          <div class="tag" data-i18n="card_coh_tag">Cohérence</div>
-          <h3 data-i18n="card_coh_title">Une logique d’ensemble</h3>
-          <p data-i18n="card_coh_text">Des produits indépendants, conçus pour cohabiter et évoluer sans complexité.</p>
-        </div>
-        <div class="card">
-          <div class="tag" data-i18n="card_dur_tag">Durabilité</div>
-          <h3 data-i18n="card_dur_title">Une marque qui s’inscrit dans le temps</h3>
-          <p data-i18n="card_dur_text">Une construction progressive : des relais utiles, clairs et pérennes.</p>
+      <div class="flow-wrap">
+        <div class="section-kicker" data-i18n="mechanics_kicker">Mécanique sociale</div>
+        <div class="flow-grid" aria-label="Mécanique sociale Maavnica">
+          <div class="flow-step">
+            <div class="flow-icon" aria-hidden="true">✓</div>
+            <strong data-i18n="mechanics_step_label_1">Étape 1</strong>
+            <span data-i18n="mechanics_step_1">Client satisfait</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon" aria-hidden="true">↔</div>
+            <strong data-i18n="mechanics_step_label_2">Étape 2</strong>
+            <span data-i18n="mechanics_step_2">Interaction</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon" aria-hidden="true">★</div>
+            <strong data-i18n="mechanics_step_label_3">Étape 3</strong>
+            <span data-i18n="mechanics_step_3">Avis / partage / recommandation</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon" aria-hidden="true">+</div>
+            <strong data-i18n="mechanics_step_label_4">Étape 4</strong>
+            <span data-i18n="mechanics_step_4">Nouvelle relation</span>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon" aria-hidden="true">⟲</div>
+            <strong data-i18n="mechanics_step_label_5">Étape 5</strong>
+            <span data-i18n="mechanics_step_5">Nouvelle dynamique</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- POSITIONNEMENT -->
-    <section>
-      <h2 class="section-title" data-i18n="position_title">Un relais, pas une promesse abstraite</h2>
-      <p class="section-lead" data-i18n="position_lead">
-        Maavnica se positionne comme un <b>relais</b> entre l’Europe et l’Amérique centrale. Ce positionnement permet de concevoir des produits adaptés aux usages,
-        aux réalités économiques et aux pratiques locales, tout en conservant une exigence de qualité et de simplicité.
-        L’objectif n’est pas de multiplier les outils, mais de proposer des relais <b>utiles, clairs et pérennes</b>.
-      </p>
-    </section>
-
-    <!-- RELAIS -->
-    <section id="relais">
-      <h2 class="section-title" data-i18n="relais_title">Les relais Maavnica</h2>
+    <section id="relais" class="reveal">
+      <div class="section-kicker" data-i18n="tools_kicker">Outils Maavnica</div>
+      <h2 class="section-title" data-i18n="relais_title">Un écosystème qui associe des outils opérationnels et des perspectives assumées.</h2>
       <p class="section-lead" data-i18n="relais_lead">
-        Deux produits sont disponibles dès maintenant. D’autres relais viendront compléter l’écosystème, dans le respect de la même philosophie :
-        <b>simplicité, cohérence et accompagnement</b>.
+        Maavnica réunit des outils conçus pour simplifier le quotidien des indépendants et soutenir le développement de leur activité.
       </p>
 
-      <div class="grid-2">
-        <div class="card">
-          <div class="tag" data-i18n="smartcard_tag">SmartCard</div>
-          <h3 data-i18n="smartcard_title">Carte digitale professionnelle</h3>
-          <p data-i18n="smartcard_text">Un point d’entrée unique pour présenter une activité, faciliter la prise de contact et structurer les échanges avec ses clients.</p>
+      <div class="grid-2" style="margin-top:18px">
+        <article class="card">
+          <div class="card-top">
+            <div class="tag" data-i18n="smartcard_tag">SmartCard</div>
+            <div class="mini-icon" aria-hidden="true">▣</div>
+          </div>
+          <h3 data-i18n="smartcard_title">Accélérateur de visibilité et de croissance</h3>
+          <p data-i18n="smartcard_text">SmartCard transforme chaque interaction client en opportunité. Les clients satisfaits peuvent recommander facilement votre activité, ce qui renforce votre visibilité et génère de nouvelles opportunités. Utiliser SmartCard, c’est transformer sa relation client en véritable moteur de croissance.</p>
           <div class="actions">
             <a class="link" href="https://smartcard.maavnica.com" target="_blank" rel="noreferrer" data-i18n="smartcard_link">Découvrir SmartCard →</a>
           </div>
-        </div>
+          <p style="margin-top:12px;font-size:13px;line-height:1.5;color:var(--muted)"><a href="https://smartcard.maavnica.com/c/demo2" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.28)" data-i18n="smartcard_demo_link">Voir une SmartCard en situation</a></p>
+        </article>
 
-        <div class="card">
-          <div class="tag" data-i18n="paylink_tag">PayLink</div>
-          <h3 data-i18n="paylink_title">Lien de paiement simple</h3>
-          <p data-i18n="paylink_text">Un moyen direct de recevoir des paiements, pensé pour des usages mobiles et des échanges rapides.</p>
-          <div class="actions">
-            <a class="link" href="https://pay.maavnica.com" target="_blank" rel="noreferrer" data-i18n="paylink_link">Découvrir PayLink →</a>
+        <article class="card">
+          <div class="card-top">
+            <div class="tag" data-i18n="billing_tag">Facturation</div>
+            <div class="mini-icon" aria-hidden="true">¤</div>
           </div>
-        </div>
+          <h3 data-i18n="billing_title">Facturation simple dans la continuité de votre activité</h3>
+          <p data-i18n="billing_text">Un outil de facturation clair et pratique, pensé pour accompagner les indépendants dans leur quotidien. Il s’inscrit naturellement dans la continuité des usages autour de SmartCard, pour simplifier la gestion administrative et rester concentré sur l’essentiel : développer son activité.</p>
+        </article>
       </div>
 
-      <div style="margin-top:14px" class="card">
-        <div class="tag" data-i18n="coming_tag">À venir</div>
-        <h3 data-i18n="coming_title">Nouveaux relais</h3>
-        <p data-i18n="coming_text">
-          De nouveaux relais viendront enrichir l’écosystème Maavnica, dans le respect de la même exigence : proposer des outils utiles, lisibles,
-          et réellement intégrables dans l’activité des professionnels.
-        </p>
+      <div class="grid-2" style="margin-top:16px">
+        <article class="card">
+          <div class="card-top">
+            <div class="tag" data-i18n="cv_tag">Direction en préparation</div>
+            <div class="mini-icon" aria-hidden="true">⌁</div>
+          </div>
+          <h3 data-i18n="cv_title">CV digital basé sur la confiance et la recommandation</h3>
+          <p data-i18n="cv_text">Un projet en réflexion visant à repenser la manière de présenter un parcours professionnel. L’objectif : permettre aux personnes en recherche d’emploi de valoriser leurs compétences, leur parcours et les recommandations de leur entourage professionnel à travers un profil digital plus vivant et plus crédible.</p>
+        </article>
       </div>
     </section>
 
-    <!-- PARTENARIATS -->
-    <section id="partenariats">
-      <h2 class="section-title" data-i18n="partners_title">Partenariats & co-construction</h2>
+    <section id="partenariats" class="reveal">
+      <h2 class="section-title" data-i18n="partners_title">Maavnica construit un écosystème cohérent autour d’une même idée.</h2>
       <p class="section-lead" data-i18n="partners_lead">
-        Maavnica est ouverte à des partenariats lorsque les visions sont alignées. Certaines collaborations peuvent donner lieu à la co-construction de projets digitaux
-        intégrés à l’écosystème. Cette approche s’inscrit dans une logique de <b>développement commun et de long terme</b>.
+        Des outils utiles, pensés pour renforcer la relation entre les professionnels et leurs clients, et créer plus de visibilité, de confiance et d’opportunités.
       </p>
-
-      <div class="grid-2">
-        <div class="card">
-          <div class="tag" data-i18n="partners_card1_tag">Partenaires</div>
-          <h3 data-i18n="partners_card1_title">Rejoindre l’écosystème</h3>
-          <p data-i18n="partners_card1_text">Partenariats de distribution, intégrations, collaborations produit : une approche structurée, sans confusion.</p>
-        </div>
-        <div class="card">
-          <div class="tag" data-i18n="partners_card2_tag">Co-construction</div>
-          <h3 data-i18n="partners_card2_title">Projets alignés</h3>
-          <p data-i18n="partners_card2_text">Étude de projets digitaux lorsque l’intégration à l’écosystème est naturelle et cohérente.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- VISION -->
-    <section>
-      <h2 class="section-title" data-i18n="vision_title">Une ambition claire</h2>
+    <section class="reveal">
+      <h2 class="section-title" data-i18n="partners_card2_title">Europe ↔ Amérique centrale</h2>
+      <p class="section-lead" data-i18n="partners_card2_text">
+        Maavnica s’inscrit dans une dynamique ouverte entre l’Europe et l’Amérique centrale, avec l’ambition de concevoir des outils utiles, adaptés aux réalités du terrain.
+      </p>
+    </section>
+
+    <section class="reveal">
       <p class="section-lead" data-i18n="vision_lead">
-        Maavnica se construit progressivement, avec une ambition claire : proposer un cadre fiable et évolutif pour des outils qui accompagnent réellement
-        les professionnels dans leur développement.
+        Maavnica développe des outils utiles pour renforcer la confiance, la visibilité et les opportunités autour des indépendants.
       </p>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="reveal">
       <h2 class="section-title" data-i18n="contact_title">Contact</h2>
       <p class="section-lead">
         <span data-i18n="contact_prefix">Support & informations :</span> <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>
       </p>
     </section>
 
-<footer>
-  <div>
-    © <span id="y"></span> Maavnica™ –
-    <a href="/cgv.html" data-i18n="cgv">Conditions Générales de Vente</a>
+    <footer>
+      <div class="footer-left">
+        <span>© <span id="y"></span> Maavnica™</span>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="/cgv.html" data-i18n="cgv">Conditions Générales de Vente</a>
+      </div>
+      <div>
+        <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>
+      </div>
+    </footer>
   </div>
-  <div>
-    <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>
-  </div>
-</footer>
-
-
-
-  </div>
-
 
   <script>
-    // i18n (FR / EN / ES) — V1 simple, propre, sans dépendances
     const I18N = {
       fr: {
+        meta_title: "Maavnica — Outils de recommandation pour indépendants",
+        meta_description: "Maavnica conçoit des outils digitaux qui transforment la satisfaction client en visibilité, recommandation et nouvelles opportunités.",
         brand_tagline: "Écosystème digital",
         nav_concept: "Concept",
         nav_relais: "Relais",
         nav_partners: "Partenariats",
         nav_contact: "Contact",
-        kicker_region: "Europe ↔ Amérique centrale",
-        hero_title: "Maavnica, le relais entre l’Europe et l’Amérique centrale.",
-        hero_subtitle: "Des produits digitaux conçus pour accompagner et simplifier le développement des activités professionnelles.",
-        btn_smartcard: "Découvrir SmartCard",
-        btn_paylink: "Découvrir PayLink",
-        hero_badge: "Un écosystème. Plusieurs relais.",
-        panel_note: "Une vision claire. Des relais concrets.",
-        concept_title: "Une vision structurée, pas un produit isolé",
-        concept_lead: "Maavnica n’est pas une solution unique. C’est un <b>écosystème de produits digitaux</b>, pensés pour répondre à des besoins concrets tout en s’inscrivant dans une vision cohérente et durable. Chaque produit fonctionne de manière indépendante, mais s’intègre naturellement dans l’ensemble. Maavnica accompagne ainsi le développement des activités professionnelles, aujourd’hui et dans le temps.",
-        card_simp_tag: "Simplicité",
-        card_simp_title: "Des usages clairs",
-        card_simp_text: "Des parcours lisibles, des actions directes, une prise en main naturelle.",
-        card_coh_tag: "Cohérence",
-        card_coh_title: "Une logique d’ensemble",
-        card_coh_text: "Des produits indépendants, conçus pour cohabiter et évoluer sans complexité.",
-        card_dur_tag: "Durabilité",
-        card_dur_title: "Une marque qui s’inscrit dans le temps",
-        card_dur_text: "Une construction progressive : des relais utiles, clairs et pérennes.",
-        position_title: "Un relais, pas une promesse abstraite",
-        position_lead: "Maavnica se positionne comme un <b>relais</b> entre l’Europe et l’Amérique centrale. Ce positionnement permet de concevoir des produits adaptés aux usages, aux réalités économiques et aux pratiques locales, tout en conservant une exigence de qualité et de simplicité. L’objectif n’est pas de multiplier les outils, mais de proposer des relais <b>utiles, clairs et pérennes</b>.",
-        relais_title: "Les relais Maavnica",
-        relais_lead: "Deux produits sont disponibles dès maintenant. D’autres relais viendront compléter l’écosystème, dans le respect de la même philosophie : <b>simplicité, cohérence et accompagnement</b>.",
+        kicker_region: "Recommandation & croissance",
+        hero_title: "La satisfaction de vos clients doit se transformer en croissance.",
+        hero_subtitle: "Maavnica aide à faire circuler la confiance : recommandations, partage et visibilité, sans compliquer votre façon de travailler. Des outils pensés pour que la satisfaction client devienne réellement utile au développement de votre activité.",
+        btn_smartcard: "Voir SmartCard",
+        btn_ecosystem: "Voir l'écosystème",
+        hero_badge: "Une vision claire. Des outils concrets. Une progression maîtrisée.",
+        panel_note: "Moins de friction, plus d'opportunités.",
+        visual_hub: "Confiance",
+        visual_node_1: "Satisfaction",
+        visual_node_2: "Interaction",
+        visual_node_3: "Recommandation",
+        visual_node_4: "Visibilité",
+        visual_node_5: "Nouvelles opportunités",
+        conviction_kicker: "Conviction",
+        concept_title: "La confiance et la recommandation sont au cœur du développement des indépendants.",
+        concept_lead: "Maavnica part d’une idée simple : le développement d’une activité dépend aussi de la qualité des relations créées avec les clients. Quand un client est satisfait, il peut laisser un avis, recommander un professionnel ou partager son expérience. Maavnica conçoit des outils pour rendre cette dynamique plus simple, plus visible et plus utile au quotidien.",
+        mechanics_kicker: "Mécanique sociale",
+        mechanics_step_label_1: "Étape 1",
+        mechanics_step_1: "Client satisfait",
+        mechanics_step_label_2: "Étape 2",
+        mechanics_step_2: "Interaction",
+        mechanics_step_label_3: "Étape 3",
+        mechanics_step_3: "Avis / partage / recommandation",
+        mechanics_step_label_4: "Étape 4",
+        mechanics_step_4: "Nouvelle relation",
+        mechanics_step_label_5: "Étape 5",
+        mechanics_step_5: "Nouvelle dynamique",
+        tools_kicker: "Outils Maavnica",
+        relais_title: "Un écosystème qui associe des outils opérationnels et des perspectives assumées.",
+        relais_lead: "Maavnica réunit des outils conçus pour simplifier le quotidien des indépendants et soutenir le développement de leur activité.",
         smartcard_tag: "SmartCard",
-        smartcard_title: "Carte digitale professionnelle",
-        smartcard_text: "Un point d’entrée unique pour présenter une activité, faciliter la prise de contact et structurer les échanges avec ses clients.",
+        smartcard_title: "Accélérateur de visibilité et de croissance",
+        smartcard_text: "SmartCard transforme chaque interaction client en opportunité. Les clients satisfaits peuvent recommander facilement votre activité, ce qui renforce votre visibilité et génère de nouvelles opportunités. Utiliser SmartCard, c’est transformer sa relation client en véritable moteur de croissance.",
         smartcard_link: "Découvrir SmartCard →",
-        paylink_tag: "PayLink",
-        paylink_title: "Lien de paiement simple",
-        paylink_text: "Un moyen direct de recevoir des paiements, pensé pour des usages mobiles et des échanges rapides.",
-        paylink_link: "Découvrir PayLink →",
-        coming_tag: "À venir",
-        coming_title: "Nouveaux relais",
-        coming_text: "De nouveaux relais viendront enrichir l’écosystème Maavnica, dans le respect de la même exigence : proposer des outils utiles, lisibles, et réellement intégrables dans l’activité des professionnels.",
-        partners_title: "Partenariats & co-construction",
-        partners_lead: "Maavnica est ouverte à des partenariats lorsque les visions sont alignées. Certaines collaborations peuvent donner lieu à la co-construction de projets digitaux intégrés à l’écosystème. Cette approche s’inscrit dans une logique de <b>développement commun et de long terme</b>.",
-        partners_card1_tag: "Partenaires",
-        partners_card1_title: "Rejoindre l’écosystème",
-        partners_card1_text: "Partenariats de distribution, intégrations, collaborations produit : une approche structurée, sans confusion.",
-        partners_card2_tag: "Co-construction",
-        partners_card2_title: "Projets alignés",
-        partners_card2_text: "Étude de projets digitaux lorsque l’intégration à l’écosystème est naturelle et cohérente.",
-        vision_title: "Une ambition claire",
-        vision_lead: "Maavnica se construit progressivement, avec une ambition claire : proposer un cadre fiable et évolutif pour des outils qui accompagnent réellement les professionnels dans leur développement.",
+        smartcard_demo_link: "Voir une SmartCard en situation",
+        billing_tag: "Facturation",
+        billing_title: "Facturation simple dans la continuité de votre activité",
+        billing_text: "Un outil de facturation clair et pratique, pensé pour accompagner les indépendants dans leur quotidien. Il s’inscrit naturellement dans la continuité des usages autour de SmartCard, pour simplifier la gestion administrative et rester concentré sur l’essentiel : développer son activité.",
+        cv_tag: "Direction en préparation",
+        cv_title: "CV digital basé sur la confiance et la recommandation",
+        cv_text: "Un projet en réflexion visant à repenser la manière de présenter un parcours professionnel. L’objectif : permettre aux personnes en recherche d’emploi de valoriser leurs compétences, leur parcours et les recommandations de leur entourage professionnel à travers un profil digital plus vivant et plus crédible.",
+        evolution_kicker: "Maavnica",
+        partners_title: "Maavnica construit un écosystème cohérent autour d’une même idée.",
+        partners_lead: "Des outils utiles, pensés pour renforcer la relation entre les professionnels et leurs clients, et créer plus de visibilité, de confiance et d’opportunités.",
+        partners_card1_tag: "Maavnica",
+        partners_card1_title: "Écosystème",
+        partners_card1_text: "Des outils utiles au service des indépendants.",
+        partners_card2_tag: "International",
+        partners_card2_title: "Europe ↔ Amérique centrale",
+        partners_card2_text: "Maavnica s’inscrit dans une dynamique ouverte entre l’Europe et l’Amérique centrale, avec l’ambition de concevoir des outils utiles, adaptés aux réalités du terrain.",
+        vision_kicker: "Maavnica",
+        vision_title: "Maavnica",
+        vision_lead: "Maavnica développe des outils utiles pour renforcer la confiance, la visibilité et les opportunités autour des indépendants.",
         contact_title: "Contact",
         contact_prefix: "Support & informations :",
-        legal: "Mentions légales",
-        globe_reduced_title: "MAAVNICA",
-        globe_reduced_text: "Animation allégée (performance & accessibilité).",
-        globe_fail_title: "MAAVNICA",
-        globe_fail_text: "Globe indisponible sur ce navigateur/réseau (WebGL ou CDN bloqué)."
+        cgv: "Conditions Générales de Vente"
       },
       en: {
+        meta_title: "Maavnica — Referral tools for independents",
+        meta_description: "Maavnica designs digital tools that turn client satisfaction into visibility, referrals and new opportunities.",
         brand_tagline: "Digital ecosystem",
         nav_concept: "Concept",
-        nav_relais: "Relays",
+        nav_relais: "Tools",
         nav_partners: "Partnerships",
         nav_contact: "Contact",
-        kicker_region: "Europe ↔ Central America",
-        hero_title: "Maavnica, the bridge between Europe and Central America.",
-        hero_subtitle: "Digital products designed to support and simplify business development.",
-        btn_smartcard: "Discover SmartCard",
-        btn_paylink: "Discover PayLink",
-        hero_badge: "One ecosystem. Multiple relays.",
-        panel_note: "A clear vision. Concrete relays.",
-        concept_title: "A structured vision, not an isolated product",
-        concept_lead: "Maavnica is not a single solution. It is an <b>ecosystem of digital products</b>, designed to address concrete needs within a coherent and sustainable vision. Each product works independently, yet integrates naturally into the whole. Maavnica supports business development, today and over time.",
-        card_simp_tag: "Simplicity",
-        card_simp_title: "Clear use cases",
-        card_simp_text: "Readable journeys, direct actions, intuitive adoption.",
-        card_coh_tag: "Consistency",
-        card_coh_title: "A coherent framework",
-        card_coh_text: "Independent products, built to coexist and evolve without complexity.",
-        card_dur_tag: "Durability",
-        card_dur_title: "A brand built to last",
-        card_dur_text: "A progressive build: useful, clear and lasting relays.",
-        position_title: "A relay, not an abstract promise",
-        position_lead: "Maavnica positions itself as a <b>bridge</b> between Europe and Central America. This enables products adapted to usage, economic realities and local practices—while maintaining high standards of quality and simplicity. The goal is not to multiply tools, but to deliver <b>useful, clear and lasting</b> relays.",
-        relais_title: "Maavnica relays",
-        relais_lead: "Two products are available now. Other relays will expand the ecosystem, with the same philosophy: <b>simplicity, consistency and support</b>.",
+        kicker_region: "Referral & growth",
+        hero_title: "Your clients’ satisfaction should turn into growth.",
+        hero_subtitle: "Maavnica helps trust flow—referrals, sharing and visibility—without complicating how you work. Tools designed so client satisfaction genuinely supports the growth of your business.",
+        btn_smartcard: "View SmartCard",
+        btn_ecosystem: "View ecosystem",
+        hero_badge: "A clear vision. Concrete tools. Steady, deliberate progress.",
+        panel_note: "Less friction, more opportunities.",
+        visual_hub: "Trust",
+        visual_node_1: "Satisfaction",
+        visual_node_2: "Interaction",
+        visual_node_3: "Referral",
+        visual_node_4: "Visibility",
+        visual_node_5: "New opportunities",
+        conviction_kicker: "Conviction",
+        concept_title: "Trust and referral are at the core of independent professionals' growth.",
+        concept_lead: "Maavnica is built on a simple idea: business growth also depends on the quality of relationships with clients. When a client is satisfied, they can leave a review, recommend a professional or share their experience. Maavnica designs tools that make this dynamic simpler, more visible and more useful every day.",
+        mechanics_kicker: "Social mechanism",
+        mechanics_step_label_1: "Step 1",
+        mechanics_step_1: "Satisfied client",
+        mechanics_step_label_2: "Step 2",
+        mechanics_step_2: "Interaction",
+        mechanics_step_label_3: "Step 3",
+        mechanics_step_3: "Review / share / referral",
+        mechanics_step_label_4: "Step 4",
+        mechanics_step_4: "New relationship",
+        mechanics_step_label_5: "Step 5",
+        mechanics_step_5: "New dynamic",
+        tools_kicker: "Maavnica tools",
+        relais_title: "An ecosystem that combines operational tools and clear, forward-looking directions.",
+        relais_lead: "Maavnica brings together tools designed to simplify independents’ day-to-day work and support the growth of their business.",
         smartcard_tag: "SmartCard",
-        smartcard_title: "Professional digital card",
-        smartcard_text: "A single entry point to present your activity, ease contact, and structure exchanges with clients.",
+        smartcard_title: "Visibility and growth accelerator",
+        smartcard_text: "Every client touchpoint becomes a growth opportunity with SmartCard. Satisfied clients can recommend you with ease—amplifying visibility and opening new doors. SmartCard turns everyday relationships into a credible engine for sustainable growth.",
         smartcard_link: "Discover SmartCard →",
-        paylink_tag: "PayLink",
-        paylink_title: "Simple payment link",
-        paylink_text: "A direct way to receive payments, designed for mobile use and fast exchanges.",
-        paylink_link: "Discover PayLink →",
-        coming_tag: "Coming soon",
-        coming_title: "New relays",
-        coming_text: "New relays will enrich the Maavnica ecosystem, with the same standards: useful, readable tools that genuinely integrate into professional workflows.",
-        partners_title: "Partnerships & co-building",
-        partners_lead: "Maavnica is open to partnerships when visions align. Some collaborations may lead to co-building digital projects integrated into the ecosystem. This approach follows a logic of <b>shared, long-term development</b>.",
-        partners_card1_tag: "Partners",
-        partners_card1_title: "Join the ecosystem",
-        partners_card1_text: "Distribution partnerships, integrations, product collaborations: a structured approach without confusion.",
-        partners_card2_tag: "Co-building",
-        partners_card2_title: "Aligned projects",
-        partners_card2_text: "We consider digital projects when integration into the ecosystem is natural and coherent.",
-        vision_title: "A clear ambition",
-        vision_lead: "Maavnica is built progressively, with a clear ambition: provide a reliable, evolving framework for tools that truly support professionals in their growth.",
+        smartcard_demo_link: "See a SmartCard example",
+        billing_tag: "Billing",
+        billing_title: "Simple invoicing that fits your day-to-day business",
+        billing_text: "Clear, practical invoicing built around how independents actually work. It extends the same clarity as SmartCard: less admin friction, more focus on what matters—growing your business with confidence.",
+        cv_tag: "Direction in preparation",
+        cv_title: "A digital CV built on trust and recommendations",
+        cv_text: "An exploratory initiative to rethink how careers are presented online. The ambition: help job seekers highlight skills, trajectory and trusted recommendations from their network—through a profile that feels more human, and more credible.",
+        evolution_kicker: "Maavnica",
+        partners_title: "Maavnica is building a coherent ecosystem around one core idea.",
+        partners_lead: "Useful tools designed to strengthen the relationship between professionals and their clients, and to create more visibility, trust and opportunities.",
+        partners_card1_tag: "Maavnica",
+        partners_card1_title: "Ecosystem",
+        partners_card1_text: "Useful tools for independents.",
+        partners_card2_tag: "International",
+        partners_card2_title: "Europe ↔ Central America",
+        partners_card2_text: "Maavnica is part of an open dynamic between Europe and Central America, with the ambition to design practical tools suited to real-world needs.",
+        vision_kicker: "Maavnica",
+        vision_title: "Maavnica",
+        vision_lead: "Maavnica develops useful tools to strengthen trust, visibility and opportunities for independents.",
         contact_title: "Contact",
         contact_prefix: "Support & information:",
-        legal: "Legal notice",
-        globe_reduced_title: "MAAVNICA",
-        globe_reduced_text: "Lightweight mode (performance & accessibility).",
-        globe_fail_title: "MAAVNICA",
-        globe_fail_text: "Globe unavailable on this browser/network (WebGL or CDN blocked)."
+        cgv: "Terms and Conditions"
       },
       es: {
+        meta_title: "Maavnica — Herramientas de recomendación para independientes",
+        meta_description: "Maavnica diseña herramientas digitales que transforman la satisfacción del cliente en visibilidad, recomendación y nuevas oportunidades.",
         brand_tagline: "Ecosistema digital",
         nav_concept: "Concepto",
-        nav_relais: "Relés",
+        nav_relais: "Herramientas",
         nav_partners: "Alianzas",
         nav_contact: "Contacto",
-        kicker_region: "Europa ↔ Centroamérica",
-        hero_title: "Maavnica, el puente entre Europa y Centroamérica.",
-        hero_subtitle: "Productos digitales diseñados para acompañar y simplificar el desarrollo profesional.",
-        btn_smartcard: "Descubrir SmartCard",
-        btn_paylink: "Descubrir PayLink",
-        hero_badge: "Un ecosistema. Varios relés.",
-        panel_note: "Una visión clara. Relés concretos.",
-        concept_title: "Una visión estructurada, no un producto aislado",
-        concept_lead: "Maavnica no es una solución única. Es un <b>ecosistema de productos digitales</b>, diseñado para necesidades concretas dentro de una visión coherente y sostenible. Cada producto funciona de forma independiente, pero se integra de manera natural en el conjunto. Maavnica acompaña el desarrollo profesional, hoy y a largo plazo.",
-        card_simp_tag: "Simplicidad",
-        card_simp_title: "Usos claros",
-        card_simp_text: "Recorridos legibles, acciones directas, adopción natural.",
-        card_coh_tag: "Coherencia",
-        card_coh_title: "Un marco coherente",
-        card_coh_text: "Productos independientes, pensados para convivir y evolucionar sin complejidad.",
-        card_dur_tag: "Durabilidad",
-        card_dur_title: "Una marca hecha para durar",
-        card_dur_text: "Construcción progresiva: relés útiles, claros y duraderos.",
-        position_title: "Un relé, no una promesa abstracta",
-        position_lead: "Maavnica se posiciona como un <b>puente</b> entre Europa y Centroamérica. Esto permite crear productos adaptados a los usos, realidades económicas y prácticas locales, manteniendo un alto nivel de calidad y simplicidad. El objetivo no es multiplicar herramientas, sino ofrecer relés <b>útiles, claros y duraderos</b>.",
-        relais_title: "Los relés Maavnica",
-        relais_lead: "Dos productos están disponibles ahora. Otros relés ampliarán el ecosistema con la misma filosofía: <b>simplicidad, coherencia y acompañamiento</b>.",
+        kicker_region: "Recomendación y crecimiento",
+        hero_title: "La satisfacción de tus clientes debe transformarse en crecimiento.",
+        hero_subtitle: "Maavnica ayuda a que circule la confianza: recomendaciones, difusión y visibilidad, sin complicar tu forma de trabajar. Herramientas pensadas para que la satisfacción del cliente sea realmente útil para desarrollar tu actividad.",
+        btn_smartcard: "Ver SmartCard",
+        btn_ecosystem: "Ver ecosistema",
+        hero_badge: "Una visión clara. Herramientas concretas. Un avance constante y medido.",
+        panel_note: "Menos fricción, más oportunidades.",
+        visual_hub: "Confianza",
+        visual_node_1: "Satisfacción",
+        visual_node_2: "Interacción",
+        visual_node_3: "Recomendación",
+        visual_node_4: "Visibilidad",
+        visual_node_5: "Nuevas oportunidades",
+        conviction_kicker: "Convicción",
+        concept_title: "La confianza y la recomendación están en el centro del crecimiento de los profesionales independientes.",
+        concept_lead: "Maavnica parte de una idea simple: el crecimiento de una actividad también depende de la calidad de las relaciones con los clientes. Cuando un cliente está satisfecho, puede dejar una reseña, recomendar a un profesional o compartir su experiencia. Maavnica diseña herramientas para hacer esta dinámica más simple, más visible y más útil en el día a día.",
+        mechanics_kicker: "Mecánica social",
+        mechanics_step_label_1: "Paso 1",
+        mechanics_step_1: "Cliente satisfecho",
+        mechanics_step_label_2: "Paso 2",
+        mechanics_step_2: "Interacción",
+        mechanics_step_label_3: "Paso 3",
+        mechanics_step_3: "Reseña / compartido / recomendación",
+        mechanics_step_label_4: "Paso 4",
+        mechanics_step_4: "Nueva relación",
+        mechanics_step_label_5: "Paso 5",
+        mechanics_step_5: "Nueva dinámica",
+        tools_kicker: "Herramientas Maavnica",
+        relais_title: "Un ecosistema que combina herramientas operativas y perspectivas claras a futuro.",
+        relais_lead: "Maavnica reúne herramientas pensadas para simplificar el día a día de los independientes y apoyar el desarrollo de su actividad.",
         smartcard_tag: "SmartCard",
-        smartcard_title: "Tarjeta digital profesional",
-        smartcard_text: "Un único punto de entrada para presentar tu actividad, facilitar el contacto y estructurar los intercambios con clientes.",
+        smartcard_title: "Acelerador de visibilidad y crecimiento",
+        smartcard_text: "SmartCard convierte cada contacto con el cliente en oportunidad de crecimiento. Quienes quedan satisfechos pueden recomendarte con facilidad, reforzar tu visibilidad y abrir nuevas oportunidades. Con SmartCard, la relación con tus clientes se convierte en un motor de crecimiento creíble y sostenible.",
         smartcard_link: "Descubrir SmartCard →",
-        paylink_tag: "PayLink",
-        paylink_title: "Enlace de pago simple",
-        paylink_text: "Una forma directa de cobrar, pensada para uso móvil y comunicaciones rápidas.",
-        paylink_link: "Descubrir PayLink →",
-        coming_tag: "Próximamente",
-        coming_title: "Nuevos relés",
-        coming_text: "Nuevos relés enriquecerán el ecosistema Maavnica, con el mismo estándar: herramientas útiles, legibles e integrables en el trabajo diario.",
-        partners_title: "Alianzas y co-construcción",
-        partners_lead: "Maavnica está abierta a alianzas cuando las visiones están alineadas. Algunas colaboraciones pueden llevar a la co-construcción de proyectos digitales integrados en el ecosistema. Este enfoque sigue una lógica de <b>desarrollo común y a largo plazo</b>.",
-        partners_card1_tag: "Socios",
-        partners_card1_title: "Unirse al ecosistema",
-        partners_card1_text: "Alianzas de distribución, integraciones, colaboraciones de producto: un enfoque estructurado, sin confusión.",
-        partners_card2_tag: "Co-construcción",
-        partners_card2_title: "Proyectos alineados",
-        partners_card2_text: "Estudiamos proyectos digitales cuando la integración al ecosistema es natural y coherente.",
-        vision_title: "Una ambición clara",
-        vision_lead: "Maavnica se construye de forma progresiva, con una ambición clara: ofrecer un marco fiable y evolutivo para herramientas que acompañen realmente a los profesionales en su crecimiento.",
+        smartcard_demo_link: "Ver un ejemplo de SmartCard",
+        billing_tag: "Facturación",
+        billing_title: "Facturación sencilla en la continuidad de tu actividad",
+        billing_text: "Facturación clara y práctica, pensada para el día a día real de los independientes. Prolonga con naturalidad la lógica de SmartCard: menos fricción administrativa, más foco en lo esencial—hacer crecer tu actividad con tranquilidad.",
+        cv_tag: "Dirección en preparación",
+        cv_title: "CV digital basado en la confianza y la recomendación",
+        cv_text: "Un proyecto exploratorio para replantear cómo se muestra un recorrido profesional. La ambición: que quienes buscan empleo puedan valorizar competencias, trayectoria y recomendaciones de confianza de su entorno, con un perfil digital más humano y más creíble.",
+        evolution_kicker: "Maavnica",
+        partners_title: "Maavnica construye un ecosistema coherente en torno a una misma idea.",
+        partners_lead: "Herramientas útiles pensadas para fortalecer la relación entre profesionales y clientes, y generar más visibilidad, confianza y oportunidades.",
+        partners_card1_tag: "Maavnica",
+        partners_card1_title: "Ecosistema",
+        partners_card1_text: "Herramientas útiles al servicio de los independientes.",
+        partners_card2_tag: "Internacional",
+        partners_card2_title: "Europa ↔ Centroamérica",
+        partners_card2_text: "Maavnica se inscribe en una dinámica abierta entre Europa y Centroamérica, con la ambición de concebir herramientas útiles, adaptadas a la realidad del terreno.",
+        vision_kicker: "Maavnica",
+        vision_title: "Maavnica",
+        vision_lead: "Maavnica desarrolla herramientas útiles para fortalecer la confianza, la visibilidad y las oportunidades alrededor de los independientes.",
         contact_title: "Contacto",
         contact_prefix: "Soporte e información:",
-        legal: "Aviso legal",
-        globe_reduced_title: "MAAVNICA",
-        globe_reduced_text: "Modo ligero (rendimiento y accesibilidad).",
-        globe_fail_title: "MAAVNICA",
-        globe_fail_text: "Globo no disponible en este navegador/red (WebGL o CDN bloqueado)."
+        cgv: "Condiciones Generales de Venta"
       }
     };
 
@@ -639,7 +858,6 @@
       return ["fr","en","es"].includes(n) ? n : "en";
     }
 
-    // Priority: URL (?lang=) > localStorage > navigator > fr
     function detectDefaultLang() {
       const fromUrl = getLangFromUrl();
       if (fromUrl) return fromUrl;
@@ -654,33 +872,31 @@
       if (!I18N[lang]) lang = "fr";
       document.documentElement.lang = lang;
 
-      // Fill text/HTML
       document.querySelectorAll("[data-i18n]").forEach(el=>{
         const key = el.getAttribute("data-i18n");
         const val = I18N[lang][key];
         if (val == null) return;
-        // allow bold tags in longer copy
         if (val.includes("<b>")) el.innerHTML = val;
         else el.textContent = val;
       });
 
-      // Active state
       document.querySelectorAll(".lang-switch button").forEach(btn=>{
         btn.classList.toggle("active", btn.dataset.lang === lang);
       });
 
+      if (I18N[lang].meta_title) document.title = I18N[lang].meta_title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && I18N[lang].meta_description) {
+        metaDesc.setAttribute("content", I18N[lang].meta_description);
+      }
+
       localStorage.setItem("maavnica_lang", lang);
 
-      // Shareable URL: ?lang=xx (no reload)
       try {
         const url = new URL(location.href);
         url.searchParams.set("lang", lang);
         history.replaceState({}, "", url.toString());
       } catch (e) {}
-
-      // expose for globe fallback
-      window.__MAAVNICA_LANG__ = lang;
-      window.__MAAVNICA_I18N__ = I18N;
     }
 
     function initLangSwitch(){
@@ -691,116 +907,28 @@
       setLanguage(lang);
     }
 
-    document.addEventListener("DOMContentLoaded", initLangSwitch);
-  </script>
-  <!-- Globe 3D (optionnel, fallback automatique si device faible) -->
-  <script type="module">
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    const container = document.getElementById("globe");
-    const lowEnd = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (lowEnd) {
-      const lang = window.__MAAVNICA_LANG__ || "fr";
-      const t = (window.__MAAVNICA_I18N__ && window.__MAAVNICA_I18N__[lang]) ? window.__MAAVNICA_I18N__[lang] : null;
-      const title = (t && t.globe_reduced_title) || "MAAVNICA";
-      const msg = (t && t.globe_reduced_text) || "Lightweight mode (performance & accessibility).";
-      container.innerHTML = `
-        <div style="height:100%;display:grid;place-items:center;color:rgba(182,193,223,.9);padding:20px;text-align:center">
-          <div>
-            <div style="font-weight:850;letter-spacing:.08em">${title}</div>
-            <div style="margin-top:10px;line-height:1.5;color:rgba(182,193,223,.85)">${msg}</div>
-          </div>
-        </div>`;
-    } else {
-      // Globe 3D — robuste : si le CDN est bloqué ou si WebGL est indisponible, on bascule en fallback
-      try {
-        const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js");
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
-      camera.position.set(0, 0, 3.2);
-
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-      container.appendChild(renderer.domElement);
-
-      // Lights
-      const key = new THREE.DirectionalLight(0xffffff, 1.25);
-      key.position.set(3, 2, 5);
-      scene.add(key);
-      scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-
-      // Globe
-      const loader = new THREE.TextureLoader();
-      const earthMap = loader.load("https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg");
-      const earthNormal = loader.load("https://threejs.org/examples/textures/planets/earth_normal_2048.jpg");
-
-      const globe = new THREE.Mesh(
-        new THREE.SphereGeometry(1, 64, 64),
-        new THREE.MeshStandardMaterial({
-          map: earthMap,
-          normalMap: earthNormal,
-          metalness: 0.10,
-          roughness: 0.78
-        })
-      );
-      scene.add(globe);
-
-      // Atmosphere (halo)
-      const atmo = new THREE.Mesh(
-        new THREE.SphereGeometry(1.03, 64, 64),
-        new THREE.MeshBasicMaterial({ color: 0x4aa3ff, transparent: true, opacity: 0.10 })
-      );
-      scene.add(atmo);
-
-      // Stars (subtil)
-      const starGeo = new THREE.BufferGeometry();
-      const starCount = 650;
-      const pos = new Float32Array(starCount * 3);
-      for (let i = 0; i < starCount; i++) {
-        pos[i*3+0] = (Math.random()-0.5) * 18;
-        pos[i*3+1] = (Math.random()-0.5) * 18;
-        pos[i*3+2] = -Math.random() * 10 - 2;
+    function initReveal(){
+      const items = Array.from(document.querySelectorAll(".reveal"));
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(el=> el.classList.add("in"));
+        return;
       }
-      starGeo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-      const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ size: 0.02, opacity: 0.75, transparent: true }));
-      scene.add(stars);
-
-      const onResize = () => {
-        const w = container.clientWidth, h = container.clientHeight;
-        renderer.setSize(w, h);
-        camera.aspect = w / h;
-        camera.updateProjectionMatrix();
-      };
-      addEventListener("resize", onResize);
-
-      function animate(){
-        globe.rotation.y += 0.0022;
-        atmo.rotation.y += 0.0016;
-        stars.rotation.y += 0.00025;
-        renderer.render(scene, camera);
-        requestAnimationFrame(animate);
-      }
-      animate();
-      } catch (e) {
-        console.error("Globe initialization failed:", e);
-        const lang = window.__MAAVNICA_LANG__ || "fr";
-        const t = (window.__MAAVNICA_I18N__ && window.__MAAVNICA_I18N__[lang]) ? window.__MAAVNICA_I18N__[lang] : null;
-        const title = (t && t.globe_fail_title) || "MAAVNICA";
-        const msg = (t && t.globe_fail_text) || "Globe unavailable on this browser/network (WebGL or CDN blocked).";
-        container.innerHTML = `
-          <div style="height:100%;display:grid;place-items:center;color:rgba(182,193,223,.9);padding:20px;text-align:center">
-            <div>
-              <div style="font-weight:850;letter-spacing:.08em">${title}</div>
-              <div style="margin-top:10px;line-height:1.5;color:rgba(182,193,223,.85)">${msg}</div>
-            </div>
-          </div>`;
-      }
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold:.16, rootMargin:"0px 0px -30px 0px" });
+      items.forEach(el=> obs.observe(el));
     }
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+      initLangSwitch();
+      initReveal();
+      document.getElementById("y").textContent = new Date().getFullYear();
+    });
   </script>
-
-
 </body>
 </html>
