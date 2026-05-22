@@ -634,13 +634,22 @@
       <p class="section-lead">
         <span data-i18n="contact_prefix">Support & informations :</span> <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>
       </p>
+      <p class="section-lead contact-legal" style="margin-top:10px;font-size:13px;color:var(--muted2);line-height:1.5;" data-i18n="contact_legal"></p>
     </section>
 
     <footer>
       <div class="footer-left">
         <span>© <span id="y"></span> Maavnica™</span>
         <span class="footer-dot" aria-hidden="true"></span>
-        <a href="/cgv.html" data-i18n="cgv">Conditions Générales de Vente</a>
+        <a href="/mentions-legales.html" data-i18n="footer_mentions">Mentions légales</a>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="/confidentialite.html" data-i18n="footer_privacy">Confidentialité</a>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="/cookies.html" data-i18n="footer_cookies">Cookies</a>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="/cgv.html" data-i18n="cgv">CGV Maavnica</a>
+        <span class="footer-dot" aria-hidden="true"></span>
+        <a href="https://smartcard.maavnica.com/static/cgv-smartcard.html" data-i18n="footer_cgv_smartcard">CGV SmartCard</a>
       </div>
       <div>
         <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>
@@ -714,7 +723,12 @@
         vision_lead: "Maavnica développe des outils utiles pour renforcer la confiance, la visibilité et les opportunités autour des indépendants.",
         contact_title: "Contact",
         contact_prefix: "Support & informations :",
-        cgv: "Conditions Générales de Vente"
+        contact_legal: "En nous écrivant, vous acceptez le traitement de votre email et message pour répondre à votre demande. <a href=\"/confidentialite.html\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px\">Confidentialité</a> · droits : contact@maavnica.com. Pas de newsletter.",
+        footer_mentions: "Mentions légales",
+        footer_privacy: "Confidentialité",
+        footer_cookies: "Cookies",
+        cgv: "CGV Maavnica",
+        footer_cgv_smartcard: "CGV SmartCard"
       },
       en: {
         meta_title: "Maavnica — Referral tools for independents",
@@ -780,7 +794,12 @@
         vision_lead: "Maavnica develops useful tools to strengthen trust, visibility and opportunities for independents.",
         contact_title: "Contact",
         contact_prefix: "Support & information:",
-        cgv: "Terms and Conditions"
+        contact_legal: "By emailing us, you agree we may process your email and message to respond. <a href=\"/confidentialite.html\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px\">Privacy</a> · rights: contact@maavnica.com. No newsletter.",
+        footer_mentions: "Legal notice",
+        footer_privacy: "Privacy",
+        footer_cookies: "Cookies",
+        cgv: "Maavnica Terms",
+        footer_cgv_smartcard: "SmartCard Terms"
       },
       es: {
         meta_title: "Maavnica — Herramientas de recomendación para independientes",
@@ -846,7 +865,12 @@
         vision_lead: "Maavnica desarrolla herramientas útiles para fortalecer la confianza, la visibilidad y las oportunidades alrededor de los independientes.",
         contact_title: "Contacto",
         contact_prefix: "Soporte e información:",
-        cgv: "Condiciones Generales de Venta"
+        contact_legal: "Al escribirnos, aceptas el tratamiento de tu email y mensaje para responder. <a href=\"/confidentialite.html\" style=\"color:inherit;text-decoration:underline;text-underline-offset:3px\">Privacidad</a> · derechos: contact@maavnica.com. Sin newsletter.",
+        footer_mentions: "Aviso legal",
+        footer_privacy: "Privacidad",
+        footer_cookies: "Cookies",
+        cgv: "CGV Maavnica",
+        footer_cgv_smartcard: "CGV SmartCard"
       }
     };
 
@@ -858,7 +882,7 @@
         const key = el.getAttribute("data-i18n");
         const val = I18N[lang][key];
         if (val == null) return;
-        if (val.includes("<b>")) el.innerHTML = val;
+        if (val.includes("<") || val.includes("<b>")) el.innerHTML = val;
         else el.textContent = val;
       });
 
