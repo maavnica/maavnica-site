@@ -584,6 +584,47 @@
       box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
     }
 
+    .studio-invite {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .studio-invite .btn { margin-top: 26px; }
+
+    .studio-invite-visual {
+      position: relative;
+      display: block;
+      min-height: 320px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .studio-invite-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      object-position: 62% 30%;
+    }
+
+    .studio-invite-visual span {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(253, 251, 248, 0.92);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .vision-grid {
       display: grid;
       grid-template-columns: 0.75fr 1.25fr;
@@ -821,6 +862,7 @@
         max-height: 460px;
         object-fit: contain;
       }
+      .studio-invite { grid-template-columns: 1fr; }
       .founder-grid { grid-template-columns: 1fr; }
       .founder-portrait { max-width: 230px; }
       .contact-card { text-align: center; }
@@ -857,6 +899,7 @@
             <a href="#maavnica" data-i18n="nav_maavnica">Maavnica</a>
             <a href="#approche" data-i18n="nav_approach">Notre approche</a>
             <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
+            <a href="studio/" data-i18n="nav_studio">Studio</a>
             <a href="#fondateur" data-i18n="nav_founder">Fondateur</a>
             <a href="#contact" data-i18n="nav_contact">Contact</a>
           </nav>
@@ -872,6 +915,7 @@
         <a href="#maavnica" data-i18n="nav_maavnica">Maavnica</a>
         <a href="#approche" data-i18n="nav_approach">Notre approche</a>
         <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
+        <a href="studio/" data-i18n="nav_studio">Studio</a>
         <a href="#fondateur" data-i18n="nav_founder">Fondateur</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
       </nav>
@@ -977,6 +1021,21 @@
     </div>
   </section>
 
+  <section class="section section--surface" id="studio-apercu">
+    <div class="container studio-invite">
+      <div>
+        <p class="eyebrow" data-i18n="studio_kicker">Maavnica Studio</p>
+        <h2 class="section-title" data-i18n="studio_title">Un site à la mesure de votre métier.</h2>
+        <p class="prose" data-i18n="studio_text">Studio compose des sites vitrines pour les indépendants et les petites entreprises. Une page soignée, puis sa première publication sur un compte à votre nom.</p>
+        <a href="studio/" class="btn btn-primary" data-i18n="cta_studio">Découvrir Studio</a>
+      </div>
+      <a class="studio-invite-visual" href="studio/#realisations">
+        <img src="studio/media/augustin-desktop.jpg" alt="Démonstration fictive : page d'accueil d'Atelier Augustin, tailleur imaginé." width="1280" height="853" loading="lazy" decoding="async" />
+        <span data-i18n="studio_fiction">Démonstration fictive</span>
+      </a>
+    </div>
+  </section>
+
   <!-- S5 — Vision Maavnica -->
   <section class="section section--surface" id="vision">
     <div class="container vision-grid">
@@ -1048,6 +1107,7 @@
           <h4 data-i18n="footer_solutions_col">Solutions</h4>
           <ul>
             <li><a href="https://smartcard.maavnica.com" data-i18n="footer_smartcard">SmartCard</a></li>
+            <li><a href="studio/" data-i18n="footer_studio">Studio</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1076,6 +1136,7 @@
         nav_maavnica: "Maavnica",
         nav_approach: "Notre approche",
         nav_solutions: "Nos solutions",
+        nav_studio: "Studio",
         nav_founder: "Fondateur",
         nav_contact: "Contact",
         nav_menu: "Menu",
@@ -1088,6 +1149,11 @@
         cta_discover_maavnica: "Découvrir Maavnica",
         cta_solutions: "Nos solutions",
         cta_smartcard: "Découvrir SmartCard",
+        cta_studio: "Découvrir Studio",
+        studio_kicker: "Maavnica Studio",
+        studio_title: "Un site à la mesure de votre métier.",
+        studio_text: "Studio compose des sites vitrines pour les indépendants et les petites entreprises. Une page soignée, puis sa première publication sur un compte à votre nom.",
+        studio_fiction: "Démonstration fictive",
         cta_contact: "Nous contacter",
         maavnica_kicker: "Maavnica",
         maavnica_title: "Partir d'un besoin. Construire la bonne réponse.",
@@ -1128,6 +1194,7 @@
         footer_about: "À propos",
         footer_solutions_col: "Solutions",
         footer_smartcard: "SmartCard",
+        footer_studio: "Studio",
         footer_info_col: "Informations",
         footer_mentions: "Mentions légales",
         footer_privacy: "Confidentialité",
@@ -1142,6 +1209,7 @@
         nav_maavnica: "Maavnica",
         nav_approach: "Our approach",
         nav_solutions: "Our solutions",
+        nav_studio: "Studio",
         nav_founder: "Founder",
         nav_contact: "Contact",
         nav_menu: "Menu",
@@ -1154,6 +1222,11 @@
         cta_discover_maavnica: "Discover Maavnica",
         cta_solutions: "Our solutions",
         cta_smartcard: "Discover SmartCard",
+        cta_studio: "Discover Studio",
+        studio_kicker: "Maavnica Studio",
+        studio_title: "A site that fits your craft.",
+        studio_text: "Studio composes showcase websites for independents and small businesses. One considered page, then its first publication on an account in your name.",
+        studio_fiction: "Fictional demonstration",
         cta_contact: "Contact us",
         maavnica_kicker: "Maavnica",
         maavnica_title: "Start from a need. Build the right answer.",
@@ -1194,6 +1267,7 @@
         footer_about: "About",
         footer_solutions_col: "Solutions",
         footer_smartcard: "SmartCard",
+        footer_studio: "Studio",
         footer_info_col: "Information",
         footer_mentions: "Legal notice",
         footer_privacy: "Privacy",
@@ -1208,6 +1282,7 @@
         nav_maavnica: "Maavnica",
         nav_approach: "Nuestro enfoque",
         nav_solutions: "Soluciones",
+        nav_studio: "Studio",
         nav_founder: "Fundador",
         nav_contact: "Contacto",
         nav_menu: "Menú",
@@ -1220,6 +1295,11 @@
         cta_discover_maavnica: "Descubrir Maavnica",
         cta_solutions: "Soluciones",
         cta_smartcard: "Descubrir SmartCard",
+        cta_studio: "Descubrir Studio",
+        studio_kicker: "Maavnica Studio",
+        studio_title: "Un sitio a la medida de su oficio.",
+        studio_text: "Studio compone sitios escaparate para autónomos y pequeñas empresas. Una página cuidada, y su primera publicación en una cuenta a su nombre.",
+        studio_fiction: "Demostración ficticia",
         cta_contact: "Contactarnos",
         maavnica_kicker: "Maavnica",
         maavnica_title: "Partir de una necesidad. Construir la respuesta adecuada.",
@@ -1260,6 +1340,7 @@
         footer_about: "Acerca de",
         footer_solutions_col: "Soluciones",
         footer_smartcard: "SmartCard",
+        footer_studio: "Studio",
         footer_info_col: "Información",
         footer_mentions: "Aviso legal",
         footer_privacy: "Privacidad",
