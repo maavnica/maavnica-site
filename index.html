@@ -3,1405 +3,1001 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maavnica — Solutions numériques pour les professionnels</title>
-  <meta name="description" content="Maavnica imagine et développe des solutions numériques simples et utiles pour les professionnels. Découvrez nos projets et nos solutions, dont SmartCard." />
-  <meta property="og:title" content="Maavnica — Solutions numériques pour les professionnels" />
-  <meta property="og:description" content="Maavnica imagine et développe des solutions numériques simples et utiles pour les professionnels. Découvrez nos projets et nos solutions, dont SmartCard." />
+  <title>Maavnica — Le savoir-faire existe.</title>
+  <meta name="description" content="Maavnica révèle le savoir-faire des professionnels. Une carte, SmartCard. Un site, Studio. Une entreprise indépendante fondée par Arnaud Petitjean-Huard." />
+  <link rel="canonical" href="https://maavnica.com/" />
+  <meta property="og:title" content="Maavnica — Le savoir-faire existe." />
+  <meta property="og:description" content="Maavnica révèle le savoir-faire des professionnels. Une carte, SmartCard. Un site, Studio. Une entreprise indépendante fondée par Arnaud Petitjean-Huard." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://maavnica.com/" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="es_ES" />
   <meta property="og:image" content="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png" />
+  <meta property="og:image:alt" content="Interface réelle de SmartCard, la carte professionnelle Maavnica." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Maavnica — Solutions numériques pour les professionnels" />
-  <meta name="twitter:description" content="Maavnica imagine et développe des solutions numériques simples et utiles pour les professionnels. Découvrez nos projets et nos solutions, dont SmartCard." />
+  <meta name="twitter:title" content="Maavnica — Le savoir-faire existe." />
+  <meta name="twitter:description" content="Maavnica révèle le savoir-faire des professionnels. Une carte, SmartCard. Un site, Studio. Une entreprise indépendante fondée par Arnaud Petitjean-Huard." />
   <meta name="twitter:image" content="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png" />
-  <link rel="icon" href="assets/img/logo-palmier.png" type="image/png" />
+  <meta name="twitter:image:alt" content="Interface réelle de SmartCard, la carte professionnelle Maavnica." />
+  <link rel="icon" href="../assets/img/logo-palmier.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-      --bg: #f6f4f0;
-      --surface: #fdfbf8;
-      --primary: #1e4a56;
-      --primary-hover: #2a6270;
-      --accent: #b09872;
-      --accent-line: rgba(176, 152, 114, 0.24);
-      --text: #1a2332;
-      --muted: #566070;
-      --muted-soft: #8f8880;
-      --border: #e8e3dc;
-      --shadow: 0 24px 56px rgba(26, 35, 50, 0.08);
-      --font-display: "Cormorant Garamond", Georgia, serif;
-      --font-body: "DM Sans", system-ui, sans-serif;
-      --max: 1120px;
-      --section-pad: clamp(56px, 8vw, 92px);
+      --ink: #161311;
+      --paper: #f4f0e8;
+      --coral: #e98974;
+      --coral-deep: #c4543c;
+      --teal: #1c6f76;
+      --muted: #6d675f;
+      --line: rgba(244, 240, 232, 0.28);
+      --display: "Fraunces", Georgia, serif;
+      --body: "Outfit", system-ui, sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
-      font-family: var(--font-body);
-      background:
-        linear-gradient(90deg, rgba(176, 152, 114, 0.055) 1px, transparent 1px),
-        var(--bg);
-      background-size: 76px 76px;
-      color: var(--text);
-      line-height: 1.55;
+      font-family: var(--body);
+      background: var(--ink);
+      color: var(--paper);
+      line-height: 1.45;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
     }
-
-    img { max-width: 100%; height: auto; display: block; }
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 clamp(18px, 4vw, 30px);
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; box-shadow: 0 0 0 6px rgba(224, 177, 90, 0.35); }
+    .skip { position: absolute; left: 12px; top: -48px; background: #fff; color: #000; padding: 8px 12px; z-index: 80; }
+    .skip:focus { top: 12px; }
+    .top {
+      position: fixed; inset: 0 0 auto 0; z-index: 40; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(16px, 3vw, 36px);
+      background: var(--ink); color: var(--paper);
     }
-
-    .section { padding: var(--section-pad) 0; }
-
-    .section--surface {
-      background: rgba(253, 251, 248, 0.76);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    .brand { display: flex; align-items: center; gap: 10px; position: relative; z-index: 2; }
+    .brand img { width: 34px; height: 34px; object-fit: cover; mix-blend-mode: lighten; }
+    .brand strong { font-size: 13px; letter-spacing: 0.2em; font-weight: 600; }
+    .nav { display: flex; gap: clamp(14px, 2vw, 26px); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+    .nav a, .go, .offers strong {
+      background-image: linear-gradient(90deg, #2f6fbf 0 25%, #1c8a86 25% 50%, #e98974 50% 75%, #e0b15a 75%);
+      background-repeat: no-repeat; background-position: 0 100%; background-size: 0 2px;
+      transition: background-size 0.35s ease, color 0.35s ease;
     }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
+    .nav a { padding-bottom: 3px; }
+    .nav a:hover, .nav a:focus-visible, .go:hover, .go:focus-visible, .offers a:hover strong, .offers a:focus-visible strong { background-size: 100% 2px; }
+    .tools { display: flex; align-items: center; gap: 10px; position: relative; z-index: 2; }
+    .langs { display: flex; border: 1px solid var(--line); border-radius: 999px; }
+    .langs button {
+      background: transparent; border: 0; color: inherit; min-width: 40px; min-height: 36px;
+      font: inherit; font-size: 11px; letter-spacing: 0.06em; cursor: pointer; border-radius: 999px;
     }
-
-    .display-title,
-    .section-title {
-      font-family: var(--font-display);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      color: var(--text);
+    .langs button[aria-pressed="true"] { background: var(--paper); color: var(--ink); }
+    .menu-btn {
+      display: none; background: transparent; border: 1px solid var(--line); color: inherit;
+      min-height: 44px; padding: 0 14px; font: inherit; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
     }
-
-    .display-title {
-      font-size: clamp(2.35rem, 6vw, 4.35rem);
-      line-height: 0.98;
-      max-width: 10.5ch;
-    }
-
-    .section-title {
-      font-size: clamp(1.85rem, 4vw, 2.75rem);
-      line-height: 1.05;
-      max-width: 14ch;
-    }
-
-    .section-sub,
-    .display-sub,
-    .prose {
-      color: var(--muted);
-      line-height: 1.68;
-    }
-
-    .display-sub {
-      font-size: clamp(1rem, 2vw, 1.14rem);
-      margin-top: 20px;
-      max-width: 52ch;
-    }
-
-    .section-sub {
-      font-size: 1rem;
-      max-width: 58ch;
-      margin-top: 18px;
-    }
-
-    .prose {
-      font-size: 15px;
-      max-width: 62ch;
-    }
-
-    .prose + .prose { margin-top: 14px; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-hover); }
-
-    .btn-secondary {
-      background: rgba(253, 251, 248, 0.72);
-      color: var(--primary);
-      border-color: rgba(30, 74, 86, 0.28);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      background: rgba(30, 74, 86, 0.06);
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .page-topbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(232, 227, 220, 0.88);
-      background: rgba(253, 251, 248, 0.94);
-      backdrop-filter: blur(10px);
-    }
-
-    .page-topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .page-topbar-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-
-    .page-topbar-brand img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .page-topbar-brand strong {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      color: var(--text);
-    }
-
-    .page-topbar-brand span {
-      display: block;
-      font-size: 11px;
-      color: var(--muted-soft);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    .page-nav,
-    .topbar-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .page-nav {
-      gap: clamp(12px, 2vw, 20px);
-    }
-
-    .page-nav a,
-    .mobile-nav a {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .page-nav a:hover,
-    .mobile-nav a:hover { color: var(--primary); }
-
-    .topbar-right { gap: 12px; }
-
-    .lang-switch {
-      display: flex;
-      gap: 4px;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 3px;
-      background: var(--bg);
-    }
-
-    .lang-switch button {
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      padding: 5px 8px;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      border-radius: 999px;
-    }
-
-    .lang-switch button.active {
-      background: var(--surface);
-      color: var(--primary);
-      box-shadow: 0 1px 2px rgba(26, 35, 50, 0.06);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 9px 12px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary);
-      cursor: pointer;
-    }
-
-    .mobile-nav {
-      display: none;
-      padding: 14px 0 4px;
-      border-top: 1px solid var(--border);
-      margin-top: 12px;
-    }
-
-    .mobile-nav.open { display: grid; gap: 12px; }
-
+    .hero, .origin, .run, .close { scroll-margin-top: 76px; }
     .hero {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(58px, 9vw, 118px) 0 clamp(52px, 7vw, 86px);
-      background:
-        radial-gradient(circle at 82% 18%, rgba(176, 152, 114, 0.2), transparent 32%),
-        radial-gradient(circle at 8% 88%, rgba(30, 74, 86, 0.11), transparent 28%),
-        linear-gradient(135deg, #f9f6ef 0%, #f3eee7 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 20px clamp(16px, 4vw, 44px);
-      border: 1px solid rgba(176, 152, 114, 0.22);
-      border-radius: 34px;
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      position: relative;
+      min-height: 100vh; min-height: 100svh;
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.78fr);
-      gap: clamp(32px, 6vw, 70px);
-      align-items: center;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      grid-template-rows: auto minmax(340px, 1fr);
+      padding-top: 64px;
+      height: 100vh; height: 100svh; overflow: hidden;
     }
-
-    .hero-copy { min-width: 0; }
-
-    .hero-mark {
-      position: relative;
-      min-height: 420px;
+    .poster { grid-column: 1; grid-row: 1; align-self: end; padding: 36px clamp(20px, 5vw, 72px) 18px; position: relative; z-index: 2; }
+    .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); }
+    h1, h2 { text-wrap: balance; }
+    .hero h1, .origin h2, .card-copy h2, .studio-head h2, .close h2, .offers strong, .paths a {
+      font-family: var(--display); font-weight: 500; letter-spacing: -0.045em;
+    }
+    .hero h1 { font-size: clamp(3.5rem, 6.2vw, 6.6rem); line-height: 0.86; max-width: 9em; }
+    .hero h1 em {
+      font-style: italic; font-weight: 500; color: var(--coral);
+      display: inline-block;
+    }
+    .ambition { margin-top: 14px; max-width: 22em; font-size: clamp(1.2rem, 1.7vw, 1.55rem); line-height: 1.25; }
+    .thread {
+      display: block; width: min(220px, 36vw); height: 3px; margin-top: 22px;
+      background: linear-gradient(90deg, #2f6fbf 0 25%, #1c8a86 25% 50%, #e98974 50% 75%, #e0b15a 75%);
+    }
+    .offers { display: contents; }
+    .world { grid-column: 1 / -1; grid-row: 2; position: relative; display: block; overflow: hidden; min-height: 280px; }
+    .world:focus-visible { outline-offset: -4px; }
+    .world img { width: 100%; height: 100%; object-fit: cover; object-position: 18% 62%; transform: scale(1.5); transform-origin: 20% 68%; }
+    .held {
+      grid-column: 2; grid-row: 1 / 3; align-self: end; justify-self: center; z-index: 3;
+      width: min(232px, 20vw); margin-bottom: 18px; display: flex; flex-direction: column;
+    }
+    .offer-copy { display: block; padding: 14px 2px 0; }
+    .held .offer-copy { margin-top: 10px; padding: 12px 14px; background: rgba(22, 19, 17, 0.9); }
+    .world .offer-copy {
+      position: absolute; left: 0; bottom: 0; z-index: 1;
+      right: 0; width: auto; max-width: none; padding: 16px clamp(20px, 4vw, 56px) 18px;
+      background: #161311;
+    }
+    .offers strong { display: block; font-size: clamp(1.8rem, 2.6vw, 2.7rem); line-height: 1; color: var(--paper); }
+    .offers span span { display: block; margin-top: 8px; max-width: 32ch; color: rgba(244, 240, 232, 0.82); font-size: 0.95rem; }
+    .offers a:hover strong { color: var(--coral); }
+    .seam { display: block; width: 100%; height: 56px; background: var(--paper); }
+    .seam.to-paper { background: var(--ink); }
+    .origin {
+      background: var(--paper); color: var(--ink);
+      padding: clamp(8px, 2vh, 28px) clamp(20px, 6vw, 88px) clamp(64px, 10vh, 110px);
+      display: grid; grid-template-columns: 1.25fr 0.75fr; gap: clamp(28px, 5vw, 72px); align-items: end;
+    }
+    .origin h2 { font-size: clamp(2.8rem, 5.4vw, 5.4rem); line-height: 0.94; }
+    .origin .plain { margin-top: 18px; max-width: 36ch; font-size: 1.08rem; }
+    .person { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 18px; align-items: center; }
+    .person img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: center 18%; }
+    .person strong { font-family: var(--display); font-size: 1.45rem; font-weight: 500; letter-spacing: -0.03em; }
+    .role { display: block; margin: 2px 0 8px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #b34732; }
+    .run { --p: 1; position: relative; height: 175vh; }
+    .card-run { height: 220vh; }
+    .stage {
+      position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
+    }
+    .card-run { background: var(--ink); color: var(--paper); }
+    .card-run .stage {
+      display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.9fr);
+      grid-template-rows: minmax(0, 1fr);
+      align-items: center; gap: clamp(16px, 3vw, 48px);
+      padding: 80px clamp(20px, 4vw, 64px) 20px;
+    }
+    .card-run .card-copy,
+    .card-run .object { min-height: 0; max-height: 100%; }
+    .card-copy h2, .studio-head h2 { font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 0.94; margin-top: 10px; }
+    .card-run h2 { transform: translateY(calc((1 - var(--p)) * 2.5vh)); }
+    .spark { margin-top: 18px; max-width: 40ch; opacity: calc(0.55 + (var(--p) * 0.45)); transform: translateY(calc((1 - var(--p)) * 12px)); }
+    .limit { margin-top: 16px; max-width: 42ch; color: #b34732; }
+    .origin .eyebrow, .studio-bar .eyebrow, .studio-bar .limit { color: #b34732; }
+    .uses { display: flex; flex-wrap: wrap; gap: 14px 22px; list-style: none; margin-top: 22px; }
+    .uses li {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral);
+      padding-top: 8px; border-top: 1px solid rgba(233, 137, 116, 0.5);
+    }
+    .go {
+      display: inline-flex; margin-top: 26px; min-height: 48px; align-items: center;
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      border-bottom: 1px solid var(--coral); width: fit-content; padding-bottom: 4px;
+    }
+    .go:hover, .go:focus-visible { color: var(--coral); border-bottom-color: transparent; }
+    .object {
+      justify-self: center; align-self: center;
+      width: min(240px, 22vw, calc((100svh - 210px) * 0.38));
+      margin: 0;
+      background: transparent; color: var(--paper);
+      transform-origin: 50% 60%;
+      transform: translateY(calc((1 - var(--p)) * 12px)) rotate(calc((1 - var(--p)) * -6deg));
+      opacity: calc(0.72 + (var(--p) * 0.28));
+    }
+    .phone {
+      position: relative; display: block; width: 100%;
+      padding: 7px 6px 9px;
       border-radius: 32px;
-      background:
-        linear-gradient(150deg, rgba(30, 74, 86, 0.92), rgba(26, 35, 50, 0.94)),
-        var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      isolation: isolate;
+      background: linear-gradient(168deg, #3c352f 0%, #1c1916 28%, #0e0c0b 62%, #2a241f 100%);
+      box-shadow:
+        0 0 0 1px #090807,
+        inset 0 0 0 1px rgba(255, 236, 214, 0.18),
+        0 14px 28px rgba(0, 0, 0, 0.28);
     }
-
-    .hero-mark::before,
-    .hero-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(253, 251, 248, 0.16);
+    .phone::before, .phone::after, .phone-btn {
+      content: ""; position: absolute; width: 2px; border-radius: 1px;
+      background: #2a2622;
     }
-
-    .hero-mark::before {
-      width: 360px;
-      height: 360px;
-      top: -110px;
-      right: -96px;
+    .phone::before { left: 0; top: 68px; height: 12px; }
+    .phone::after { left: 0; top: 88px; height: 26px; }
+    .phone-btn { right: 0; top: 104px; height: 36px; }
+    .phone-ear {
+      position: absolute; top: 2px; left: 50%; width: 40px; height: 3px;
+      transform: translateX(-50%); border-radius: 2px; background: #0c0b0a;
     }
-
-    .hero-mark::after {
-      width: 240px;
-      height: 240px;
-      left: -90px;
-      bottom: -78px;
+    .phone-screen {
+      position: relative; display: block; overflow: hidden; border-radius: 25px; background: #0e0c0b;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.45);
     }
-
-    .hero-mark-inner {
-      position: relative;
-      z-index: 1;
-      min-height: 420px;
-      display: grid;
-      align-content: space-between;
-      padding: clamp(26px, 4vw, 42px);
+    .phone-screen img { width: 100%; height: auto; display: block; object-fit: contain; object-position: center top; background: #efeae2; }
+    .card-run .phone-screen img { max-height: calc(100svh - 230px); width: auto; max-width: 100%; margin-inline: auto; }
+    .object figcaption, .sheet figcaption, .handset figcaption {
+      margin-top: 8px; text-align: center;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
     }
-
-    .hero-mark-inner::before {
-      content: "";
-      position: absolute;
-      width: clamp(180px, 24vw, 270px);
-      height: clamp(180px, 24vw, 270px);
-      top: 38px;
-      right: -54px;
-      background: url("assets/img/logo-palmier.png") center / contain no-repeat;
-      opacity: 0.065;
-      filter: saturate(0) brightness(2.4);
-      pointer-events: none;
+    .object figcaption { color: rgba(244, 240, 232, 0.72); }
+    .studio-run { background: #1a1714; color: var(--paper); }
+    .studio-run .stage { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding-top: 80px; }
+    .studio-head { padding: 0 clamp(20px, 5vw, 64px); }
+    .studio-run h2 { transform: translateY(calc((1 - var(--p)) * -3vh)); }
+    .spread { position: relative; min-height: 0; margin: 18px clamp(16px, 4vw, 48px) 12px; overflow: hidden; }
+    .sheet {
+      position: absolute; inset: 0 0 0 clamp(72px, 11vw, 150px);
+      overflow: hidden; border-radius: 16px; background: #1a1e28;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+      clip-path: inset(calc((1 - var(--p)) * 16%) calc((1 - var(--p)) * 10%) calc((1 - var(--p)) * 16%) calc((1 - var(--p)) * 6%));
     }
-
-    .hero-mark img {
-      width: 54px;
-      height: 54px;
-      object-fit: contain;
-      opacity: 0.95;
-      filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.2));
+    .sheet img { width: 100%; height: 100%; object-fit: cover; object-position: 12% 34%; transform: scale(1.3); transform-origin: 16% 38%; }
+    .sheet figcaption, .handset figcaption {
+      position: absolute; margin: 0; color: #e7dcc8;
+      background: rgba(22, 19, 17, 0.78); padding: 6px 8px;
     }
-
-    .hero-cardline {
-      display: grid;
-      gap: 12px;
-      max-width: 270px;
+    .sheet figcaption { right: 12px; bottom: 12px; }
+    .handset {
+      position: absolute; z-index: 2; left: 0; bottom: 0; width: min(210px, 18vw);
+      background: #10211c; border-radius: 26px; padding: 8px 7px 12px;
+      box-shadow: 0 22px 46px rgba(0, 0, 0, 0.45);
+      transform: translateY(calc((1 - var(--p)) * 28vh));
+      opacity: calc(0.15 + (var(--p) * 0.85));
     }
-
-    .hero-cardline span {
-      display: inline-flex;
-      width: fit-content;
-      padding: 8px 12px;
-      border: 1px solid rgba(253, 251, 248, 0.24);
-      border-radius: 999px;
-      background: rgba(253, 251, 248, 0.08);
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .handset img { width: 100%; height: min(36vh, 340px); object-fit: cover; object-position: center top; border-radius: 16px; }
+    .handset figcaption { position: static; margin-top: 8px; background: transparent; }
+    .studio-bar {
+      background: var(--paper); color: var(--ink);
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 22px; align-items: end;
+      padding: 16px clamp(16px, 4vw, 48px) 20px;
     }
-
-    .hero-cardline strong {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.65rem);
-      font-weight: 500;
-      line-height: 1.02;
-      letter-spacing: -0.02em;
+    .studio-bar p { margin-top: 8px; max-width: 62ch; }
+    .studio-bar .go { color: var(--ink); margin-top: 0; }
+    .close {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: start;
+      gap: 32px; padding: 28px clamp(20px, 6vw, 88px) 80px;
     }
-
-    .hero-note {
-      max-width: 270px;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 14px;
-      line-height: 1.6;
+    .close h2 { font-size: clamp(4.5rem, 9vw, 8.5rem); line-height: 0.82; }
+    .paths { list-style: none; }
+    .paths a {
+      display: flex; justify-content: space-between; gap: 16px; align-items: baseline;
+      padding: 16px 0; border-top: 1px solid var(--line);
+      font-size: clamp(1.5rem, 2.6vw, 2.15rem);
     }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: clamp(30px, 6vw, 76px);
-      align-items: start;
+    .paths li:last-child a { border-bottom: 1px solid var(--line); }
+    .paths small { font-family: var(--body); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral); }
+    .mail { display: inline-block; margin-top: 22px; font-family: var(--display); font-size: 1.45rem; }
+    .fine { margin-top: 10px; max-width: 46ch; font-size: 14px; color: rgba(244, 240, 232, 0.72); }
+    .fine a { text-decoration: underline; text-underline-offset: 3px; }
+    .paths { grid-column: 1 / -1; }
+    .letter { display: grid; gap: 16px; margin: 8px 0 0; color-scheme: dark; }
+    .letter label { display: grid; gap: 6px; }
+    .letter .lbl {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral);
     }
-
-    .intro-text {
-      padding-top: 10px;
-      border-top: 1px solid var(--accent-line);
+    .letter input, .letter select, .letter textarea {
+      width: 100%; background: transparent; color: var(--paper);
+      border: 0; border-bottom: 1px solid rgba(244, 240, 232, 0.28);
+      border-radius: 0; padding: 10px 0 12px; font: inherit; font-size: 16px;
     }
-
-    .intro-conclusion {
-      margin-top: 24px;
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2.4vw, 1.55rem);
-      font-style: italic;
-      color: var(--text);
-      line-height: 1.3;
+    .letter select { color-scheme: light; }
+    .letter select option { color: #1c1814; background-color: #f4f0e8; }
+    .letter select option:checked { color: #f4f0e8; background-color: #1c1814; }
+    .letter textarea { min-height: 128px; resize: vertical; }
+    .letter input:focus-visible, .letter select:focus-visible, .letter textarea:focus-visible {
+      outline: 2px solid var(--coral); outline-offset: 4px;
     }
-
-    .approach-wrap {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: clamp(30px, 6vw, 68px);
-      align-items: start;
+    .letter .miss { min-height: 1.1em; color: #e98974; font-size: 13px; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.4; color: rgba(244, 240, 232, 0.82); }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--coral); }
+    .consent a { text-decoration: underline; text-underline-offset: 3px; }
+    .letter .go { background: none; border-left: 0; border-right: 0; border-top: 0; cursor: pointer; color: inherit; }
+    .letter .go:disabled { opacity: 0.55; cursor: progress; }
+    .form-note { min-height: 1.3em; font-size: 14px; color: rgba(244, 240, 232, 0.82); }
+    .form-note[data-state="error"] { color: #e98974; }
+    .letter.is-sent > :not(.letter-sent) { display: none; }
+    .letter-sent { padding: 4px 0 8px; }
+    .letter-sent .lead {
+      margin-top: 14px; max-width: 18ch;
+      font-family: var(--display); font-weight: 500;
+      font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 0.94; letter-spacing: -0.04em;
     }
-
-    .principles {
-      display: grid;
-      gap: 0;
-      counter-reset: principle;
-      border-top: 1px solid var(--accent-line);
+    .letter-sent .again {
+      display: inline-flex; margin-top: 26px; min-height: 44px; align-items: center;
+      background: none; border: 0; border-bottom: 1px solid rgba(244, 240, 232, 0.45);
+      color: inherit; font: inherit; font-size: 14px; letter-spacing: 0.12em;
+      text-transform: uppercase; cursor: pointer; padding: 0 0 4px; width: fit-content;
     }
-
-    .principle {
-      counter-increment: principle;
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(118px, 0.4fr) 1fr;
-      gap: 24px;
-      padding: 26px 0;
-      border-bottom: 1px solid rgba(176, 152, 114, 0.2);
+    .letter-sent .again:hover, .letter-sent .again:focus-visible { color: var(--coral); border-bottom-color: transparent; }
+    .hp { position: absolute; left: -9999px; height: 0; overflow: hidden; }
+    footer {
+      background: #100e0c; color: rgba(244, 240, 232, 0.78);
+      padding: 28px clamp(20px, 5vw, 64px) 40px; font-size: 13px;
     }
-
-    .principle h3 {
-      position: relative;
-      font-family: var(--font-display);
-      font-size: clamp(1.58rem, 3vw, 2.12rem);
-      font-weight: 600;
-      line-height: 1.05;
-      letter-spacing: -0.018em;
-    }
-
-    .principle h3::before {
-      content: counter(principle, decimal-leading-zero);
-      display: block;
-      margin-bottom: 8px;
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-    }
-
-    .principle p {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .solution-panel {
-      position: relative;
-      overflow: hidden;
-      border-radius: 34px;
-      background:
-        linear-gradient(135deg, rgba(30, 74, 86, 0.96), rgba(26, 35, 50, 0.96)),
-        var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow);
-      isolation: isolate;
-    }
-
-    .solution-panel::before {
-      content: "";
-      position: absolute;
-      inset: 22px;
-      border: 1px solid rgba(253, 251, 248, 0.13);
-      border-radius: 24px;
-      pointer-events: none;
-    }
-
-    .solution-panel::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      right: clamp(18px, 5vw, 72px);
-      bottom: -92px;
-      border-radius: 999px;
-      background: rgba(176, 152, 114, 0.1);
-      filter: blur(2px);
-      pointer-events: none;
-    }
-
-    .solution-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(250px, 0.7fr);
-      gap: clamp(28px, 5vw, 58px);
-      align-items: center;
-      padding: clamp(28px, 6vw, 58px);
-    }
-
-    .solution-panel .eyebrow,
-    .solution-panel .section-sub,
-    .solution-panel .prose { color: rgba(255, 255, 255, 0.74); }
-
-    .solution-panel .section-title {
-      color: #fff;
-      max-width: 13ch;
-    }
-
-    .solution-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .solution-label::before {
-      content: "";
-      width: 26px;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.36);
-    }
-
-    .solution-panel .btn-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.22);
-      color: #fff;
-    }
-
-    .solution-panel .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.42);
-    }
-
-    .solution-preview {
-      justify-self: center;
-      width: min(100%, 330px);
-      padding: 14px;
-      border-radius: 30px;
-      background: rgba(253, 251, 248, 0.08);
-      border: 1px solid rgba(253, 251, 248, 0.16);
-    }
-
-    .solution-preview img {
-      width: 100%;
-      border-radius: 22px;
-      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.22);
-    }
-
-    .studio-invite {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-      gap: clamp(28px, 5vw, 64px);
-      align-items: center;
-    }
-
-    .studio-invite .btn { margin-top: 26px; }
-
-    .studio-invite-visual {
-      position: relative;
-      display: block;
-      min-height: 320px;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .studio-invite-visual img {
-      width: 100%;
-      height: 100%;
-      min-height: 320px;
-      object-fit: cover;
-      object-position: 62% 30%;
-    }
-
-    .studio-invite-visual span {
-      position: absolute;
-      left: 16px;
-      bottom: 16px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(253, 251, 248, 0.92);
-      color: var(--primary);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .vision-grid {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: clamp(30px, 6vw, 72px);
-      align-items: start;
-    }
-
-    .vision-lines {
-      display: grid;
-      gap: 0;
-      padding-left: clamp(18px, 3vw, 34px);
-      border-left: 1px solid var(--accent-line);
-    }
-
-    .vision-lines .prose {
-      position: relative;
-      max-width: 68ch;
-      padding: 0 0 22px 44px;
-    }
-
-    .vision-lines .prose:not(:last-child) {
-      border-bottom: 1px solid rgba(176, 152, 114, 0.16);
-      margin-bottom: 22px;
-    }
-
-    .vision-lines .prose::before {
-      position: absolute;
-      left: 0;
-      top: 2px;
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      line-height: 1;
-      color: var(--accent);
-    }
-
-    .vision-lines .prose:nth-child(1)::before { content: "01"; }
-    .vision-lines .prose:nth-child(2)::before { content: "02"; }
-    .vision-lines .prose:nth-child(3)::before { content: "03"; }
-
-    .founder-grid {
-      display: grid;
-      grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
-      gap: clamp(26px, 5vw, 58px);
-      align-items: center;
-      max-width: 900px;
-    }
-
-    .founder-portrait {
-      aspect-ratio: 1 / 1;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .founder-portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      transform: scale(1.03);
-    }
-
-    .founder-subtitle {
-      margin: 14px 0 22px;
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .contact-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: clamp(28px, 5vw, 58px);
-      align-items: center;
-      padding: clamp(28px, 5vw, 52px);
-      border: 1px solid rgba(176, 152, 114, 0.22);
-      border-radius: 30px;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(176, 152, 114, 0.14), transparent 30%),
-        linear-gradient(135deg, rgba(253, 251, 248, 0.96), rgba(246, 244, 240, 0.88)),
-        var(--surface);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .contact-card::after {
-      content: "";
-      position: absolute;
-      right: clamp(22px, 5vw, 58px);
-      top: 50%;
-      width: 72px;
-      height: 1px;
-      background: var(--accent-line);
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .contact-email {
-      margin-top: 22px;
-      font-family: var(--font-display);
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      font-weight: 600;
-      color: var(--primary);
-      overflow-wrap: anywhere;
-    }
-
-    .contact-email a:hover { color: var(--primary-hover); }
-
-    .contact-legal {
-      margin-top: 18px;
-      font-size: 13px;
-      color: var(--muted-soft);
-      line-height: 1.55;
-      max-width: 60ch;
-    }
-
-    .contact-legal a {
-      color: inherit;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .site-footer {
-      padding: 44px 0 50px;
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-    }
-
-    .footer-cols {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr 1fr;
-      gap: 32px;
-    }
-
-    .footer-col h4 {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: grid;
-      gap: 8px;
-    }
-
-    .footer-col a,
-    .footer-col li {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .footer-col a:hover { color: var(--primary); }
-
-    .footer-bottom {
-      margin-top: 32px;
-      padding-top: 20px;
-      border-top: 1px solid var(--accent-line);
-    }
-
-    .footer-tagline {
-      font-family: var(--font-display);
-      font-size: 1.12rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--muted-soft);
-    }
-
-    .footer-copy a { color: var(--primary); }
-
-    @media (max-width: 980px) {
-      .page-nav { display: none; }
-      .menu-toggle { display: inline-flex; }
-
-      .hero-grid,
-      .intro-grid,
-      .approach-wrap,
-      .solution-grid,
-      .vision-grid,
-      .contact-card {
-        grid-template-columns: 1fr;
+    footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px; }
+    footer a:hover { color: var(--paper); }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero h1 em { animation: open 0.9s cubic-bezier(.2,.7,.2,1) both; }
+      .held, .world { animation: settle 0.9s cubic-bezier(.2,.7,.2,1) both; }
+      .world { animation-delay: 0.12s; }
+      @keyframes open {
+        from { clip-path: inset(0 0 100% 0); }
+        to { clip-path: inset(0); }
       }
-
-      .display-title,
-      .section-title { max-width: 100%; }
-
-      .hero-mark,
-      .hero-mark-inner { min-height: 340px; }
-      .solution-preview { justify-self: start; }
-      .contact-card::after { display: none; }
-      .footer-cols { grid-template-columns: repeat(2, 1fr); }
+      @keyframes settle {
+        from { opacity: 0; transform: translateY(18px); }
+        to { opacity: 1; transform: none; }
+      }
     }
-
-    @media (max-width: 640px) {
-      :root { --section-pad: 54px; }
-      body { background-size: 54px 54px; }
-      .page-topbar-brand span { display: none; }
-      .topbar-right { gap: 8px; }
-      .hero { padding-top: 50px; }
-      .hero::before { inset: 12px; border-radius: 24px; }
-      .display-title {
-        font-size: clamp(2.45rem, 11vw, 3rem);
-        line-height: 0.96;
-        letter-spacing: -0.032em;
-      }
-      .display-sub { margin-top: 18px; }
-      .hero-mark,
-      .hero-mark-inner { min-height: 300px; }
-      .principle { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
-      .solution-grid { padding: 28px 22px; }
-      .solution-panel::before { inset: 12px; border-radius: 24px; }
-      .solution-preview {
-        justify-self: center;
-        width: min(100%, 260px);
-        padding: 10px;
-        border-radius: 26px;
-      }
-      .solution-preview img {
-        border-radius: 18px;
-        max-height: 460px;
-        object-fit: contain;
-      }
-      .studio-invite { grid-template-columns: 1fr; }
-      .founder-grid { grid-template-columns: 1fr; }
-      .founder-portrait { max-width: 230px; }
-      .contact-card { text-align: center; }
-      .contact-card .btn-row { justify-content: center; }
-      .footer-cols { grid-template-columns: 1fr; }
+    @media (max-height: 820px) and (min-width: 901px) {
+      .card-run .stage { padding-top: 72px; padding-bottom: 12px; }
+      .card-run h2 { font-size: clamp(2.05rem, 3.6vw, 3.15rem); }
+      .card-run .spark { margin-top: 8px; }
+      .card-run .uses { margin-top: 10px; }
+      .card-run .go { margin-top: 12px; }
     }
-
-    @media (max-width: 430px) {
-      .container { padding: 0 16px; }
-      .btn-row { flex-direction: column; }
-      .btn-row .btn { width: 100%; white-space: normal; text-align: center; }
-      .lang-switch button { padding: 5px 7px; }
-      .hero-mark-inner { padding: 24px; }
-      .solution-preview { width: min(100%, 242px); }
-      .contact-card { padding: 24px 20px; }
+    @media (max-height: 560px) and (min-width: 901px) {
+      .card-run { height: auto; }
+      .card-run .stage { position: relative; height: auto; overflow: visible; }
+      .card-run h2, .card-run .spark, .card-run .object { transform: none; opacity: 1; }
+    }
+    @media (max-width: 900px) {
+      .nav {
+        display: none; position: fixed; inset: 64px 0 0 0; z-index: 30;
+        background: var(--ink); flex-direction: column; justify-content: flex-end;
+        padding: 24px 24px 36px; gap: 4px; text-transform: none; letter-spacing: 0;
+      }
+      .nav.open { display: flex; }
+      .nav a { font-family: var(--display); font-size: clamp(2rem, 8vw, 2.6rem); min-height: 52px; display: flex; align-items: center; }
+      .menu-btn { display: inline-flex; align-items: center; }
+      .hero {
+        display: flex; flex-direction: column; height: auto; min-height: 100svh; overflow: visible;
+        padding: 76px 0 12px; grid-template-columns: none;
+      }
+      .poster { padding: 8px 20px 12px; }
+      .hero h1 { font-size: clamp(2.7rem, 12vw, 3.6rem); max-width: none; }
+      .ambition { margin-top: 10px; font-size: 1.05rem; }
+      .offers { display: flex; flex-direction: column; position: relative; flex: 1; min-height: 0; margin: 0; }
+      .world, .held { position: relative; inset: auto; width: auto; margin: 0; grid-column: auto; grid-row: auto; }
+      .world { height: 28vh; min-height: 188px; }
+      .world img { object-position: 8% 52%; transform: scale(1.22); transform-origin: 10% 56%; }
+      .held { width: min(168px, 46%); margin: 10px auto 0; }
+      .held .phone-screen { aspect-ratio: 9 / 19.5; }
+      .held .phone-screen img { position: absolute; inset: 0; height: 100%; object-fit: cover; object-position: center top; }
+      .offers strong { font-size: 1.4rem; }
+      .world .offer-copy { left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: none; padding: 10px 16px 12px; }
+      .held .offer-copy { padding: 8px 4px 0; background: transparent; }
+      .held .offer-copy, .held strong, .held span span { color: var(--paper); }
+      .offers span span { font-size: 0.82rem; }
+      .origin, .close, .card-run .stage { grid-template-columns: 1fr; }
+      .person { grid-template-columns: 96px 1fr; }
+      .person img { width: 96px; height: 96px; }
+      .run { height: auto; }
+      .stage { position: relative; height: auto; overflow: visible; }
+      .card-run h2, .studio-run h2, .spark, .object, .handset { transform: none; opacity: 1; }
+      .card-run .stage { padding: 88px 20px 28px; }
+      .object { width: min(270px, 74vw); justify-self: center; }
+      .studio-run .stage { display: flex; flex-direction: column; padding-top: 84px; }
+      .spread { min-height: 0; margin: 16px 16px 0; }
+      .sheet { position: relative; inset: auto; height: 52vh; margin: 0; clip-path: none; }
+      .sheet img { object-position: 12% 58%; transform: scale(1.28); transform-origin: 18% 62%; }
+      .sheet figcaption { top: 10px; bottom: auto; left: auto; right: 10px; }
+      .handset { position: relative; width: min(190px, 58vw); margin: -48px 0 0 16px; }
+      .handset img { height: 280px; }
+      .studio-bar { grid-template-columns: 1fr; }
+      .close { min-height: 0; }
+      .paths a { flex-direction: column; gap: 4px; }
+    }
+    @media (max-width: 900px) and (min-width: 700px) {
+      .held { width: min(220px, 32%); }
+      .world { height: 32vh; min-height: 210px; }
+      .object { width: min(300px, 40vw); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .run { height: auto; }
+      .stage { position: relative; height: auto; overflow: visible; }
+      .card-run h2, .studio-run h2, .spark, .object, .handset { transform: none; opacity: 1; }
+      .sheet { clip-path: none; }
+      .held, .world, .hero h1 em { animation: none; }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#contenu" data-i18n="skip">Aller au contenu</a>
+  <header class="top">
+    <a class="brand" href="#ouverture">
+      <img src="../assets/img/logo-palmier.png" alt="" width="34" height="34" />
+      <strong>MAAVNICA</strong>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation" data-i18n-aria="aria_nav">
+      <a href="#ouverture" data-i18n="nav_home">Conviction</a>
+      <a href="#constat" data-i18n="nav_why">Le constat</a>
+      <a href="#smartcard" data-i18n="nav_card">La carte</a>
+      <a href="#studio" data-i18n="nav_site">Le site</a>
+      <a href="#ecrire" data-i18n="nav_write">Écrire</a>
+    </nav>
+    <div class="tools">
+      <div class="langs" role="group" aria-label="Langue" data-i18n-aria="aria_lang">
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <button class="menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </header>
 
-  <!-- S0 — Header -->
-  <header class="page-topbar" id="top">
-    <div class="container">
-      <div class="page-topbar-inner">
-        <a href="#top" class="page-topbar-brand">
-          <img src="assets/img/logo-palmier.png" alt="" width="28" height="28" decoding="async" role="presentation" />
-          <div>
-            <strong>MAAVNICA</strong>
-            <span data-i18n="brand_tagline">Solutions numériques</span>
-          </div>
+  <main id="contenu">
+    <section class="hero" id="ouverture">
+      <div class="poster">
+        <p class="eyebrow">Maavnica</p>
+        <h1 data-i18n="hero_title">Le savoir-faire <em>existe.</em></h1>
+        <p class="ambition" data-i18n="hero_ambition">Notre ambition est de le révéler.</p>
+        <span class="thread" aria-hidden="true"></span>
+      </div>
+      <nav class="offers" aria-label="Réalisations" data-i18n-aria="aria_works">
+        <a class="world" href="#studio">
+          <img src="../studio/media/augustin-desktop.jpg" alt="" />
+          <span class="offer-copy">
+            <strong data-i18n="offer_site">Un site</strong>
+            <span data-i18n="offer_site_d">Une page à la hauteur du travail, pour une activité précise.</span>
+          </span>
         </a>
-        <div class="topbar-right">
-          <nav class="page-nav" aria-label="Navigation principale">
-            <a href="#maavnica" data-i18n="nav_maavnica">Maavnica</a>
-            <a href="#approche" data-i18n="nav_approach">Notre approche</a>
-            <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
-            <a href="studio/" data-i18n="nav_studio">Studio</a>
-            <a href="#fondateur" data-i18n="nav_founder">Fondateur</a>
-            <a href="#contact" data-i18n="nav_contact">Contact</a>
-          </nav>
-          <div class="lang-switch" aria-label="Choix de la langue">
-            <button type="button" data-lang="fr" aria-label="Français">FR</button>
-            <button type="button" data-lang="en" aria-label="English">EN</button>
-            <button type="button" data-lang="es" aria-label="Español">ES</button>
-          </div>
-          <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" data-i18n="nav_menu">Menu</button>
-        </div>
-      </div>
-      <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
-        <a href="#maavnica" data-i18n="nav_maavnica">Maavnica</a>
-        <a href="#approche" data-i18n="nav_approach">Notre approche</a>
-        <a href="#solutions" data-i18n="nav_solutions">Nos solutions</a>
-        <a href="studio/" data-i18n="nav_studio">Studio</a>
-        <a href="#fondateur" data-i18n="nav_founder">Fondateur</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a class="held" href="#smartcard">
+          <span class="phone">
+            <span class="phone-ear" aria-hidden="true"></span>
+            <span class="phone-btn" aria-hidden="true"></span>
+            <span class="phone-screen">
+              <img src="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png" alt="" width="720" height="1280" />
+            </span>
+          </span>
+          <span class="offer-copy">
+            <strong data-i18n="offer_card">Une carte</strong>
+            <span data-i18n="offer_card_d">Présenter une activité, partager ses coordonnées, faciliter une recommandation.</span>
+          </span>
+        </a>
       </nav>
-    </div>
-  </header>
+    </section>
+    <svg class="seam to-paper" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#f4f0e8" d="M0,38 C420,6 920,58 1440,16 L1440,64 L0,64 Z"></path>
+    </svg>
 
-  <!-- S1 — Hero -->
-  <header class="hero" id="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero_kicker">Maison Maavnica</p>
-        <h1 class="display-title" data-i18n="hero_title">Des solutions numériques pensées pour les professionnels.</h1>
-        <p class="display-sub" data-i18n="hero_subtitle">Maavnica imagine et développe des services simples, utiles et accessibles, conçus à partir de besoins professionnels concrets.</p>
-        <div class="btn-row">
-          <a href="#maavnica" class="btn btn-primary" data-i18n="cta_discover_maavnica">Découvrir Maavnica</a>
-          <a href="#solutions" class="btn btn-secondary" data-i18n="cta_solutions">Nos solutions</a>
-        </div>
-      </div>
-      <aside class="hero-mark" aria-label="Signature Maavnica">
-        <div class="hero-mark-inner">
-          <img src="assets/img/logo-palmier.png" alt="" width="54" height="54" decoding="async" role="presentation" />
-          <div class="hero-cardline">
-            <span data-i18n="hero_mark_label">Partir de l'usage</span>
-            <strong data-i18n="hero_mark_title">Observer. Imaginer. Construire.</strong>
-          </div>
-          <p class="hero-note" data-i18n="hero_mark_note">Une marque qui transforme des besoins professionnels réels en services numériques sobres et durables.</p>
-        </div>
-      </aside>
-    </div>
-  </header>
-
-  <!-- S2 — Maavnica -->
-  <section class="section section--surface" id="maavnica">
-    <div class="container intro-grid">
+    <section class="origin" id="constat">
       <div>
-        <p class="eyebrow" data-i18n="maavnica_kicker">Maavnica</p>
-        <h2 class="section-title" data-i18n="maavnica_title">Partir d'un besoin. Construire la bonne réponse.</h2>
+        <p class="eyebrow" data-i18n="constat_label">Le constat</p>
+        <h2 data-i18n="constat_title">Ce que l'on montre ne dit pas toujours le métier.</h2>
+        <p class="plain" data-i18n="constat_text">Beaucoup de professionnels ont un véritable savoir-faire. Ce qu'ils donnent à voir de leur activité ne le reflète pas toujours. Maavnica est née de là : observer, imaginer une réponse, la construire. Le numérique vient après, lorsqu'il est le bon moyen.</p>
       </div>
-      <div class="intro-text">
-        <p class="prose" data-i18n="maavnica_text1">Maavnica part d'une conviction simple : un outil numérique n'a de valeur que s'il répond à un besoin réel.</p>
-        <p class="prose" data-i18n="maavnica_text2">Nous observons les usages, identifions des problématiques concrètes et développons des solutions simples à comprendre, faciles à utiliser et adaptées à la réalité des professionnels.</p>
-        <p class="intro-conclusion" data-i18n="maavnica_conclusion">La technologie n'est pas le point de départ. L'usage l'est.</p>
-      </div>
-    </div>
-  </section>
+      <figure class="person">
+        <img src="../assets/img/fondateur.png" alt="Arnaud Petitjean-Huard, fondateur de Maavnica" data-i18n-alt="who_alt" width="360" height="360" />
+        <figcaption>
+          <strong>Arnaud Petitjean-Huard</strong>
+          <span class="role" data-i18n="who_role">Fondateur</span>
+          <p data-i18n="who_quote">Maavnica est née de ce constat. J'ai voulu des réponses concrètes, pas une méthode sans fin.</p>
+        </figcaption>
+      </figure>
+    </section>
+    <svg class="seam" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#161311" d="M0,18 C540,62 980,4 1440,46 L1440,64 L0,64 Z"></path>
+    </svg>
 
-  <!-- S3 — Notre approche -->
-  <section class="section" id="approche">
-    <div class="container approach-wrap">
-      <div>
-        <p class="eyebrow" data-i18n="approach_kicker">Notre approche</p>
-        <h2 class="section-title" data-i18n="approach_title">Des principes simples, tenus dans chaque projet.</h2>
-        <p class="section-sub" data-i18n="approach_subtitle">Ils ne décrivent pas une méthode figée. Ils donnent une direction : concevoir des services que les professionnels peuvent comprendre, adopter et utiliser sans friction inutile.</p>
-      </div>
-      <div class="principles" aria-label="Principes Maavnica">
-        <article class="principle">
-          <h3 data-i18n="principle_useful_title">Utile</h3>
-          <p data-i18n="principle_useful_text">Un service doit résoudre quelque chose de concret, pas seulement ajouter une couche numérique.</p>
-        </article>
-        <article class="principle">
-          <h3 data-i18n="principle_simple_title">Simple</h3>
-          <p data-i18n="principle_simple_text">La valeur doit être lisible rapidement, dans les mots, les parcours et les gestes du quotidien.</p>
-        </article>
-        <article class="principle">
-          <h3 data-i18n="principle_accessible_title">Accessible</h3>
-          <p data-i18n="principle_accessible_text">Les solutions doivent rester compréhensibles et utilisables par les professionnels auxquels elles s'adressent.</p>
-        </article>
-        <article class="principle">
-          <h3 data-i18n="principle_human_title">Humain</h3>
-          <p data-i18n="principle_human_text">Le numérique doit soutenir la relation, pas remplacer la confiance ni complexifier l'échange.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- S4 — Nos solutions -->
-  <section class="section" id="solutions">
-    <div class="container">
-      <div class="solution-panel">
-        <div class="solution-grid">
-          <div>
-            <p class="eyebrow" data-i18n="solutions_kicker">Nos solutions</p>
-            <p class="solution-label" data-i18n="smartcard_label">Une solution Maavnica</p>
-            <h2 class="section-title" data-i18n="smartcard_title">SMARTCARD</h2>
-            <p class="section-sub" data-i18n="smartcard_subtitle">La carte professionnelle de confiance.</p>
-            <p class="prose" data-i18n="smartcard_text">SmartCard permet aux professionnels de présenter leur activité, prolonger la relation après une rencontre et faciliter naturellement le contact, l'avis et la recommandation.</p>
-            <div class="btn-row">
-              <a href="https://smartcard.maavnica.com" class="btn btn-secondary" data-i18n="cta_smartcard">Découvrir SmartCard</a>
+    <div class="run card-run" id="smartcard">
+      <div class="stage">
+        <div class="card-copy">
+          <p class="eyebrow">SmartCard</p>
+          <h2 data-i18n="card_title">Faire circuler ce que l'on est.</h2>
+          <p class="spark" data-i18n="card_text">Présentez votre activité, partagez vos coordonnées et facilitez les recommandations grâce à une carte professionnelle numérique.</p>
+          <ul class="uses">
+            <li data-i18n="use_present">Présenter</li>
+            <li data-i18n="use_reach">Joindre</li>
+            <li data-i18n="use_share">Recommander</li>
+          </ul>
+          <a class="go" href="https://smartcard.maavnica.com" data-i18n="cta_smartcard">Découvrir SmartCard</a>
+        </div>
+        <figure class="object">
+          <div class="phone">
+            <span class="phone-ear" aria-hidden="true"></span>
+            <span class="phone-btn" aria-hidden="true"></span>
+            <div class="phone-screen">
+              <img src="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png" alt="Interface réelle d'une carte SmartCard." width="720" height="1280" />
             </div>
           </div>
-          <div class="solution-preview">
-            <img
-              src="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png"
-              alt="Aperçu réel de SmartCard Maavnica"
-              width="360"
-              height="720"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async" />
+          <figcaption data-i18n="card_caption">Interface réelle</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="run studio-run" id="studio">
+      <div class="stage">
+        <div class="studio-head">
+          <p class="eyebrow">Studio</p>
+          <h2 data-i18n="studio_title">Donner à la page le niveau du travail.</h2>
+        </div>
+        <div class="spread">
+          <figure class="sheet">
+            <img src="../studio/media/augustin-desktop.jpg" alt="Démonstration fictive Atelier Augustin, page d'un tailleur imaginé." />
+            <figcaption data-i18n="studio_fake">Démonstration fictive · Atelier Augustin</figcaption>
+          </figure>
+          <figure class="handset">
+            <img src="../studio/media/julie-mobile.jpg" alt="Démonstration fictive Julie Martin, sur mobile." />
+            <figcaption data-i18n="julie_fake">Julie Martin · fictif</figcaption>
+          </figure>
+        </div>
+        <div class="studio-bar">
+          <div>
+            <p data-i18n="studio_text">Un site composé pour une activité précise. Une direction adaptée au métier, les fichiers remis, une première publication sur un compte à votre nom.</p>
+            <p class="limit" data-i18n="studio_note">Julie Martin et Atelier Augustin sont des démonstrations fictives. Aucun des deux n'exerce. Les prix restent sur la page Studio.</p>
           </div>
+          <a class="go" href="../studio/" data-i18n="cta_studio">Découvrir Studio</a>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="section section--surface" id="studio-apercu">
-    <div class="container studio-invite">
+    <svg class="seam" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#161311" d="M0,46 C500,8 960,60 1440,20 L1440,64 L0,64 Z"></path>
+    </svg>
+
+    <section class="close" id="ecrire">
       <div>
-        <p class="eyebrow" data-i18n="studio_kicker">Maavnica Studio</p>
-        <h2 class="section-title" data-i18n="studio_title">Un site à la mesure de votre métier.</h2>
-        <p class="prose" data-i18n="studio_text">Studio compose des sites vitrines pour les indépendants et les petites entreprises. Une page soignée, puis sa première publication sur un compte à votre nom.</p>
-        <a href="studio/" class="btn btn-primary" data-i18n="cta_studio">Découvrir Studio</a>
+        <h2 data-i18n="contact_title">Écrire.</h2>
+        <p class="ambition" data-i18n="contact_text">Dites ce que vous faites, et ce que vous aimeriez mieux montrer.</p>
+        <p class="fine" data-i18n="form_or">Ou directement</p>
+        <a class="mail" href="mailto:contact@maavnica.com">contact@maavnica.com</a>
       </div>
-      <a class="studio-invite-visual" href="studio/#realisations">
-        <img src="studio/media/augustin-desktop.jpg" alt="Démonstration fictive : page d'accueil d'Atelier Augustin, tailleur imaginé." width="1280" height="853" loading="lazy" decoding="async" />
-        <span data-i18n="studio_fiction">Démonstration fictive</span>
-      </a>
-    </div>
-  </section>
+      <form class="letter" id="letter" action="#" method="post" novalidate>
+        <p class="hp">
+          <label aria-hidden="true"><input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
+        </p>
+        <label>
+          <span class="lbl" data-i18n="form_name">Nom</span>
+          <input type="text" name="name" autocomplete="name" required maxlength="80" />
+          <span class="miss" data-error="name"></span>
+        </label>
+        <label>
+          <span class="lbl" data-i18n="form_email">Adresse e-mail</span>
+          <input type="email" name="email" autocomplete="email" required inputmode="email" maxlength="160" />
+          <span class="miss" data-error="email"></span>
+        </label>
+        <label>
+          <span class="lbl" data-i18n="form_subject">Objet</span>
+          <select name="subject" required>
+            <option value="" data-i18n="form_subject_placeholder">Choisir</option>
+            <option value="smartcard" data-i18n="form_subject_card">SmartCard</option>
+            <option value="studio" data-i18n="form_subject_site">Studio</option>
+            <option value="other" data-i18n="form_subject_other">Autre demande</option>
+          </select>
+          <span class="miss" data-error="subject"></span>
+        </label>
+        <label>
+          <span class="lbl" data-i18n="form_message">Message</span>
+          <textarea name="message" required rows="5" maxlength="4000"></textarea>
+          <span class="miss" data-error="message"></span>
+        </label>
+        <label class="consent">
+          <input type="checkbox" name="privacy" value="yes" required aria-describedby="privacy-error" />
+          <span data-i18n="form_privacy">J'ai pris connaissance de la <a href="/confidentialite.html">politique de confidentialité</a>.</span>
+        </label>
+        <span class="miss" id="privacy-error" data-error="privacy"></span>
+        <button class="go" type="submit" data-i18n="form_send">Envoyer</button>
+        <p class="form-note" id="letter-note" role="status" aria-live="polite"></p>
+        <div class="letter-sent" id="letter-sent" hidden>
+          <p class="eyebrow" data-i18n="form_sent_kicker">Envoyé</p>
+          <p class="lead" data-i18n="form_sent">Votre message est envoyé. Il arrive à contact@maavnica.com.</p>
+          <button type="button" class="again" id="letter-again" data-i18n="form_again">Écrire un autre message</button>
+        </div>
+      </form>
+      <ul class="paths">
+        <li><a href="https://smartcard.maavnica.com"><span data-i18n="path_card">Une carte professionnelle</span><small>SmartCard</small></a></li>
+        <li><a href="../studio/"><span data-i18n="path_site">Un site pour votre activité</span><small>Studio</small></a></li>
+        <li><a href="#letter"><span data-i18n="path_talk">En parler d'abord</span><small data-i18n="path_hint">Écrire</small></a></li>
+      </ul>
+    </section>
+  </main>
 
-  <!-- S5 — Vision Maavnica -->
-  <section class="section section--surface" id="vision">
-    <div class="container vision-grid">
-      <div>
-        <p class="eyebrow" data-i18n="vision_kicker">Vision Maavnica</p>
-        <h2 class="section-title" data-i18n="vision_title">Observer. Imaginer. Construire.</h2>
-      </div>
-      <div class="vision-lines">
-        <p class="prose" data-i18n="vision_text1">Maavnica ne part pas d'une technologie à vendre. Nous partons d'un problème à résoudre.</p>
-        <p class="prose" data-i18n="vision_text2">Chaque projet commence par l'observation d'un usage, d'une difficulté ou d'une opportunité. Certaines idées deviennent des produits. D'autres restent des expérimentations.</p>
-        <p class="prose" data-i18n="vision_text3">Toutes répondent à la même exigence : être réellement utiles.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- S6 — Fondateur -->
-  <section class="section" id="fondateur">
-    <div class="container">
-      <div class="founder-grid">
-        <div class="founder-portrait">
-          <img src="assets/img/fondateur.png" alt="Arnaud Petitjean-Huard, fondateur de Maavnica" width="220" height="275" loading="eager" fetchpriority="high" decoding="async" />
-        </div>
-        <div>
-          <p class="eyebrow" data-i18n="founder_kicker">Fondateur</p>
-          <h2 class="section-title" data-i18n="founder_title">Derrière Maavnica</h2>
-          <p class="founder-subtitle" data-i18n="founder_subtitle">Arnaud Petitjean-Huard — Fondateur</p>
-          <p class="prose" data-i18n="founder_text1">Maavnica est née d'une envie simple : transformer des problématiques professionnelles concrètes en solutions numériques utiles.</p>
-          <p class="prose" data-i18n="founder_text2">L'objectif n'est pas de multiplier les outils, mais de construire progressivement des services cohérents, simples et réellement utilisables.</p>
-          <p class="prose" data-i18n="founder_text3">SmartCard constitue la première expression de cette démarche.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- S7 — Contact -->
-  <section class="section section--surface" id="contact">
-    <div class="container">
-      <div class="contact-card">
-        <div>
-          <p class="eyebrow" data-i18n="contact_kicker">Contact</p>
-          <h2 class="section-title" data-i18n="contact_title">Parler avec Maavnica</h2>
-        </div>
-        <div>
-          <p class="prose" data-i18n="contact_text">Pour une question institutionnelle, un projet ou un échange autour de Maavnica, écrivez-nous directement.</p>
-          <p class="contact-email"><a href="mailto:contact@maavnica.com">contact@maavnica.com</a></p>
-          <div class="btn-row">
-            <a href="mailto:contact@maavnica.com" class="btn btn-primary" data-i18n="cta_contact">Nous contacter</a>
-          </div>
-          <p class="contact-legal" data-i18n="contact_legal">En nous écrivant, vous acceptez le traitement de votre message pour y répondre. <a href="/confidentialite.html">Confidentialité</a> · droits : contact@maavnica.com.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- S8 — Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h4>MAAVNICA</h4>
-          <ul>
-            <li><a href="#maavnica" data-i18n="footer_about">À propos</a></li>
-            <li><a href="#approche" data-i18n="nav_approach">Notre approche</a></li>
-            <li><a href="#solutions" data-i18n="nav_solutions">Nos solutions</a></li>
-            <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 data-i18n="footer_solutions_col">Solutions</h4>
-          <ul>
-            <li><a href="https://smartcard.maavnica.com" data-i18n="footer_smartcard">SmartCard</a></li>
-            <li><a href="studio/" data-i18n="footer_studio">Studio</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4 data-i18n="footer_info_col">Informations</h4>
-          <ul>
-            <li><a href="/mentions-legales.html" data-i18n="footer_mentions">Mentions légales</a></li>
-            <li><a href="/confidentialite.html" data-i18n="footer_privacy">Confidentialité</a></li>
-            <li><a href="/cookies.html" data-i18n="footer_cookies">Cookies</a></li>
-            <li><a href="/cgv.html" data-i18n="footer_cgv">CGV</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-tagline" data-i18n="footer_tagline">Des solutions numériques pensées pour les professionnels.</p>
-        <p class="footer-copy">© <span id="y"></span> Maavnica™ · <a href="mailto:contact@maavnica.com">contact@maavnica.com</a></p>
-      </div>
-    </div>
+  <footer>
+    <nav aria-label="Pied de page" data-i18n-aria="aria_foot">
+      <a href="https://smartcard.maavnica.com">SmartCard</a>
+      <a href="../studio/">Studio</a>
+      <a href="/mentions-legales.html" data-i18n="foot_legal">Mentions légales</a>
+      <a href="/confidentialite.html" data-i18n="foot_privacy">Confidentialité</a>
+      <a href="/cookies.html" data-i18n="foot_cookies">Cookies</a>
+      <a href="/cgv.html" data-i18n="foot_cgv">CGV</a>
+    </nav>
+    <p>© <span id="y"></span> Maavnica</p>
   </footer>
 
   <script>
-    const I18N = {
+    var I18N = {
       fr: {
-        meta_title: "Maavnica — Solutions numériques pour les professionnels",
-        meta_description: "Maavnica imagine et développe des solutions numériques simples et utiles pour les professionnels. Découvrez nos projets et nos solutions, dont SmartCard.",
-        brand_tagline: "Solutions numériques",
-        nav_maavnica: "Maavnica",
-        nav_approach: "Notre approche",
-        nav_solutions: "Nos solutions",
-        nav_studio: "Studio",
-        nav_founder: "Fondateur",
-        nav_contact: "Contact",
-        nav_menu: "Menu",
-        hero_kicker: "Maison Maavnica",
-        hero_title: "Des solutions numériques pensées pour les professionnels.",
-        hero_subtitle: "Maavnica imagine et développe des services simples, utiles et accessibles, conçus à partir de besoins professionnels concrets.",
-        hero_mark_label: "Partir de l'usage",
-        hero_mark_title: "Observer. Imaginer. Construire.",
-        hero_mark_note: "Une marque qui transforme des besoins professionnels réels en services numériques sobres et durables.",
-        cta_discover_maavnica: "Découvrir Maavnica",
-        cta_solutions: "Nos solutions",
+        meta_title: "Maavnica — Le savoir-faire existe.",
+        meta_desc: "Maavnica révèle le savoir-faire des professionnels. Une carte, SmartCard. Un site, Studio. Une entreprise indépendante fondée par Arnaud Petitjean-Huard.",
+        meta_locale: "fr_FR",
+        meta_image_alt: "Interface réelle de SmartCard, la carte professionnelle Maavnica.",
+        who_alt: "Arnaud Petitjean-Huard, fondateur de Maavnica",
+        nav_home: "Conviction", nav_why: "Le constat", nav_card: "La carte", nav_site: "Le site", nav_write: "Écrire", nav_menu: "Menu", nav_close: "Fermer",
+        skip: "Aller au contenu", aria_nav: "Navigation", aria_lang: "Langue", aria_works: "Réalisations", aria_foot: "Pied de page",
+        use_present: "Présenter", use_reach: "Joindre", use_share: "Recommander",
+        hero_title: "Le savoir-faire <em>existe.</em>",
+        hero_ambition: "Notre ambition est de le révéler.",
+        offer_card: "Une carte",
+        offer_card_d: "Présenter une activité, partager ses coordonnées, faciliter une recommandation.",
+        offer_site: "Un site",
+        offer_site_d: "Une page à la hauteur du travail, pour une activité précise.",
+        constat_label: "Le constat",
+        constat_title: "Ce que l'on montre ne dit pas toujours le métier.",
+        constat_text: "Beaucoup de professionnels ont un véritable savoir-faire. Ce qu'ils donnent à voir de leur activité ne le reflète pas toujours. Maavnica est née de là : observer, imaginer une réponse, la construire. Le numérique vient après, lorsqu'il est le bon moyen.",
+        who_role: "Fondateur",
+        who_quote: "Maavnica est née de ce constat. J'ai voulu des réponses concrètes, pas une méthode sans fin.",
+        card_title: "Faire circuler ce que l'on est.",
+        card_text: "Présentez votre activité, partagez vos coordonnées et facilitez les recommandations grâce à une carte professionnelle numérique.",
+        card_caption: "Interface réelle",
         cta_smartcard: "Découvrir SmartCard",
+        studio_title: "Donner à la page le niveau du travail.",
+        studio_text: "Un site composé pour une activité précise. Une direction adaptée au métier, les fichiers remis, une première publication sur un compte à votre nom.",
+        studio_note: "Julie Martin et Atelier Augustin sont des démonstrations fictives. Aucun des deux n'exerce. Les prix restent sur la page Studio.",
+        studio_fake: "Démonstration fictive · Atelier Augustin",
+        julie_fake: "Julie Martin · fictif",
         cta_studio: "Découvrir Studio",
-        studio_kicker: "Maavnica Studio",
-        studio_title: "Un site à la mesure de votre métier.",
-        studio_text: "Studio compose des sites vitrines pour les indépendants et les petites entreprises. Une page soignée, puis sa première publication sur un compte à votre nom.",
-        studio_fiction: "Démonstration fictive",
-        cta_contact: "Nous contacter",
-        maavnica_kicker: "Maavnica",
-        maavnica_title: "Partir d'un besoin. Construire la bonne réponse.",
-        maavnica_text1: "Maavnica part d'une conviction simple : un outil numérique n'a de valeur que s'il répond à un besoin réel.",
-        maavnica_text2: "Nous observons les usages, identifions des problématiques concrètes et développons des solutions simples à comprendre, faciles à utiliser et adaptées à la réalité des professionnels.",
-        maavnica_conclusion: "La technologie n'est pas le point de départ. L'usage l'est.",
-        approach_kicker: "Notre approche",
-        approach_title: "Des principes simples, tenus dans chaque projet.",
-        approach_subtitle: "Ils ne décrivent pas une méthode figée. Ils donnent une direction : concevoir des services que les professionnels peuvent comprendre, adopter et utiliser sans friction inutile.",
-        principle_useful_title: "Utile",
-        principle_useful_text: "Un service doit résoudre quelque chose de concret, pas seulement ajouter une couche numérique.",
-        principle_simple_title: "Simple",
-        principle_simple_text: "La valeur doit être lisible rapidement, dans les mots, les parcours et les gestes du quotidien.",
-        principle_accessible_title: "Accessible",
-        principle_accessible_text: "Les solutions doivent rester compréhensibles et utilisables par les professionnels auxquels elles s'adressent.",
-        principle_human_title: "Humain",
-        principle_human_text: "Le numérique doit soutenir la relation, pas remplacer la confiance ni complexifier l'échange.",
-        solutions_kicker: "Nos solutions",
-        smartcard_label: "Une solution Maavnica",
-        smartcard_title: "SMARTCARD",
-        smartcard_subtitle: "La carte professionnelle de confiance.",
-        smartcard_text: "SmartCard permet aux professionnels de présenter leur activité, prolonger la relation après une rencontre et faciliter naturellement le contact, l'avis et la recommandation.",
-        vision_kicker: "Vision Maavnica",
-        vision_title: "Observer. Imaginer. Construire.",
-        vision_text1: "Maavnica ne part pas d'une technologie à vendre. Nous partons d'un problème à résoudre.",
-        vision_text2: "Chaque projet commence par l'observation d'un usage, d'une difficulté ou d'une opportunité. Certaines idées deviennent des produits. D'autres restent des expérimentations.",
-        vision_text3: "Toutes répondent à la même exigence : être réellement utiles.",
-        founder_kicker: "Fondateur",
-        founder_title: "Derrière Maavnica",
-        founder_subtitle: "Arnaud Petitjean-Huard — Fondateur",
-        founder_text1: "Maavnica est née d'une envie simple : transformer des problématiques professionnelles concrètes en solutions numériques utiles.",
-        founder_text2: "L'objectif n'est pas de multiplier les outils, mais de construire progressivement des services cohérents, simples et réellement utilisables.",
-        founder_text3: "SmartCard constitue la première expression de cette démarche.",
-        contact_kicker: "Contact",
-        contact_title: "Parler avec Maavnica",
-        contact_text: "Pour une question institutionnelle, un projet ou un échange autour de Maavnica, écrivez-nous directement.",
-        contact_legal: "En nous écrivant, vous acceptez le traitement de votre message pour y répondre. <a href=\"/confidentialite.html\">Confidentialité</a> · droits : contact@maavnica.com.",
-        footer_about: "À propos",
-        footer_solutions_col: "Solutions",
-        footer_smartcard: "SmartCard",
-        footer_studio: "Studio",
-        footer_info_col: "Informations",
-        footer_mentions: "Mentions légales",
-        footer_privacy: "Confidentialité",
-        footer_cookies: "Cookies",
-        footer_cgv: "CGV",
-        footer_tagline: "Des solutions numériques pensées pour les professionnels."
+        contact_title: "Écrire.",
+        contact_text: "Dites ce que vous faites, et ce que vous aimeriez mieux montrer.",
+        form_or: "Ou directement",
+        form_name: "Nom",
+        form_email: "Adresse e-mail",
+        form_subject: "Objet",
+        form_subject_placeholder: "Choisir",
+        form_subject_card: "SmartCard",
+        form_subject_site: "Studio",
+        form_subject_other: "Autre demande",
+        form_message: "Message",
+        form_privacy: "J'ai pris connaissance de la <a href=\"/confidentialite.html\">politique de confidentialité</a>.",
+        form_send: "Envoyer",
+        form_sending: "Envoi…",
+        form_sent: "Votre message est envoyé. Il arrive à contact@maavnica.com.",
+        form_sent_kicker: "Envoyé",
+        form_again: "Écrire un autre message",
+        form_unready: "Le message n'a pas été transmis. L'envoi sera relié à contact@maavnica.com avant la publication.",
+        err_network: "L'envoi n'a pas abouti. Réessayez, ou écrivez à contact@maavnica.com.",
+        err_rate: "Trop d'envois viennent d'être tentés. Réessayez dans un moment.",
+        err_refused: "Le message n'a pas été accepté. Réessayez, ou écrivez à contact@maavnica.com.",
+        err_name: "Indiquez votre nom.",
+        err_email: "Indiquez une adresse e-mail valide.",
+        err_subject: "Choisissez un objet.",
+        err_message: "Écrivez quelques mots, au moins une phrase courte.",
+        err_privacy: "Prenez connaissance de la politique de confidentialité.",
+        err_summary: "Certains champs sont à reprendre.",
+        path_card: "Une carte professionnelle", path_site: "Un site pour votre activité", path_talk: "En parler d'abord", path_hint: "Écrire",
+        legal: "En écrivant, vous acceptez le traitement du message pour y répondre. <a href=\"/confidentialite.html\">Confidentialité</a>.",
+        foot_legal: "Mentions légales", foot_privacy: "Confidentialité", foot_cookies: "Cookies", foot_cgv: "CGV"
       },
       en: {
-        meta_title: "Maavnica — Digital solutions for professionals",
-        meta_description: "Maavnica imagines and develops simple, useful digital solutions for professionals. Discover our projects and solutions, including SmartCard.",
-        brand_tagline: "Digital solutions",
-        nav_maavnica: "Maavnica",
-        nav_approach: "Our approach",
-        nav_solutions: "Our solutions",
-        nav_studio: "Studio",
-        nav_founder: "Founder",
-        nav_contact: "Contact",
-        nav_menu: "Menu",
-        hero_kicker: "Maavnica house",
-        hero_title: "Digital solutions designed for professionals.",
-        hero_subtitle: "Maavnica imagines and develops simple, useful and accessible services, designed from concrete professional needs.",
-        hero_mark_label: "Start from use",
-        hero_mark_title: "Observe. Imagine. Build.",
-        hero_mark_note: "A brand that turns real professional needs into sober and durable digital services.",
-        cta_discover_maavnica: "Discover Maavnica",
-        cta_solutions: "Our solutions",
+        meta_title: "Maavnica — Know-how exists.",
+        meta_desc: "Maavnica reveals the know-how of professionals. A card, SmartCard. A website, Studio. An independent company founded by Arnaud Petitjean-Huard.",
+        meta_locale: "en_GB",
+        meta_image_alt: "Real SmartCard interface, Maavnica's professional card.",
+        who_alt: "Arnaud Petitjean-Huard, founder of Maavnica",
+        nav_home: "Conviction", nav_why: "The observation", nav_card: "The card", nav_site: "The site", nav_write: "Write", nav_menu: "Menu", nav_close: "Close",
+        skip: "Skip to content", aria_nav: "Navigation", aria_lang: "Language", aria_works: "Works", aria_foot: "Footer",
+        use_present: "Present", use_reach: "Reach", use_share: "Recommend",
+        hero_title: "Know-how <em>exists.</em>",
+        hero_ambition: "Our ambition is to reveal it.",
+        offer_card: "A card",
+        offer_card_d: "Present an activity, share your details, make a recommendation easier.",
+        offer_site: "A website",
+        offer_site_d: "A page equal to the work, for one specific activity.",
+        constat_label: "The observation",
+        constat_title: "What is shown does not always speak for the craft.",
+        constat_text: "Many professionals have real know-how. What they show of their activity does not always reflect it. Maavnica began there: observe, imagine an answer, build it. Digital comes after, when it is the right means.",
+        who_role: "Founder",
+        who_quote: "Maavnica was born from this observation. I wanted concrete answers, not an endless method.",
+        card_title: "Let who you are travel.",
+        card_text: "Present your activity, share your details and make recommendations easier, with a digital professional card.",
+        card_caption: "Real interface",
         cta_smartcard: "Discover SmartCard",
+        studio_title: "Give the page the standard of the work.",
+        studio_text: "A website composed for one specific activity. A direction adapted to the craft, the files handed over, a first publication on an account in your name.",
+        studio_note: "Julie Martin and Atelier Augustin are fictional demonstrations. Neither practices. Prices stay on the Studio page.",
+        studio_fake: "Fictional demonstration · Atelier Augustin",
+        julie_fake: "Julie Martin · fictional",
         cta_studio: "Discover Studio",
-        studio_kicker: "Maavnica Studio",
-        studio_title: "A site that fits your craft.",
-        studio_text: "Studio composes showcase websites for independents and small businesses. One considered page, then its first publication on an account in your name.",
-        studio_fiction: "Fictional demonstration",
-        cta_contact: "Contact us",
-        maavnica_kicker: "Maavnica",
-        maavnica_title: "Start from a need. Build the right answer.",
-        maavnica_text1: "Maavnica starts from a simple conviction: a digital tool only has value if it answers a real need.",
-        maavnica_text2: "We observe uses, identify concrete problems and develop solutions that are simple to understand, easy to use and adapted to the reality of professionals.",
-        maavnica_conclusion: "Technology is not the starting point. Use is.",
-        approach_kicker: "Our approach",
-        approach_title: "Simple principles, held in every project.",
-        approach_subtitle: "They do not describe a fixed method. They give a direction: designing services professionals can understand, adopt and use without unnecessary friction.",
-        principle_useful_title: "Useful",
-        principle_useful_text: "A service must solve something concrete, not simply add a digital layer.",
-        principle_simple_title: "Simple",
-        principle_simple_text: "The value must be quickly readable, in the words, journeys and everyday gestures.",
-        principle_accessible_title: "Accessible",
-        principle_accessible_text: "Solutions must remain understandable and usable by the professionals they are built for.",
-        principle_human_title: "Human",
-        principle_human_text: "Digital should support the relationship, not replace trust or complicate the exchange.",
-        solutions_kicker: "Our solutions",
-        smartcard_label: "A Maavnica solution",
-        smartcard_title: "SMARTCARD",
-        smartcard_subtitle: "The trusted professional card.",
-        smartcard_text: "SmartCard helps professionals present their activity, extend the relationship after a meeting and naturally make contact, reviews and recommendations easier.",
-        vision_kicker: "Maavnica vision",
-        vision_title: "Observe. Imagine. Build.",
-        vision_text1: "Maavnica does not start from a technology to sell. We start from a problem to solve.",
-        vision_text2: "Every project begins by observing a use, a difficulty or an opportunity. Some ideas become products. Others remain experiments.",
-        vision_text3: "All answer the same requirement: to be truly useful.",
-        founder_kicker: "Founder",
-        founder_title: "Behind Maavnica",
-        founder_subtitle: "Arnaud Petitjean-Huard — Founder",
-        founder_text1: "Maavnica was born from a simple desire: to turn concrete professional problems into useful digital solutions.",
-        founder_text2: "The goal is not to multiply tools, but to progressively build coherent, simple and genuinely usable services.",
-        founder_text3: "SmartCard is the first expression of this approach.",
-        contact_kicker: "Contact",
-        contact_title: "Talk with Maavnica",
-        contact_text: "For an institutional question, a project or a conversation about Maavnica, write to us directly.",
-        contact_legal: "By writing to us, you agree that your message may be processed to reply. <a href=\"/confidentialite.html\">Privacy</a> · rights: contact@maavnica.com.",
-        footer_about: "About",
-        footer_solutions_col: "Solutions",
-        footer_smartcard: "SmartCard",
-        footer_studio: "Studio",
-        footer_info_col: "Information",
-        footer_mentions: "Legal notice",
-        footer_privacy: "Privacy",
-        footer_cookies: "Cookies",
-        footer_cgv: "Terms",
-        footer_tagline: "Digital solutions designed for professionals."
+        contact_title: "Write.",
+        contact_text: "Tell us what you do, and what you would like to show more clearly.",
+        form_or: "Or directly",
+        form_name: "Name",
+        form_email: "Email address",
+        form_subject: "Subject",
+        form_subject_placeholder: "Choose",
+        form_subject_card: "SmartCard",
+        form_subject_site: "Studio",
+        form_subject_other: "Another request",
+        form_message: "Message",
+        form_privacy: "I have read the <a href=\"/confidentialite.html\">privacy policy</a>.",
+        form_send: "Send",
+        form_sending: "Sending…",
+        form_sent: "Your message has been sent. It is delivered to contact@maavnica.com.",
+        form_sent_kicker: "Sent",
+        form_again: "Write another message",
+        form_unready: "The message was not sent. Delivery to contact@maavnica.com will be connected before publication.",
+        err_network: "The message could not be sent. Try again, or write to contact@maavnica.com.",
+        err_rate: "Too many attempts were just made. Try again in a moment.",
+        err_refused: "The message was not accepted. Try again, or write to contact@maavnica.com.",
+        err_name: "Enter your name.",
+        err_email: "Enter a valid email address.",
+        err_subject: "Choose a subject.",
+        err_message: "Write a few words, at least a short sentence.",
+        err_privacy: "Please read the privacy policy.",
+        err_summary: "Some fields need another look.",
+        path_card: "A professional card", path_site: "A website for your activity", path_talk: "Talk it through first", path_hint: "Write",
+        legal: "By writing, you agree that your message may be processed so we can reply. <a href=\"/confidentialite.html\">Privacy</a>.",
+        foot_legal: "Legal notice", foot_privacy: "Privacy", foot_cookies: "Cookies", foot_cgv: "Terms"
       },
       es: {
-        meta_title: "Maavnica — Soluciones digitales para profesionales",
-        meta_description: "Maavnica imagina y desarrolla soluciones digitales simples y útiles para profesionales. Descubra nuestros proyectos y soluciones, incluida SmartCard.",
-        brand_tagline: "Soluciones digitales",
-        nav_maavnica: "Maavnica",
-        nav_approach: "Nuestro enfoque",
-        nav_solutions: "Soluciones",
-        nav_studio: "Studio",
-        nav_founder: "Fundador",
-        nav_contact: "Contacto",
-        nav_menu: "Menú",
-        hero_kicker: "Casa Maavnica",
-        hero_title: "Soluciones digitales pensadas para profesionales.",
-        hero_subtitle: "Maavnica imagina y desarrolla servicios simples, útiles y accesibles, diseñados a partir de necesidades profesionales concretas.",
-        hero_mark_label: "Partir del uso",
-        hero_mark_title: "Observar. Imaginar. Construir.",
-        hero_mark_note: "Una marca que transforma necesidades profesionales reales en servicios digitales sobrios y duraderos.",
-        cta_discover_maavnica: "Descubrir Maavnica",
-        cta_solutions: "Soluciones",
+        meta_title: "Maavnica — El saber hacer existe.",
+        meta_desc: "Maavnica revela el saber hacer de los profesionales. Una tarjeta, SmartCard. Un sitio, Studio. Una empresa independiente fundada por Arnaud Petitjean-Huard.",
+        meta_locale: "es_ES",
+        meta_image_alt: "Interfaz real de SmartCard, la tarjeta profesional de Maavnica.",
+        who_alt: "Arnaud Petitjean-Huard, fundador de Maavnica",
+        nav_home: "Convicción", nav_why: "La constatación", nav_card: "La tarjeta", nav_site: "El sitio", nav_write: "Escribir", nav_menu: "Menú", nav_close: "Cerrar",
+        skip: "Ir al contenido", aria_nav: "Navegación", aria_lang: "Idioma", aria_works: "Realizaciones", aria_foot: "Pie de página",
+        use_present: "Presentar", use_reach: "Contactar", use_share: "Recomendar",
+        hero_title: "El saber hacer <em>existe.</em>",
+        hero_ambition: "Nuestra ambición es revelarlo.",
+        offer_card: "Una tarjeta",
+        offer_card_d: "Presentar una actividad, compartir sus datos, facilitar una recomendación.",
+        offer_site: "Un sitio",
+        offer_site_d: "Una página a la altura del trabajo, para una actividad precisa.",
+        constat_label: "La constatación",
+        constat_title: "Lo que se muestra no siempre dice el oficio.",
+        constat_text: "Muchos profesionales tienen un verdadero saber hacer. Lo que muestran de su actividad no siempre lo refleja. Maavnica nace de ahí: observar, imaginar una respuesta, construirla. Lo digital llega después, cuando es el medio adecuado.",
+        who_role: "Fundador",
+        who_quote: "Maavnica nació de esta constatación. Quise respuestas concretas, no un método sin fin.",
+        card_title: "Hacer circular lo que uno es.",
+        card_text: "Presente su actividad, comparta sus datos y facilite las recomendaciones, con una tarjeta profesional digital.",
+        card_caption: "Interfaz real",
         cta_smartcard: "Descubrir SmartCard",
+        studio_title: "Dar a la página el nivel del trabajo.",
+        studio_text: "Un sitio compuesto para una actividad precisa. Una dirección adaptada al oficio, los archivos entregados, una primera publicación en una cuenta a su nombre.",
+        studio_note: "Julie Martin y Atelier Augustin son demostraciones ficticias. Ninguno ejerce. Los precios siguen en la página Studio.",
+        studio_fake: "Demostración ficticia · Atelier Augustin",
+        julie_fake: "Julie Martin · ficticio",
         cta_studio: "Descubrir Studio",
-        studio_kicker: "Maavnica Studio",
-        studio_title: "Un sitio a la medida de su oficio.",
-        studio_text: "Studio compone sitios escaparate para autónomos y pequeñas empresas. Una página cuidada, y su primera publicación en una cuenta a su nombre.",
-        studio_fiction: "Demostración ficticia",
-        cta_contact: "Contactarnos",
-        maavnica_kicker: "Maavnica",
-        maavnica_title: "Partir de una necesidad. Construir la respuesta adecuada.",
-        maavnica_text1: "Maavnica parte de una convicción simple: una herramienta digital solo tiene valor si responde a una necesidad real.",
-        maavnica_text2: "Observamos los usos, identificamos problemas concretos y desarrollamos soluciones simples de entender, fáciles de usar y adaptadas a la realidad de los profesionales.",
-        maavnica_conclusion: "La tecnología no es el punto de partida. El uso lo es.",
-        approach_kicker: "Nuestro enfoque",
-        approach_title: "Principios simples, sostenidos en cada proyecto.",
-        approach_subtitle: "No describen un método fijo. Dan una dirección: diseñar servicios que los profesionales puedan entender, adoptar y usar sin fricción innecesaria.",
-        principle_useful_title: "Útil",
-        principle_useful_text: "Un servicio debe resolver algo concreto, no solo añadir una capa digital.",
-        principle_simple_title: "Simple",
-        principle_simple_text: "El valor debe leerse rápidamente, en las palabras, los recorridos y los gestos cotidianos.",
-        principle_accessible_title: "Accesible",
-        principle_accessible_text: "Las soluciones deben seguir siendo comprensibles y utilizables por los profesionales a los que se dirigen.",
-        principle_human_title: "Humano",
-        principle_human_text: "Lo digital debe apoyar la relación, no sustituir la confianza ni complicar el intercambio.",
-        solutions_kicker: "Soluciones",
-        smartcard_label: "Una solución Maavnica",
-        smartcard_title: "SMARTCARD",
-        smartcard_subtitle: "La tarjeta profesional de confianza.",
-        smartcard_text: "SmartCard permite a los profesionales presentar su actividad, prolongar la relación tras un encuentro y facilitar naturalmente el contacto, la reseña y la recomendación.",
-        vision_kicker: "Visión Maavnica",
-        vision_title: "Observar. Imaginar. Construir.",
-        vision_text1: "Maavnica no parte de una tecnología que vender. Partimos de un problema que resolver.",
-        vision_text2: "Cada proyecto empieza observando un uso, una dificultad o una oportunidad. Algunas ideas se convierten en productos. Otras siguen siendo experimentos.",
-        vision_text3: "Todas responden a la misma exigencia: ser realmente útiles.",
-        founder_kicker: "Fundador",
-        founder_title: "Detrás de Maavnica",
-        founder_subtitle: "Arnaud Petitjean-Huard — Fundador",
-        founder_text1: "Maavnica nació de un deseo simple: transformar problemas profesionales concretos en soluciones digitales útiles.",
-        founder_text2: "El objetivo no es multiplicar herramientas, sino construir progresivamente servicios coherentes, simples y realmente utilizables.",
-        founder_text3: "SmartCard constituye la primera expresión de este enfoque.",
-        contact_kicker: "Contacto",
-        contact_title: "Hablar con Maavnica",
-        contact_text: "Para una pregunta institucional, un proyecto o un intercambio sobre Maavnica, escríbanos directamente.",
-        contact_legal: "Al escribirnos, acepta el tratamiento de su mensaje para responder. <a href=\"/confidentialite.html\">Privacidad</a> · derechos: contact@maavnica.com.",
-        footer_about: "Acerca de",
-        footer_solutions_col: "Soluciones",
-        footer_smartcard: "SmartCard",
-        footer_studio: "Studio",
-        footer_info_col: "Información",
-        footer_mentions: "Aviso legal",
-        footer_privacy: "Privacidad",
-        footer_cookies: "Cookies",
-        footer_cgv: "CGV",
-        footer_tagline: "Soluciones digitales pensadas para profesionales."
+        contact_title: "Escribir.",
+        contact_text: "Diga qué hace y qué le gustaría mostrar mejor.",
+        form_or: "O directamente",
+        form_name: "Nombre",
+        form_email: "Correo electrónico",
+        form_subject: "Asunto",
+        form_subject_placeholder: "Elegir",
+        form_subject_card: "SmartCard",
+        form_subject_site: "Studio",
+        form_subject_other: "Otra solicitud",
+        form_message: "Mensaje",
+        form_privacy: "He leído la <a href=\"/confidentialite.html\">política de privacidad</a>.",
+        form_send: "Enviar",
+        form_sending: "Envío…",
+        form_sent: "Su mensaje se ha enviado. Llega a contact@maavnica.com.",
+        form_sent_kicker: "Enviado",
+        form_again: "Escribir otro mensaje",
+        form_unready: "El mensaje no se ha enviado. La entrega a contact@maavnica.com se conectará antes de la publicación.",
+        err_network: "El envío no ha llegado. Inténtelo de nuevo o escriba a contact@maavnica.com.",
+        err_rate: "Se han hecho demasiados envíos. Inténtelo de nuevo en un momento.",
+        err_refused: "El mensaje no ha sido aceptado. Inténtelo de nuevo o escriba a contact@maavnica.com.",
+        err_name: "Indique su nombre.",
+        err_email: "Indique un correo electrónico válido.",
+        err_subject: "Elija un asunto.",
+        err_message: "Escriba unas palabras, al menos una frase breve.",
+        err_privacy: "Lea la política de privacidad.",
+        err_summary: "Hay campos que conviene revisar.",
+        path_card: "Una tarjeta profesional", path_site: "Un sitio para su actividad", path_talk: "Hablarlo primero", path_hint: "Escribir",
+        legal: "Al escribir, acepta el tratamiento del mensaje para poder responderle. <a href=\"/confidentialite.html\">Privacidad</a>.",
+        foot_legal: "Aviso legal", foot_privacy: "Privacidad", foot_cookies: "Cookies", foot_cgv: "Condiciones"
       }
     };
 
+    var currentLang = "fr";
+
+    function menuLabel() {
+      var toggle = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      if (!toggle || !nav || !I18N[currentLang]) return;
+      var open = nav.classList.contains("open");
+      toggle.textContent = I18N[currentLang][open ? "nav_close" : "nav_menu"];
+    }
+
     function setLanguage(lang) {
       if (!I18N[lang]) lang = "fr";
+      currentLang = lang;
       document.documentElement.lang = lang;
-      document.querySelectorAll("[data-i18n]").forEach(function(el) {
-        var key = el.getAttribute("data-i18n");
-        var val = I18N[lang][key];
+      document.querySelectorAll("[data-i18n]").forEach(function (el) {
+        var val = I18N[lang][el.getAttribute("data-i18n")];
         if (val == null) return;
         if (val.indexOf("<") !== -1) el.innerHTML = val;
         else el.textContent = val;
       });
-      document.querySelectorAll(".lang-switch button").forEach(function(btn) {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
+      document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+        var val = I18N[lang][el.getAttribute("data-i18n-aria")];
+        if (val) el.setAttribute("aria-label", val);
       });
-      if (I18N[lang].meta_title) document.title = I18N[lang].meta_title;
-      var metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc && I18N[lang].meta_description) metaDesc.setAttribute("content", I18N[lang].meta_description);
+      document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+        var val = I18N[lang][el.getAttribute("data-i18n-alt")];
+        if (val) el.setAttribute("alt", val);
+      });
       [
         ['meta[property="og:title"]', "meta_title"],
-        ['meta[property="og:description"]', "meta_description"],
+        ['meta[property="og:description"]', "meta_desc"],
+        ['meta[property="og:locale"]', "meta_locale"],
+        ['meta[property="og:image:alt"]', "meta_image_alt"],
         ['meta[name="twitter:title"]', "meta_title"],
-        ['meta[name="twitter:description"]', "meta_description"]
-      ].forEach(function(item) {
+        ['meta[name="twitter:description"]', "meta_desc"],
+        ['meta[name="twitter:image:alt"]', "meta_image_alt"]
+      ].forEach(function (item) {
         var meta = document.querySelector(item[0]);
         var value = I18N[lang][item[1]];
         if (meta && value) meta.setAttribute("content", value);
       });
-      try { localStorage.setItem("lang", lang); } catch (e) {}
+      document.querySelectorAll(".langs button").forEach(function (btn) {
+        var on = btn.dataset.lang === lang;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      document.title = I18N[lang].meta_title;
+      var desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute("content", I18N[lang].meta_desc);
+      menuLabel();
+      document.querySelectorAll(".miss").forEach(function (el) { el.textContent = ""; });
+      document.querySelectorAll("[aria-invalid]").forEach(function (el) { el.removeAttribute("aria-invalid"); });
+      var note = document.getElementById("letter-note");
+      if (note) { note.textContent = ""; note.removeAttribute("data-state"); }
+      try { localStorage.setItem("lang-d", lang); } catch (e) {}
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
+    function bindLetter() {
+      var form = document.getElementById("letter");
+      if (!form) return;
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var t = I18N[currentLang];
+        var ok = true;
+        function miss(name, message) {
+          var slot = form.querySelector('[data-error="' + name + '"]');
+          var field = form.elements[name];
+          if (slot) slot.textContent = message || "";
+          if (field && field.setAttribute) field.setAttribute("aria-invalid", message ? "true" : "false");
+          if (message) ok = false;
+        }
+        var email = form.elements.email.value.trim();
+        miss("name", form.elements.name.value.trim() ? "" : t.err_name);
+        miss("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "" : t.err_email);
+        miss("subject", form.elements.subject.value ? "" : t.err_subject);
+        miss("message", form.elements.message.value.trim().length >= 8 ? "" : t.err_message);
+        miss("privacy", form.elements.privacy.checked ? "" : t.err_privacy);
+        var note = document.getElementById("letter-note");
+        if (!ok) {
+          note.textContent = t.err_summary;
+          note.dataset.state = "error";
+          var first = form.querySelector("[aria-invalid='true']");
+          if (first && first.focus) first.focus();
+          return;
+        }
+        if (!contactReady()) {
+          note.textContent = t.form_unready;
+          note.dataset.state = "wait";
+          return;
+        }
+        var labels = { smartcard: "form_subject_card", studio: "form_subject_site", other: "form_subject_other" };
+        var objet = t[labels[form.elements.subject.value]] || form.elements.subject.value;
+        var button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = t.form_sending;
+        note.textContent = "";
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            access_key: contactKey,
+            name: form.elements.name.value.trim(),
+            email: form.elements.email.value.trim(),
+            from_name: "Maavnica",
+            subject: "Maavnica — " + objet,
+            message: form.elements.message.value.trim(),
+            objet: objet,
+            botcheck: form.elements.botcheck.value
+          })
+        }).then(function (response) {
+          return response.json().then(function (data) {
+            return { status: response.status, data: data };
+          });
+        }).then(function (result) {
+          if (result.data && result.data.success) {
+            form.reset();
+            showLetterSent();
+            return;
+          }
+          note.textContent = result.status === 429 ? t.err_rate : t.err_refused;
+          note.dataset.state = "error";
+        }).catch(function () {
+          note.textContent = t.err_network;
+          note.dataset.state = "error";
+        }).then(function () {
+          if (form.classList.contains("is-sent")) return;
+          button.disabled = false;
+          button.textContent = t.form_send;
+        });
+      });
+      var again = document.getElementById("letter-again");
+      if (again) again.addEventListener("click", restoreLetter);
+    }
+
+    function showLetterSent() {
+      var form = document.getElementById("letter");
+      var sent = document.getElementById("letter-sent");
+      var note = document.getElementById("letter-note");
+      if (!form || !sent) return;
+      form.classList.add("is-sent");
+      sent.hidden = false;
+      if (note) { note.textContent = ""; note.removeAttribute("data-state"); }
+      var again = document.getElementById("letter-again");
+      if (again && again.focus) again.focus();
+    }
+
+    function restoreLetter() {
+      var form = document.getElementById("letter");
+      var sent = document.getElementById("letter-sent");
+      if (!form || !sent) return;
+      form.classList.remove("is-sent");
+      sent.hidden = true;
+      form.reset();
+      var button = form.querySelector('button[type="submit"]');
+      var t = I18N[currentLang];
+      if (button && t) {
+        button.disabled = false;
+        button.textContent = t.form_send;
+      }
+      if (form.elements.name && form.elements.name.focus) form.elements.name.focus();
+    }
+
+    var contactKey = "";
+
+    function contactReady() {
+      return !!contactKey && contactKey.indexOf("COLLEZ_ICI") === -1;
+    }
+
+    function loadContactKey() {
+      contactKey = "f24d1cfa-fa02-4369-a7c7-87ee8cd9856c";
+    }
+
+    function bindRuns() {
+      var wide = window.matchMedia("(min-width: 901px)");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var runs = document.querySelectorAll(".run");
+      function tick() {
+        var live = wide.matches && !reduce.matches;
+        runs.forEach(function (run) {
+          if (!live) { run.style.setProperty("--p", "1"); return; }
+          var box = run.getBoundingClientRect();
+          var total = run.offsetHeight - window.innerHeight;
+          var raw = total <= 0 ? 1 : Math.min(1, Math.max(0, -box.top / total));
+          var span = run.classList.contains("card-run") ? 0.62 : 1;
+          var p = Math.min(1, raw / span);
+          run.style.setProperty("--p", p.toFixed(3));
+        });
+      }
+      tick();
+      window.addEventListener("scroll", tick, { passive: true });
+      window.addEventListener("resize", tick);
+      if (wide.addEventListener) wide.addEventListener("change", tick);
+      if (reduce.addEventListener) reduce.addEventListener("change", tick);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
       var lang = "fr";
-      try { lang = localStorage.getItem("lang") || "fr"; } catch (e) {}
-      document.querySelectorAll(".lang-switch button").forEach(function(btn) {
-        btn.addEventListener("click", function() { setLanguage(btn.dataset.lang); });
+      try { lang = localStorage.getItem("lang-d") || "fr"; } catch (e) {}
+      document.querySelectorAll(".langs button").forEach(function (btn) {
+        btn.addEventListener("click", function () { setLanguage(btn.dataset.lang); });
       });
       setLanguage(lang);
       document.getElementById("y").textContent = new Date().getFullYear();
-
-      var toggle = document.getElementById("menu-toggle");
-      var mobileNav = document.getElementById("mobile-nav");
-      if (toggle && mobileNav) {
-        toggle.addEventListener("click", function() {
-          var open = mobileNav.classList.toggle("open");
-          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      var toggle = document.getElementById("menu");
+      var nav = document.getElementById("nav");
+      toggle.addEventListener("click", function () {
+        var open = nav.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        menuLabel();
+      });
+      nav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          nav.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+          menuLabel();
         });
-        mobileNav.querySelectorAll("a").forEach(function(link) {
-          link.addEventListener("click", function() {
-            mobileNav.classList.remove("open");
-            toggle.setAttribute("aria-expanded", "false");
-          });
-        });
-      }
+      });
+      bindRuns();
+      bindLetter();
+      loadContactKey();
     });
   </script>
 </body>
