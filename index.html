@@ -10,6 +10,7 @@
   <meta property="og:description" content="Une carte à partager, un contact qui reste. Un site professionnel qui donne envie de vous choisir. Maavnica, fondée par Arnaud Petitjean-Huard." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://maavnica.com/" />
+  <meta property="og:site_name" content="Maavnica" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:locale:alternate" content="en_GB" />
   <meta property="og:locale:alternate" content="es_ES" />
@@ -20,6 +21,33 @@
   <meta name="twitter:description" content="Une carte à partager, un contact qui reste. Un site professionnel qui donne envie de vous choisir. Maavnica, fondée par Arnaud Petitjean-Huard." />
   <meta name="twitter:image" content="https://smartcard.maavnica.com/static/landing-v2/hero-maavnica.png" />
   <meta name="twitter:image:alt" content="Exemple réel de SmartCard, la carte professionnelle Maavnica." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://maavnica.com/#organization",
+        "name": "Maavnica",
+        "url": "https://maavnica.com/",
+        "logo": "https://maavnica.com/assets/img/logo-palmier.png",
+        "email": "contact@maavnica.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Arnaud Petitjean-Huard"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://maavnica.com/#website",
+        "name": "Maavnica",
+        "url": "https://maavnica.com/",
+        "inLanguage": ["fr", "en", "es"],
+        "publisher": { "@id": "https://maavnica.com/#organization" }
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="../assets/img/logo-palmier.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
