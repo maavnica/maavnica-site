@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Premier Regard — Maavnica</title>
-  <meta name="description" content="Diagnostic réservé aux artisans, commerçants, indépendants et TPE. Site, fiche Google, avis accessibles, cohérence des informations et parcours de contact. Rapport PDF, 89 €. Sans promesse de classement ni de chiffre d'affaires." />
+  <meta name="description" content="Quand un client vous cherche sur Google, que découvre-t-il ? Premier Regard examine la fiche, les avis et le site des professionnels. Rapport PDF, 89 €. Sans promesse de classement ni de chiffre d'affaires." />
   <link rel="canonical" href="https://maavnica.com/premier-regard.html" />
   <meta property="og:title" content="Premier Regard — Maavnica" />
-  <meta property="og:description" content="Un diagnostic ponctuel pour les professionnels. Rapport PDF personnalisé, 89 €, livré après devis et virement. Aucune promesse de classement ni de chiffre d'affaires." />
+  <meta property="og:description" content="Un regard extérieur sur ce qu'un futur client découvre : fiche Google, avis, site. Rapport PDF, 89 €, après devis et virement. Sans promesse de classement ni de chiffre d'affaires." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://maavnica.com/premier-regard.html" />
   <meta property="og:site_name" content="Maavnica" />
   <meta property="og:locale" content="fr_FR" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Premier Regard — Maavnica" />
-  <meta name="twitter:description" content="Diagnostic pour professionnels. Rapport PDF, 89 €. Sans promesse de classement ni de chiffre d'affaires." />
+  <meta name="twitter:description" content="Ce qu'un futur client découvre de votre entreprise. Rapport PDF, 89 €. Sans promesse de classement ni de chiffre d'affaires." />
   <link rel="icon" href="/assets/img/logo-palmier.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,9 +65,11 @@
     .hero { padding: clamp(36px, 7vh, 88px) clamp(20px, 6vw, 88px) clamp(48px, 8vh, 96px); }
     .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); }
     h1, h2 { font-family: var(--display); font-weight: 500; letter-spacing: -0.045em; text-wrap: balance; }
-    h1 { font-size: clamp(3.2rem, 7vw, 6.4rem); line-height: 0.88; max-width: 11em; }
-    h1 em { font-style: italic; font-weight: 500; color: var(--coral); }
-    .lede { margin-top: 22px; max-width: 38em; font-size: clamp(1.12rem, 1.6vw, 1.35rem); line-height: 1.35; }
+    h1 { font-size: clamp(2.35rem, 4.7vw, 4.45rem); line-height: 1.04; max-width: 16em; }
+    h1 em, h2 em { font-style: italic; font-weight: 500; }
+    h1 em, h2 em { color: var(--coral); }
+    .lede { margin-top: 22px; max-width: 40em; font-size: clamp(1.08rem, 1.45vw, 1.28rem); line-height: 1.45; }
+    .lede p + p { margin-top: 0.8em; }
     .thread {
       display: block; width: min(220px, 36vw); height: 3px; margin-top: 26px;
       background: linear-gradient(90deg, #2f6fbf 0 25%, #1c8a86 25% 50%, #e98974 50% 75%, #e0b15a 75%);
@@ -90,7 +92,7 @@
     .paper { background: var(--paper); color: var(--ink); }
     .paper .eyebrow { color: #b34732; }
     .band { padding: clamp(64px, 10vh, 112px) clamp(20px, 6vw, 88px); }
-    h2 { font-size: clamp(2.3rem, 4.6vw, 4.2rem); line-height: 0.96; max-width: 14em; margin-top: 12px; }
+    h2 { font-size: clamp(2.15rem, 4.2vw, 3.7rem); line-height: 1.05; max-width: 16em; margin-top: 12px; }
     .intro { margin-top: 18px; max-width: 42em; font-size: 1.06rem; }
     .paper .intro { color: #3c3832; }
     .grid { list-style: none; margin-top: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
@@ -110,10 +112,30 @@
     .steps li:last-child { border-bottom: 1px solid var(--line); }
     .steps span { font-family: var(--display); font-style: italic; font-size: 1.45rem; color: #b34732; line-height: 1; }
     .steps p { color: #3c3832; }
-    .limits .intro { color: rgba(244, 240, 232, 0.82); }
-    .limits .hold { margin-top: 18px; max-width: 40em; color: var(--coral); }
-    .ask { padding-bottom: clamp(72px, 12vh, 120px); }
-    .ask h2 { max-width: 10em; }
+    .preview { margin-top: 40px; max-width: 320px; }
+    .preview-frame {
+      aspect-ratio: 1 / 1.3; background: var(--paper); color: var(--ink);
+      border-radius: 4px; padding: 28px 24px;
+      display: flex; align-items: flex-end;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+    .preview-frame p {
+      font-family: var(--display); font-style: italic; font-size: 1.35rem;
+      letter-spacing: -0.03em; line-height: 1.15; max-width: 10em;
+    }
+    .preview figcaption { margin-top: 12px; max-width: 36ch; color: rgba(244, 240, 232, 0.62); font-size: 0.95rem; }
+    .closing-price {
+      margin-top: 28px; font-family: var(--display); font-weight: 500;
+      font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.04em; line-height: 1;
+    }
+    .limits {
+      padding: 4px clamp(20px, 6vw, 88px) 56px;
+      color: rgba(244, 240, 232, 0.68); font-size: 0.95rem;
+    }
+    .limits p { max-width: 68ch; }
+    .limits p + p { margin-top: 8px; }
+    .ask { padding-bottom: clamp(48px, 8vh, 80px); }
+    .ask h2 { max-width: 13em; }
     .fine { margin-top: 16px; max-width: 46ch; font-size: 14px; color: rgba(244, 240, 232, 0.68); }
     .fine a { text-decoration: underline; text-underline-offset: 3px; }
     footer {
@@ -133,7 +155,8 @@
       .menu-btn { display: inline-flex; align-items: center; }
       .grid, .steps li { grid-template-columns: 1fr; }
       .steps span { display: block; }
-      h1 { font-size: clamp(2.7rem, 12vw, 3.6rem); }
+      h1 { font-size: clamp(2rem, 8.2vw, 2.55rem); line-height: 1.08; }
+      .preview { max-width: 240px; }
       .btn { width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -159,8 +182,14 @@
   <main id="contenu">
     <section class="hero" aria-labelledby="titre">
       <p class="eyebrow">Premier Regard · professionnels</p>
-      <h1 id="titre">Voir ce qui se présente <em>déjà.</em></h1>
-      <p class="lede">Un diagnostic ponctuel, exclusivement destiné aux artisans, aux commerçants, aux indépendants et aux très petites entreprises. Maavnica regarde la présence observable de votre activité, puis vous remet un rapport. Rien n'est modifié à votre place.</p>
+      <h1 id="titre">Quand un client vous cherche sur Google, <em>que découvre-t-il vraiment&nbsp;?</em></h1>
+      <div class="lede">
+        <p>Votre entreprise a son savoir-faire, son expérience, ses qualités.</p>
+        <p>Mais avant de vous appeler, un futur client regarde souvent votre fiche Google, vos avis ou votre site internet.</p>
+        <p>Les informations qu'il trouve donnent-elles une image fidèle et rassurante de votre activité&nbsp;?</p>
+        <p>Avec Premier Regard, Maavnica examine votre présence en ligne comme pourrait le faire une personne qui ne vous connaît pas encore.</p>
+        <p>Un regard extérieur, des observations concrètes et des pistes d'amélioration.</p>
+      </div>
       <span class="thread" aria-hidden="true"></span>
       <ul class="facts">
         <li>
@@ -169,7 +198,7 @@
         </li>
         <li>
           <strong>5 jours</strong>
-          <span>Ouvrés, après la réception effective du virement et de toutes les informations nécessaires.</span>
+          <span>Ouvrés, après l'encaissement du virement et la réception du dossier complet.</span>
         </li>
         <li>
           <strong>Virement</strong>
@@ -177,52 +206,58 @@
         </li>
       </ul>
       <a class="btn" href="mailto:contact@maavnica.com?subject=Premier%20Regard%20%E2%80%94%20demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20Premier%20Regard.%0A%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20ou%20fiche%20Google%20%3A%20%0A">Demander mon diagnostic</a>
-      <p class="note">La page ne prend pas de commande. Vous demandez un devis, puis vous l'acceptez par écrit.</p>
+      <p class="note">Réservé aux artisans, commerçants, indépendants et très petites entreprises. La page ne prend pas de commande&nbsp;: vous demandez un devis, puis vous l'acceptez par écrit.</p>
     </section>
 
     <section class="exam paper band" id="examen">
       <p class="eyebrow">Le diagnostic</p>
-      <h2>Ce qui est examiné.</h2>
-      <p class="intro">Seulement ce qui peut être consulté. L'offre standard ne demande pas l'accès à vos comptes, à une interface d'administration ou à un espace privé.</p>
+      <h2>Que voit-on réellement de votre entreprise&nbsp;?</h2>
+      <p class="intro">Le même chemin qu'une personne qui ne vous connaît pas encore. Seulement ce qui est visible, et seulement ce qui concerne votre activité.</p>
       <ol class="grid">
         <li>
           <span>01</span>
-          <h3>Le site internet</h3>
-          <p>S'il existe : ce qu'il montre, et ce qu'une personne comprend en arrivant.</p>
+          <h3>La présence Google</h3>
+          <p>La fiche, lorsqu'elle existe, et les avis qu'on peut lire sans compte privé. Ce qu'ils disent de vous, et ce qu'ils laissent de côté.</p>
         </li>
         <li>
           <span>02</span>
-          <h3>La fiche Google</h3>
-          <p>Les informations publiques de l'établissement, lorsqu'une fiche est accessible.</p>
+          <h3>Le site internet</h3>
+          <p>S'il existe&nbsp;: est-ce qu'on comprend vite ce que vous faites, pour qui, et pourquoi vous écrire.</p>
         </li>
         <li>
           <span>03</span>
-          <h3>Les avis accessibles</h3>
-          <p>Ce qui peut être lu sans compte privé, et la façon dont ces avis se présentent.</p>
+          <h3>La cohérence des informations</h3>
+          <p>Le nom, l'activité, les coordonnées, les horaires. Est-ce que la fiche, le site et les autres endroits visibles racontent la même chose.</p>
         </li>
         <li>
           <span>04</span>
-          <h3>La cohérence des informations</h3>
-          <p>Nom, activité, coordonnées, horaires : est-ce que les endroits visibles disent la même chose.</p>
+          <h3>La facilité de contact</h3>
+          <p>Le chemin pour vous appeler, vous écrire ou vous trouver. Est-il évident, ou faut-il le chercher.</p>
         </li>
         <li>
           <span>05</span>
-          <h3>Le parcours de contact</h3>
-          <p>Le chemin pour vous écrire, vous appeler ou vous trouver.</p>
+          <h3>Les points forts</h3>
+          <p>Ce qui donne déjà une image juste du métier. On le nomme à partir de ce qui est réellement visible.</p>
         </li>
         <li>
           <span>06</span>
-          <h3>Les points forts, et les améliorations pertinentes</h3>
-          <p>Ce qui sert déjà le métier, et ce qui mériterait d'être plus clair. Seulement ce qui est utile.</p>
+          <h3>Les améliorations pertinentes</h3>
+          <p>Ce qui mériterait d'être plus clair. Seulement les pistes utiles. Rien n'est ajouté pour allonger la liste.</p>
         </li>
       </ol>
     </section>
 
     <section class="report band" id="rapport">
       <p class="eyebrow">Le livrable</p>
-      <h2>Un rapport PDF, personnalisé.</h2>
-      <p class="intro">Vous recevez un document rédigé pour votre activité. Lorsque des preuves sont disponibles — une page, une fiche, un avis accessible — elles illustrent le constat. S'il n'y a rien d'utile à montrer, le rapport le dit, sans image de remplissage.</p>
-      <p class="intro">Ce document ne modifie ni votre site, ni votre fiche, ni vos comptes. Il ne publie rien à votre place.</p>
+      <h2>Un rapport qui parle de votre entreprise. <em>Pas de généralités.</em></h2>
+      <p class="intro">Vous recevez un PDF rédigé pour votre activité. Chaque observation s'appuie sur un élément réellement vérifié&nbsp;: une fiche, une page, un avis accessible. Il n'y a pas de diagnostic standard, ni de défauts ajoutés pour la forme.</p>
+      <p class="intro">Quand une preuve peut illustrer le constat, elle figure dans le rapport. Quand il n'y a rien d'utile à montrer, le rapport le dit.</p>
+      <figure class="preview">
+        <div class="preview-frame">
+          <p>Aperçu à venir</p>
+        </div>
+        <figcaption>Emplacement prévu pour un exemple de rapport. Aucun document n'est affiché tant qu'il n'a pas été validé.</figcaption>
+      </figure>
     </section>
 
     <section class="order paper band" id="commande">
@@ -248,24 +283,27 @@
         </li>
         <li>
           <span>05</span>
-          <p>Le rapport est livré sous 5 jours ouvrés après la réception effective du virement et de toutes les informations nécessaires. Si l'un des deux manque, le délai ne commence pas.</p>
+          <p>Le rapport est livré sous 5 jours ouvrés après l'encaissement du virement et la réception du dossier complet. Si l'un des deux manque, le délai ne commence pas.</p>
         </li>
       </ol>
     </section>
 
-    <section class="limits band" id="limites">
-      <p class="eyebrow">Les limites</p>
-      <h2>Ce que Premier Regard ne promet pas.</h2>
-      <p class="intro">Aucune place dans les résultats Google. Aucun chiffre d'affaires. Le diagnostic constate ce qui se présente au moment de l'examen. Il ne garantit pas qu'une amélioration, si vous la faites ensuite, produira un résultat commercial.</p>
-      <p class="hold">Les corrections, la gestion des comptes, les réponses aux avis et le suivi dans le temps ne font pas partie de l'offre.</p>
-    </section>
-
     <section class="ask band" id="demande">
       <p class="eyebrow">Écrire</p>
-      <h2>Pour recevoir un devis.</h2>
-      <p class="lede">Réservé aux professionnels. Un message suffit pour recevoir un devis.</p>
+      <h2>Parfois, un regard extérieur suffit <em>à voir ce qui nous échappe.</em></h2>
+      <div class="lede">
+        <p>Vous connaissez parfaitement votre métier.</p>
+        <p>Mais savez-vous quelle impression laisse votre entreprise à quelqu'un qui la découvre pour la première fois&nbsp;?</p>
+        <p>Premier Regard vous aide à le découvrir.</p>
+      </div>
+      <p class="closing-price">89&nbsp;€</p>
       <a class="btn" href="mailto:contact@maavnica.com?subject=Premier%20Regard%20%E2%80%94%20demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20Premier%20Regard.%0A%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20ou%20fiche%20Google%20%3A%20%0A">Demander mon diagnostic</a>
-      <p class="fine">Ou directement à <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>. En écrivant, vous acceptez le traitement du message pour y répondre. <a href="/confidentialite.html">Confidentialité</a>. <a href="/cgv.html">CGV</a>.</p>
+      <p class="fine">Ou directement à <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>. Le message sert à répondre à la demande de devis. Le détail figure dans la <a href="/confidentialite.html">politique de confidentialité</a>. <a href="/cgv.html">CGV</a>.</p>
+    </section>
+
+    <section class="limits" id="limites">
+      <p>Premier Regard décrit ce qui est visible au moment de l'examen. Il ne promet ni une place dans les résultats Google, ni un chiffre d'affaires, ni qu'une amélioration faite ensuite produira un résultat commercial.</p>
+      <p>Les corrections, la gestion des comptes, les réponses aux avis et le suivi dans le temps ne font pas partie de l'offre. L'examen ne demande pas l'accès aux comptes, aux interfaces d'administration ou aux espaces privés. Le rapport ne modifie ni le site, ni la fiche, ni les comptes, et ne publie rien à votre place.</p>
     </section>
   </main>
 
