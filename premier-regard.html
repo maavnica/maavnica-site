@@ -61,7 +61,7 @@
       min-height: 44px; padding: 0 14px; font: inherit; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
     }
     main { padding-top: 64px; }
-    .hero, .exam, .report, .order, .limits, .ask { scroll-margin-top: 76px; }
+    .hero, .exam, .report, .order, .limits, .ask, #devis { scroll-margin-top: 76px; }
     .hero { padding: clamp(36px, 7vh, 88px) clamp(20px, 6vw, 88px) clamp(48px, 8vh, 96px); }
     .eyebrow { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); }
     h1, h2 { font-family: var(--display); font-weight: 500; letter-spacing: -0.045em; text-wrap: balance; }
@@ -137,6 +137,37 @@
     .limits p + p { margin-top: 8px; }
     .ask { padding-bottom: clamp(48px, 8vh, 80px); }
     .ask h2 { max-width: 13em; }
+    .quote {
+      position: relative; margin-top: 8px; max-width: 640px;
+      display: grid; gap: 14px; color-scheme: dark;
+    }
+    .quote label { display: grid; gap: 6px; }
+    .quote .lbl {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral);
+    }
+    .quote .opt { margin-left: 8px; letter-spacing: 0; text-transform: none; color: rgba(244, 240, 232, 0.62); }
+    .quote input, .quote textarea {
+      width: 100%; background: transparent; color: var(--paper);
+      border: 0; border-bottom: 1px solid rgba(244, 240, 232, 0.28);
+      border-radius: 0; padding: 10px 0 12px; font: inherit; font-size: 16px;
+    }
+    .quote textarea { min-height: 120px; resize: vertical; }
+    .quote input:focus-visible, .quote textarea:focus-visible {
+      outline: 2px solid var(--coral); outline-offset: 4px;
+    }
+    .quote .miss { min-height: 1.1em; color: #e98974; font-size: 13px; }
+    .quote .terms { margin-top: 4px; max-width: 52ch; }
+    button.btn { border: 0; cursor: pointer; font-family: inherit; }
+    button.btn:disabled { opacity: 0.55; cursor: progress; }
+    .form-note { min-height: 1.3em; font-size: 14px; color: rgba(244, 240, 232, 0.82); }
+    .form-note[data-state="error"] { color: #e98974; }
+    .quote.is-sent > :not(.quote-sent) { display: none; }
+    .quote-sent .lead {
+      margin-top: 14px; max-width: 16em;
+      font-family: var(--display); font-weight: 500;
+      font-size: clamp(2rem, 4vw, 3rem); line-height: 0.98; letter-spacing: -0.04em;
+    }
+    .hp { position: absolute; left: -9999px; height: 0; width: 1px; overflow: hidden; }
     .fine { margin-top: 16px; max-width: 46ch; font-size: 14px; color: rgba(244, 240, 232, 0.68); }
     .fine a { text-decoration: underline; text-underline-offset: 3px; }
     footer {
@@ -206,7 +237,7 @@
           <span>Sur le compte professionnel Shine de Maavnica. Pas de paiement en ligne.</span>
         </li>
       </ul>
-      <a class="btn" href="mailto:contact@maavnica.com?subject=Premier%20Regard%20%E2%80%94%20demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20Premier%20Regard.%0A%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20ou%20fiche%20Google%20%3A%20%0A">Demander mon diagnostic</a>
+      <a class="btn" href="#devis">Demander mon diagnostic</a>
       <p class="note">Réservé aux artisans, commerçants, indépendants et très petites entreprises. La page ne prend pas de commande&nbsp;: vous demandez un devis, puis vous l'acceptez par écrit.</p>
     </section>
 
@@ -299,8 +330,49 @@
         <p>Premier Regard vous aide à le découvrir.</p>
       </div>
       <p class="closing-price">89&nbsp;€</p>
-      <a class="btn" href="mailto:contact@maavnica.com?subject=Premier%20Regard%20%E2%80%94%20demande%20de%20diagnostic&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20un%20devis%20pour%20Premier%20Regard.%0A%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20ou%20fiche%20Google%20%3A%20%0A">Demander mon diagnostic</a>
-      <p class="fine">Ou directement à <a href="mailto:contact@maavnica.com">contact@maavnica.com</a>. Le message sert à répondre à la demande de devis. Le détail figure dans la <a href="/confidentialite.html">politique de confidentialité</a>. <a href="/cgv.html">CGV</a>.</p>
+      <a class="btn" href="#devis">Demander mon diagnostic</a>
+      <form class="quote" id="devis" action="#" method="post" novalidate>
+        <p class="hp" aria-hidden="true">
+          <label>Ne pas remplir<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
+        </p>
+        <label>
+          <span class="lbl">Nom du professionnel ou de l'entreprise</span>
+          <input type="text" name="nom" autocomplete="organization" required maxlength="120" />
+          <span class="miss" data-error="nom"></span>
+        </label>
+        <label>
+          <span class="lbl">Email professionnel</span>
+          <input type="email" name="email" autocomplete="email" inputmode="email" required maxlength="160" />
+          <span class="miss" data-error="email"></span>
+        </label>
+        <label>
+          <span class="lbl">Activité</span>
+          <input type="text" name="activite" autocomplete="organization-title" required maxlength="120" />
+          <span class="miss" data-error="activite"></span>
+        </label>
+        <label>
+          <span class="lbl">Ville</span>
+          <input type="text" name="ville" autocomplete="address-level2" required maxlength="120" />
+          <span class="miss" data-error="ville"></span>
+        </label>
+        <label>
+          <span class="lbl">Adresse du site ou de la fiche Google <span class="opt">facultatif</span></span>
+          <input type="text" name="presence" inputmode="url" maxlength="500" />
+          <span class="miss" data-error="presence"></span>
+        </label>
+        <label>
+          <span class="lbl">Message complémentaire <span class="opt">facultatif</span></span>
+          <textarea name="message" rows="4" maxlength="4000"></textarea>
+          <span class="miss" data-error="message"></span>
+        </label>
+        <p class="fine terms">Demande de devis, sans engagement. Aucun paiement n'est demandé. Les informations servent uniquement à répondre à cette demande. <a href="/confidentialite.html">Confidentialité</a>.</p>
+        <button class="btn" type="submit">Envoyer ma demande</button>
+        <p class="form-note" id="quote-note" role="status" aria-live="polite"></p>
+        <div class="quote-sent" hidden>
+          <p class="eyebrow">Demande envoyée</p>
+          <p class="lead">Votre demande de devis est arrivée. Maavnica vous répond à l'adresse indiquée.</p>
+        </div>
+      </form>
     </section>
 
     <section class="limits" id="limites">
@@ -337,6 +409,96 @@
         toggle.textContent = "Menu";
       });
     });
+
+    var FORMSPREE_ID = "";
+    var quoteOpened = Date.now();
+
+    function formspreeReady() {
+      return /^[a-zA-Z0-9]{6,}$/.test(FORMSPREE_ID);
+    }
+
+    function bindQuote() {
+      var form = document.getElementById("devis");
+      if (!form) return;
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var note = document.getElementById("quote-note");
+        var ok = true;
+        function miss(name, message) {
+          var slot = form.querySelector('[data-error="' + name + '"]');
+          var field = form.elements[name];
+          if (slot) slot.textContent = message || "";
+          if (field && field.setAttribute) field.setAttribute("aria-invalid", message ? "true" : "false");
+          if (message) ok = false;
+        }
+        var email = form.elements.email.value.trim();
+        var presence = form.elements.presence.value.trim();
+        miss("nom", form.elements.nom.value.trim() ? "" : "Indiquez le nom du professionnel ou de l'entreprise.");
+        miss("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? "" : "Indiquez une adresse e-mail professionnelle valide.");
+        miss("activite", form.elements.activite.value.trim() ? "" : "Indiquez votre activité.");
+        miss("ville", form.elements.ville.value.trim() ? "" : "Indiquez la ville.");
+        miss("presence", !presence || /^(https?:\/\/)?[^\s]+\.[^\s]+$/i.test(presence) ? "" : "Indiquez une adresse web, ou laissez ce champ vide.");
+        if (!ok) {
+          note.textContent = "Il manque quelques informations.";
+          note.dataset.state = "error";
+          var first = form.querySelector("[aria-invalid='true']");
+          if (first && first.focus) first.focus();
+          return;
+        }
+        if (form.elements._gotcha.value || Date.now() - quoteOpened < 2500) {
+          note.textContent = "L'envoi n'a pas abouti. Réessayez dans un instant.";
+          note.dataset.state = "error";
+          return;
+        }
+        if (!formspreeReady()) {
+          note.textContent = "L'envoi n'est pas encore activé. Aucune information n'a été transmise.";
+          note.dataset.state = "error";
+          return;
+        }
+        var button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        button.textContent = "Envoi…";
+        note.textContent = "";
+        note.removeAttribute("data-state");
+        var payload = new FormData();
+        payload.append("nom", form.elements.nom.value.trim());
+        payload.append("email", email);
+        payload.append("activite", form.elements.activite.value.trim());
+        payload.append("ville", form.elements.ville.value.trim());
+        payload.append("presence", presence);
+        payload.append("message", form.elements.message.value.trim());
+        payload.append("_subject", "Premier Regard — demande de devis");
+        payload.append("_gotcha", form.elements._gotcha.value);
+        fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: payload
+        }).then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data };
+          });
+        }).then(function (result) {
+          if (result.ok && result.data && result.data.ok === true) {
+            form.reset();
+            form.classList.add("is-sent");
+            var sent = form.querySelector(".quote-sent");
+            if (sent) sent.hidden = false;
+            note.textContent = "";
+            return;
+          }
+          note.textContent = "L'envoi n'a pas abouti. Réessayez dans un instant.";
+          note.dataset.state = "error";
+        }).catch(function () {
+          note.textContent = "L'envoi n'a pas abouti. Réessayez dans un instant.";
+          note.dataset.state = "error";
+        }).then(function () {
+          if (form.classList.contains("is-sent")) return;
+          button.disabled = false;
+          button.textContent = "Envoyer ma demande";
+        });
+      });
+    }
+    bindQuote();
   </script>
 </body>
 </html>
