@@ -112,18 +112,19 @@
     .steps li:last-child { border-bottom: 1px solid var(--line); }
     .steps span { font-family: var(--display); font-style: italic; font-size: 1.45rem; color: #b34732; line-height: 1; }
     .steps p { color: #3c3832; }
-    .preview { margin-top: 40px; max-width: 320px; }
+    .preview { margin-top: 40px; max-width: 420px; }
     .preview-frame {
-      aspect-ratio: 1 / 1.3; background: var(--paper); color: var(--ink);
-      border-radius: 4px; padding: 28px 24px;
-      display: flex; align-items: flex-end;
+      display: block; background: var(--paper); border-radius: 4px; overflow: hidden;
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
-    .preview-frame p {
-      font-family: var(--display); font-style: italic; font-size: 1.35rem;
-      letter-spacing: -0.03em; line-height: 1.15; max-width: 10em;
+    .preview-frame img { width: 100%; height: auto; }
+    .preview figcaption { margin-top: 12px; max-width: 42ch; color: rgba(244, 240, 232, 0.72); font-size: 0.95rem; }
+    .preview-link {
+      display: inline-flex; align-items: center; min-height: 44px; margin-top: 8px;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      border-bottom: 1px solid var(--coral); width: fit-content;
     }
-    .preview figcaption { margin-top: 12px; max-width: 36ch; color: rgba(244, 240, 232, 0.62); font-size: 0.95rem; }
+    .preview-link:hover { color: var(--coral); }
     .closing-price {
       margin-top: 28px; font-family: var(--display); font-weight: 500;
       font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.04em; line-height: 1;
@@ -156,7 +157,7 @@
       .grid, .steps li { grid-template-columns: 1fr; }
       .steps span { display: block; }
       h1 { font-size: clamp(2rem, 8.2vw, 2.55rem); line-height: 1.08; }
-      .preview { max-width: 240px; }
+      .preview { max-width: 100%; }
       .btn { width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -253,10 +254,11 @@
       <p class="intro">Vous recevez un PDF rédigé pour votre activité. Chaque observation s'appuie sur un élément réellement vérifié&nbsp;: une fiche, une page, un avis accessible. Il n'y a pas de diagnostic standard, ni de défauts ajoutés pour la forme.</p>
       <p class="intro">Quand une preuve peut illustrer le constat, elle figure dans le rapport. Quand il n'y a rien d'utile à montrer, le rapport le dit.</p>
       <figure class="preview">
-        <div class="preview-frame">
-          <p>Aperçu à venir</p>
-        </div>
-        <figcaption>Emplacement prévu pour un exemple de rapport. Aucun document n'est affiché tant qu'il n'a pas été validé.</figcaption>
+        <a class="preview-frame" href="/assets/premier-regard/Maavnica_Premier_Regard_Exemple_Detaille.pdf" target="_blank" rel="noopener noreferrer" aria-label="Consulter un exemple de rapport">
+          <img src="/assets/premier-regard/exemple-page-1.png" alt="Première page de l'exemple de rapport Premier Regard pour Atelier Démonstration, entreprise fictive. Le document est une démonstration." width="1191" height="1684" />
+        </a>
+        <figcaption>Exemple illustratif. Atelier Démonstration est une entreprise fictive. Les données sont simulées et aucune entreprise réelle n'a été analysée.</figcaption>
+        <a class="preview-link" href="/assets/premier-regard/Maavnica_Premier_Regard_Exemple_Detaille.pdf" target="_blank" rel="noopener noreferrer">Consulter un exemple de rapport</a>
       </figure>
     </section>
 
