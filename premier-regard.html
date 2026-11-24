@@ -333,7 +333,7 @@
       <a class="btn" href="#devis">Demander mon diagnostic</a>
       <form class="quote" id="devis" action="#" method="post" novalidate>
         <p class="hp" aria-hidden="true">
-          <label>Ne pas remplir<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
+          <label>Ne pas remplir<input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" /></label>
         </p>
         <label>
           <span class="lbl">Nom du professionnel ou de l'entreprise</span>
@@ -410,11 +410,11 @@
       });
     });
 
-    var FORMSPREE_ID = "";
+    var WEB3FORMS_KEY = "";
     var quoteOpened = Date.now();
 
-    function formspreeReady() {
-      return /^[a-zA-Z0-9]{6,}$/.test(FORMSPREE_ID);
+    function quoteReady() {
+      return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(WEB3FORMS_KEY);
     }
 
     function bindQuote() {
@@ -445,12 +445,12 @@
           if (first && first.focus) first.focus();
           return;
         }
-        if (form.elements._gotcha.value || Date.now() - quoteOpened < 2500) {
+        if (form.elements.botcheck.value || Date.now() - quoteOpened < 2500) {
           note.textContent = "L'envoi n'a pas abouti. Réessayez dans un instant.";
           note.dataset.state = "error";
           return;
         }
-        if (!formspreeReady()) {
+        if (!quoteReady()) {
           note.textContent = "L'envoi n'est pas encore activé. Aucune information n'a été transmise.";
           note.dataset.state = "error";
           return;
@@ -460,25 +460,29 @@
         button.textContent = "Envoi…";
         note.textContent = "";
         note.removeAttribute("data-state");
-        var payload = new FormData();
-        payload.append("nom", form.elements.nom.value.trim());
-        payload.append("email", email);
-        payload.append("activite", form.elements.activite.value.trim());
-        payload.append("ville", form.elements.ville.value.trim());
-        payload.append("presence", presence);
-        payload.append("message", form.elements.message.value.trim());
-        payload.append("_subject", "Premier Regard — demande de devis");
-        payload.append("_gotcha", form.elements._gotcha.value);
-        fetch("https://formspree.io/f/" + FORMSPREE_ID, {
+        var nom = form.elements.nom.value.trim();
+        fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { "Accept": "application/json" },
-          body: payload
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            name: nom,
+            email: email,
+            from_name: "Maavnica",
+            subject: "Premier Regard — Demande de devis",
+            nom: nom,
+            activite: form.elements.activite.value.trim(),
+            ville: form.elements.ville.value.trim(),
+            presence: presence,
+            message: form.elements.message.value.trim(),
+            botcheck: form.elements.botcheck.value
+          })
         }).then(function (response) {
           return response.json().then(function (data) {
-            return { ok: response.ok, data: data };
+            return { status: response.status, data: data };
           });
         }).then(function (result) {
-          if (result.ok && result.data && result.data.ok === true) {
+          if (result.data && result.data.success === true) {
             form.reset();
             form.classList.add("is-sent");
             var sent = form.querySelector(".quote-sent");
