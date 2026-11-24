@@ -107,7 +107,7 @@
       display: none; background: transparent; border: 1px solid var(--line); color: inherit;
       min-height: 44px; padding: 0 14px; font: inherit; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
     }
-    .hero, .origin, .run, .close { scroll-margin-top: 76px; }
+    .hero, .origin, .run, .close, .regard { scroll-margin-top: 76px; }
     .hero {
       min-height: 100vh; min-height: 100svh;
       display: grid;
@@ -267,6 +267,19 @@
     }
     .studio-bar p { margin-top: 8px; max-width: 62ch; }
     .studio-bar .go { color: var(--ink); margin-top: 0; }
+    .regard {
+      background: var(--paper); color: var(--ink);
+      padding: clamp(56px, 9vh, 104px) clamp(20px, 6vw, 88px) clamp(36px, 6vh, 72px);
+    }
+    .regard-inner { max-width: 740px; }
+    .regard h2 {
+      font-family: var(--display); font-weight: 500; letter-spacing: -0.045em;
+      font-size: clamp(2.4rem, 4.6vw, 4.4rem); line-height: 0.94; max-width: 12em; margin-top: 12px;
+    }
+    .regard .plain { margin-top: 18px; max-width: 46ch; font-size: 1.06rem; }
+    .regard .quiet { margin-top: 12px; max-width: 46ch; color: #5c564e; }
+    .regard .go { color: var(--ink); }
+    .regard .eyebrow { color: #b34732; }
     .close {
       display: grid; grid-template-columns: 0.9fr 1.1fr; align-items: start;
       gap: 32px; padding: 28px clamp(20px, 6vw, 88px) 80px;
@@ -547,6 +560,20 @@
       </div>
     </div>
 
+    <svg class="seam to-paper" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#f4f0e8" d="M0,38 C420,6 920,58 1440,16 L1440,64 L0,64 Z"></path>
+    </svg>
+
+    <section class="regard" id="premier-regard">
+      <div class="regard-inner">
+        <p class="eyebrow">Premier Regard</p>
+        <h2 data-i18n="regard_title">Un diagnostic, avant de changer quoi que ce soit.</h2>
+        <p class="plain" data-i18n="regard_text">Pour les artisans, les commerçants, les indépendants et les TPE. Premier Regard examine le site, la fiche Google, les avis accessibles, la cohérence des informations et le parcours de contact. Vous recevez un rapport PDF. 89 €.</p>
+        <p class="quiet" data-i18n="regard_limit">Aucune promesse de classement ni de chiffre d'affaires.</p>
+        <a class="go" href="/premier-regard.html" data-i18n="cta_regard">Découvrir Premier Regard</a>
+      </div>
+    </section>
+
     <svg class="seam" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
       <path fill="#161311" d="M0,46 C500,8 960,60 1440,20 L1440,64 L0,64 Z"></path>
     </svg>
@@ -612,6 +639,7 @@
     <nav aria-label="Pied de page" data-i18n-aria="aria_foot">
       <a href="https://smartcard.maavnica.com">SmartCard</a>
       <a href="../studio/">Studio</a>
+      <a href="/premier-regard.html">Premier Regard</a>
       <a href="/mentions-legales.html" data-i18n="foot_legal">Mentions légales</a>
       <a href="/confidentialite.html" data-i18n="foot_privacy">Confidentialité</a>
       <a href="/cookies.html" data-i18n="foot_cookies">Cookies</a>
@@ -652,6 +680,10 @@
         studio_fake: "Démonstration · Atelier Augustin",
         julie_fake: "Démonstration · Julie Martin",
         cta_studio: "Découvrir Studio",
+        regard_title: "Un diagnostic, avant de changer quoi que ce soit.",
+        regard_text: "Pour les artisans, les commerçants, les indépendants et les TPE. Premier Regard examine le site, la fiche Google, les avis accessibles, la cohérence des informations et le parcours de contact. Vous recevez un rapport PDF. 89 €.",
+        regard_limit: "Aucune promesse de classement ni de chiffre d'affaires.",
+        cta_regard: "Découvrir Premier Regard",
         contact_title: "Écrire.",
         contact_text: "Parlons de votre projet.",
         form_or: "Ou par e-mail",
@@ -713,6 +745,10 @@
         studio_fake: "Demonstration · Atelier Augustin",
         julie_fake: "Demonstration · Julie Martin",
         cta_studio: "Discover Studio",
+        regard_title: "A diagnosis, before changing anything.",
+        regard_text: "For craftspeople, shopkeepers, independents and very small businesses. Premier Regard looks at the website, the Google listing, the accessible reviews, whether the details match, and the path to get in touch. You receive a PDF report. €89.",
+        regard_limit: "No promise of ranking or revenue.",
+        cta_regard: "Discover Premier Regard",
         contact_title: "Write.",
         contact_text: "Let's talk about your project.",
         form_or: "Or by email",
@@ -774,6 +810,10 @@
         studio_fake: "Demostración · Atelier Augustin",
         julie_fake: "Demostración · Julie Martin",
         cta_studio: "Descubrir Studio",
+        regard_title: "Un diagnóstico, antes de cambiar nada.",
+        regard_text: "Para artesanos, comerciantes, autónomos y muy pequeñas empresas. Premier Regard examina el sitio, la ficha de Google, las reseñas accesibles, la coherencia de la información y el recorrido de contacto. Usted recibe un informe PDF. 89 €.",
+        regard_limit: "Sin promesa de posición ni de facturación.",
+        cta_regard: "Descubrir Premier Regard",
         contact_title: "Escribir.",
         contact_text: "Hablemos de su proyecto.",
         form_or: "O por correo",
